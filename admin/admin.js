@@ -318,6 +318,7 @@ var BG_THEMES=[
  ['classic','Classic','Dark blue with soft glowing colours and drifting dots (the original look).','radial-gradient(circle at 20% 20%,#0ea5e9aa,transparent 50%),radial-gradient(circle at 80% 70%,#6366f1aa,transparent 50%),#050b18'],
  ['solar','Solar cells','A faint solar-panel grid with a light beam sweeping across and a warm sun glow. Fits your research.','radial-gradient(circle at 85% 0%,#fde04755,transparent 45%),linear-gradient(#8cc8ff30 1px,transparent 1px) 0 0/16px 16px,linear-gradient(90deg,#8cc8ff30 1px,transparent 1px) 0 0/16px 16px,#06132a'],
  ['sunrise','Sunrise','Warm golden sunrise at the top that slowly turns into bright daylight as you scroll down.','radial-gradient(circle at 85% 5%,#ffe58a,#fb923c88 25%,transparent 55%),linear-gradient(#2a1450,#0a2147)'],
+ ['panel','Solar panel field ★ new','A creative scene: a sun travels across the sky as you scroll (dawn → noon → dusk) above a field of 3D solar panels. Light rays fall onto the panels and turn into flowing electricity.','radial-gradient(circle at 25% 38%,#fff6c0 0,#fbbf2488 10%,transparent 26%),linear-gradient(180deg,#0a3277 0%,#2a7fd0 50%,transparent 51%),repeating-linear-gradient(0deg,#1c4b95 0 6px,#d7e6ff 6px 7px) 0 52%/100% 48% no-repeat,#0b2a5e'],
  ['sections','Section-wise','Every section has its own mood and pattern. The background changes smoothly as you scroll.','linear-gradient(90deg,#0a1030,#04141f 25%,#1a1206 50%,#1a0b24 75%,#1d1040)']
 ];
 function backgroundView(v){
