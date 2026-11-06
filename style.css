@@ -458,37 +458,51 @@ html[data-theme="light"][data-bg="sections"] .bgx .lines{filter:invert(1) opacit
 @media(prefers-reduced-motion:reduce){.bgx i{animation:none!important}.bgx,.bgx i{transition:none!important}}
 @media(max-width:600px){html[data-bg="solar"] .bgx .grid{background-size:56px 56px}}
 
-/* 5) Solar panel field: a sun crosses the sky above a field of real-looking panels; photons fall and become electricity */
+/* 5) Solar panel field — cinematic sky, realistic panels, drifting clouds, glowing photons */
 .bgx .pwrap,.bgx canvas{display:none}
-html[data-bg="panel"] .bgx{background:#06132a}
-html[data-bg="panel"] .bgx .sky,html[data-bg="panel"] .bgx .orb,html[data-bg="panel"] .bgx .haze,html[data-bg="panel"] .bgx .pan,html[data-bg="panel"] .bgx .glare{display:block}
+@keyframes bgdrift{from{transform:translateX(-7%)}to{transform:translateX(7%)}}
+@keyframes bgtw{from{filter:brightness(.65)}to{filter:brightness(1.3)}}
+@keyframes bgsheen{from{transform:translateX(-60%)}to{transform:translateX(60%)}}
+html[data-bg="panel"] .bgx{background:#070d22;--hz:255,176,110}
+html[data-bg="panel"] .bgx .sky,html[data-bg="panel"] .bgx .stars,html[data-bg="panel"] .bgx .orb,html[data-bg="panel"] .bgx .cl,html[data-bg="panel"] .bgx .haze,html[data-bg="panel"] .bgx .pan,html[data-bg="panel"] .bgx .glare{display:block}
 html[data-bg="panel"] .bgx .pwrap{display:block}
-html[data-bg="panel"] .bgx canvas{display:block;position:absolute;inset:0;width:100%;height:100%}
+html[data-bg="panel"] .bgx canvas{display:block;position:absolute;inset:0;width:100%;height:100%;z-index:3}
 html[data-bg="panel"] .bgx .sky{inset:0}
-html[data-bg="panel"] .bgx .k1{background:linear-gradient(180deg,#25124d 0%,#9a3412 48%,#fbbf24 64%)}
-html[data-bg="panel"] .bgx .k2{background:linear-gradient(180deg,#0a3277 0%,#2a7fd0 46%,#9bd5f6 64%);opacity:var(--d2,0)}
-html[data-bg="panel"] .bgx .k3{background:linear-gradient(180deg,#190f3d 0%,#7a2a6c 46%,#f97316 64%);opacity:var(--d3,0)}
-html[data-bg="panel"] .bgx .orb{width:15vmax;height:15vmax;left:var(--sx,12%);top:var(--sy,46%);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#fff 0,#fff4b8 16%,rgba(255,205,90,.7) 32%,rgba(255,160,40,.22) 52%,transparent 70%);filter:blur(1px)}
-html[data-bg="panel"] .bgx .orb::before{content:"";position:absolute;inset:-120%;border-radius:50%;background:repeating-conic-gradient(rgba(255,235,150,.14) 0 4deg,transparent 4deg 14deg);-webkit-mask-image:radial-gradient(circle,#000 0,transparent 62%);mask-image:radial-gradient(circle,#000 0,transparent 62%);animation:bgspin 140s linear infinite}
-html[data-bg="panel"] .bgx .haze{left:0;right:0;top:48%;height:26%;background:linear-gradient(transparent,rgba(255,215,150,.38) 55%,transparent)}
-html[data-bg="panel"] .bgx .pwrap{position:absolute;left:0;right:0;top:61%;bottom:0;perspective:560px;perspective-origin:50% -25%;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%);mask-image:linear-gradient(180deg,transparent 0,#000 14%)}
-html[data-bg="panel"] .bgx .pan{left:-70%;right:-70%;top:0;height:300%;transform-origin:50% 0;transform:rotateX(68deg);--by:calc(var(--p,0)*600px);opacity:.92;
+/* golden hour */
+html[data-bg="panel"] .bgx .k1{background:linear-gradient(180deg,#080b24 0%,#161a45 22%,#3a2a66 40%,#8a4a7a 52%,#d9744f 60%,#f4a261 64%,#fbd38d 66%)}
+/* midday */
+html[data-bg="panel"] .bgx .k2{background:linear-gradient(180deg,#0a2456 0%,#14498f 24%,#2f78c2 42%,#6db2e4 56%,#b9dcf3 64%,#e6f3fb 66%);opacity:var(--d2,0)}
+/* dusk */
+html[data-bg="panel"] .bgx .k3{background:linear-gradient(180deg,#0b0c26 0%,#1d1448 22%,#4a2169 40%,#9c3c6e 52%,#e2625b 60%,#f6965a 64%,#ffc98a 66%);opacity:var(--d3,0)}
+html[data-bg="panel"] .bgx .stars{inset:0 0 42% 0;opacity:var(--st,0);animation:bgtw 7s ease-in-out infinite alternate;
+  background-image:radial-gradient(1.3px 1.3px at 8% 14%,#fff,transparent),radial-gradient(1px 1px at 17% 31%,#dbeafe,transparent),radial-gradient(1.4px 1.4px at 26% 9%,#fff,transparent),radial-gradient(1px 1px at 34% 24%,#fde68a,transparent),radial-gradient(1.2px 1.2px at 43% 12%,#fff,transparent),radial-gradient(1px 1px at 52% 33%,#dbeafe,transparent),radial-gradient(1.5px 1.5px at 61% 8%,#fff,transparent),radial-gradient(1px 1px at 69% 22%,#fff,transparent),radial-gradient(1.2px 1.2px at 77% 13%,#fde68a,transparent),radial-gradient(1px 1px at 85% 30%,#fff,transparent),radial-gradient(1.4px 1.4px at 93% 10%,#dbeafe,transparent),radial-gradient(1px 1px at 12% 40%,#fff,transparent),radial-gradient(1px 1px at 58% 41%,#fff,transparent),radial-gradient(1.2px 1.2px at 90% 44%,#fff,transparent)}
+html[data-bg="panel"] .bgx .orb{z-index:2;width:15vmax;height:15vmax;left:var(--sx,12%);top:var(--sy,46%);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#fff 0,#fffbe6 12%,rgba(255,226,140,.85) 26%,rgba(255,176,70,.34) 46%,rgba(255,140,40,.1) 62%,transparent 72%);animation:bgpulse 5s ease-in-out infinite alternate}
+html[data-bg="panel"] .bgx .orb::before{content:"";position:absolute;inset:-130%;border-radius:50%;background:repeating-conic-gradient(rgba(255,238,170,.12) 0 3deg,transparent 3deg 11deg);-webkit-mask-image:radial-gradient(circle,#000 0,transparent 60%);mask-image:radial-gradient(circle,#000 0,transparent 60%);animation:bgspin 170s linear infinite}
+html[data-bg="panel"] .bgx .cl{left:-30%;width:160%;height:24vh;filter:blur(28px);background:radial-gradient(ellipse 22% 46% at 28% 50%,rgba(var(--hz),.42),transparent 70%),radial-gradient(ellipse 18% 38% at 64% 46%,rgba(255,255,255,.2),transparent 70%),radial-gradient(ellipse 16% 34% at 86% 56%,rgba(var(--hz),.3),transparent 70%)}
+html[data-bg="panel"] .bgx .c1{top:16%;animation:bgdrift 110s ease-in-out infinite alternate}
+html[data-bg="panel"] .bgx .c2{top:35%;opacity:.7;animation:bgdrift 160s ease-in-out infinite alternate-reverse}
+html[data-bg="panel"] .bgx .haze{left:0;right:0;top:50%;height:24%;background:linear-gradient(transparent,rgba(var(--hz),.34) 62%,transparent)}
+html[data-bg="panel"] .bgx .pwrap{position:absolute;left:0;right:0;top:63%;bottom:0;perspective:600px;perspective-origin:var(--sx,50%) -30%;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 12%);mask-image:linear-gradient(180deg,transparent 0,#000 12%)}
+html[data-bg="panel"] .bgx .pwrap::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:screen;background:linear-gradient(180deg,rgba(var(--hz),.55) 0,rgba(var(--hz),.16) 42%,transparent 82%)}
+html[data-bg="panel"] .bgx .pan{left:-80%;right:-80%;top:-120%;height:420%;transform-origin:50% 28.57%;transform:rotateX(68deg) translateY(var(--ty,0px));will-change:transform;
   background-image:
-   linear-gradient(rgba(215,230,255,.55) 3px,transparent 3px),
-   linear-gradient(90deg,rgba(215,230,255,.55) 3px,transparent 3px),
-   linear-gradient(rgba(170,205,255,.34) 1px,transparent 1px),
-   linear-gradient(90deg,rgba(170,205,255,.34) 1px,transparent 1px),
-   linear-gradient(115deg,rgba(255,255,255,.07) 0,transparent 40%),
-   linear-gradient(135deg,#0b2a5e,#1c4b95 50%,#0b2a5e);
-  background-size:180px 120px,180px 120px,30px 30px,30px 30px,100% 100%,100% 100%;
-  background-position:0 var(--by),0 var(--by),0 var(--by),0 var(--by),0 0,0 0}
-html[data-bg="panel"] .bgx .glare{inset:0;background:radial-gradient(ellipse 14% 80% at var(--sx,12%) 0%,rgba(255,244,205,.6),rgba(255,225,150,.18) 50%,transparent 72%);mix-blend-mode:screen;opacity:.9}
-html[data-theme="light"][data-bg="panel"] .bgx{background:#dbeeff}
-html[data-theme="light"][data-bg="panel"] .bgx .k1{background:linear-gradient(180deg,#ffd9b8 0%,#ffb877 52%,#ffe2a8 64%)}
-html[data-theme="light"][data-bg="panel"] .bgx .k2{background:linear-gradient(180deg,#6db6f0 0%,#a9d8fa 50%,#e4f4ff 64%)}
-html[data-theme="light"][data-bg="panel"] .bgx .k3{background:linear-gradient(180deg,#f3a6a0 0%,#fdc79a 50%,#ffe3b3 64%)}
-html[data-theme="light"][data-bg="panel"] .bgx .pan{opacity:.8;background-image:linear-gradient(rgba(255,255,255,.95) 3px,transparent 3px),linear-gradient(90deg,rgba(255,255,255,.95) 3px,transparent 3px),linear-gradient(rgba(255,255,255,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.3) 1px,transparent 1px),linear-gradient(115deg,rgba(255,255,255,.2) 0,transparent 40%),linear-gradient(135deg,#2a62b5,#5a94dc 50%,#2a62b5)}
-@media(max-width:600px){html[data-bg="panel"] .bgx .pan{background-size:130px 90px,130px 90px,22px 22px,22px 22px,100% 100%,100% 100%}html[data-bg="panel"] .bgx .orb{width:24vmax;height:24vmax}}
-
-html[data-bg="panel"] .bgx::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,11,24,.12) 0,rgba(5,11,24,.46) 42%,rgba(5,11,24,.58) 100%)}
-html[data-theme="light"][data-bg="panel"] .bgx::after{background:linear-gradient(180deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.5) 42%,rgba(255,255,255,.62) 100%)}
+   linear-gradient(rgba(206,220,244,.62) 2px,transparent 2px),
+   linear-gradient(90deg,rgba(206,220,244,.62) 2px,transparent 2px),
+   linear-gradient(rgba(130,175,240,.3) 1px,transparent 1px),
+   linear-gradient(90deg,rgba(130,175,240,.3) 1px,transparent 1px),
+   linear-gradient(90deg,transparent 30.5%,rgba(205,220,245,.26) 30.5%,rgba(205,220,245,.26) 32%,transparent 32%,transparent 65%,rgba(205,220,245,.26) 65%,rgba(205,220,245,.26) 66.5%,transparent 66.5%),
+   linear-gradient(160deg,#0a2250,#1a4a8f 46%,#0b2a5a);
+  background-size:204px 136px,204px 136px,34px 34px,34px 34px,34px 34px,100% 100%}
+html[data-bg="panel"] .bgx .glare{inset:0;z-index:3;mix-blend-mode:screen;overflow:hidden}
+html[data-bg="panel"] .bgx .glare::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 13% 85% at var(--sx,12%) 0%,rgba(255,246,214,.6),rgba(255,226,160,.16) 52%,transparent 74%)}
+html[data-bg="panel"] .bgx .glare::after{content:"";position:absolute;top:0;bottom:0;left:-30%;width:60%;background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.10) 50%,transparent 65%);animation:bgsheen 14s ease-in-out infinite alternate}
+html[data-bg="panel"] .bgx::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(4,8,20,.5) 100%),linear-gradient(180deg,rgba(6,12,30,.10) 0,rgba(6,12,30,.42) 44%,rgba(6,12,30,.54) 100%)}
+/* light mode: airy pastel sky, same panels */
+html[data-theme="light"][data-bg="panel"] .bgx{background:#e6f1fb}
+html[data-theme="light"][data-bg="panel"] .bgx .stars{display:none}
+html[data-theme="light"][data-bg="panel"] .bgx .k1{background:linear-gradient(180deg,#f2c9ae 0%,#f7d2b5 30%,#fbd9b0 48%,#fdd9a6 60%,#ffeac4 66%)}
+html[data-theme="light"][data-bg="panel"] .bgx .k2{background:linear-gradient(180deg,#7cb9ee 0%,#9fd0f6 34%,#c3e3fa 54%,#e3f3ff 66%)}
+html[data-theme="light"][data-bg="panel"] .bgx .k3{background:linear-gradient(180deg,#d9a2b8 0%,#f0b3b0 34%,#fcc5a0 54%,#ffe1b8 66%)}
+html[data-theme="light"][data-bg="panel"] .bgx::after{background:radial-gradient(120% 90% at 50% 40%,transparent 60%,rgba(120,150,190,.22) 100%),linear-gradient(180deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.46) 44%,rgba(255,255,255,.58) 100%)}
+@media(max-width:600px){html[data-bg="panel"] .bgx .pan{background-size:150px 100px,150px 100px,25px 25px,25px 25px,25px 25px,100% 100%}html[data-bg="panel"] .bgx .orb{width:24vmax;height:24vmax}}
+@media(prefers-reduced-motion:reduce){html[data-bg="panel"] .bgx .cl,html[data-bg="panel"] .bgx .stars,html[data-bg="panel"] .bgx .orb,html[data-bg="panel"] .bgx .glare::after{animation:none!important}}
