@@ -404,14 +404,47 @@ function doPublish(){
     toast('Published! The live site shows it within a minute.');
   }).catch(function(e){toast(e.message,'err');alert('Could not publish:\n\n'+e.message)}).then(function(){btn.disabled=false;btn.textContent='Publish'});
 }
+function viaImg(file){
+  return new Promise(function(res,rej){
+    var u=URL.createObjectURL(file),i=new Image();
+    i.onload=function(){URL.revokeObjectURL(u);res(i)};
+    i.onerror=function(){URL.revokeObjectURL(u);rej(new Error('This photo could not be read. Please use a JPG or PNG photo (iPhone HEIC photos must be converted first).'))};
+    i.src=u;
+  });
+}
+function loadBitmap(file){
+  if(!/^image\//.test(file.type||'image/')&&!/\.(jpe?g|png|webp|gif|bmp|avif)$/i.test(file.name||''))return Promise.reject(new Error('This file is not a photo.'));
+  if(window.createImageBitmap)return createImageBitmap(file,{imageOrientation:'from-image'}).catch(function(){return viaImg(file)});
+  return viaImg(file);
+}
+/* Resize + compress until the photo is small enough for the server (keeps every upload well under the 4.5 MB request limit). */
+function shrink(bm){
+  var W=bm.width||bm.naturalWidth,H=bm.height||bm.naturalHeight,steps=[[1600,.85],[1600,.72],[1400,.7],[1200,.65],[1000,.6]],i=0;
+  function next(){
+    var st=steps[i++],sc=Math.min(1,st[0]/Math.max(W,H)),cv=document.createElement('canvas');
+    cv.width=Math.max(1,Math.round(W*sc));cv.height=Math.max(1,Math.round(H*sc));
+    var cx=cv.getContext('2d');cx.fillStyle='#fff';cx.fillRect(0,0,cv.width,cv.height);cx.drawImage(bm,0,0,cv.width,cv.height);
+    return new Promise(function(res){cv.toBlob(res,'image/jpeg',st[1])}).then(function(b){
+      if(!b)throw new Error('Could not process this photo.');
+      if(b.size<=1500000||i>=steps.length)return b;
+      return next();
+    });
+  }
+  return next();
+}
+function sendUpload(file,b64,tries){
+  return api('/api/upload',{name:file.name,data:b64}).catch(function(e){
+    var m=e.message||'';
+    if(tries>0&&(/Server error 5/.test(m)||/Failed to fetch|NetworkError|Load failed/i.test(m)))return new Promise(function(r){setTimeout(r,1200)}).then(function(){return sendUpload(file,b64,tries-1)});
+    if(/Server error 413/.test(m))throw new Error('The photo is too large for the server.');
+    if(/Failed to fetch|NetworkError|Load failed/i.test(m))throw new Error('No internet connection, or the connection dropped. Try again.');
+    throw e;
+  });
+}
 function uploadImage(file){
-  return createImageBitmap(file).then(function(bm){
-    var max=1600,sc=Math.min(1,max/Math.max(bm.width,bm.height)),cv=document.createElement('canvas');
-    cv.width=Math.round(bm.width*sc);cv.height=Math.round(bm.height*sc);cv.getContext('2d').drawImage(bm,0,0,cv.width,cv.height);
-    return new Promise(function(res){cv.toBlob(res,'image/jpeg',.88)});
-  }).then(function(blob){
-    return new Promise(function(res){var rd=new FileReader();rd.onload=function(){res(rd.result.split(',')[1])};rd.readAsDataURL(blob)});
-  }).then(function(b){return api('/api/upload',{name:file.name,data:b})}).then(function(j){return j.url});
+  return loadBitmap(file).then(shrink).then(function(blob){
+    return new Promise(function(res,rej){var rd=new FileReader();rd.onload=function(){res(rd.result.split(',')[1])};rd.onerror=function(){rej(new Error('Could not read this photo.'))};rd.readAsDataURL(blob)});
+  }).then(function(b){return sendUpload(file,b,2)}).then(function(j){return j.url});
 }
 
 /* ---------- login + init ---------- */
