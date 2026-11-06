@@ -91,7 +91,51 @@ c5:'প্রশিক্ষণ: সোলার সেল ফ্যাব্র
 ct_h:'চলুন একসঙ্গে কাজ করি',ct_p:'সোলার এনার্জি ও থিন-ফিল্ম ম্যাটেরিয়ালসে আর অ্যান্ড ডি ইঞ্জিনিয়ারিং কাজ, গবেষণা সহযোগিতা ও পিএইচডি সুযোগের জন্য আমি প্রস্তুত।',ct_mail:'ইমেইল পাঠান',
 foot:'যত্ন নিয়ে ডিজাইন ও তৈরি।',top:'উপরে যান ↑',
 cited:'সাইটেশন',open:'পেপার খুলুন',typed:['থিন-ফিল্ম ফটোভোলটাইক','MoS₂ ও CZTS সোলার সেল','২ডি ম্যাটেরিয়ালস গবেষক','ক্লিন এনার্জি ইঞ্জিনিয়ার']
-}};
+},
+ar:{
+nav_about:'نبذة',nav_research:'الأبحاث',nav_experience:'الخبرات',nav_pubs:'المنشورات',nav_skills:'المهارات',nav_edu:'التعليم',nav_contact:'تواصل',
+hero_eyebrow:'باحث · مهندس بحث وتطوير',hero_hi:'مرحباً، أنا',
+hero_lead:'أعمل على تطوير الجيل القادم من الخلايا الشمسية رقيقة الأغشية. رفعت أبحاثي حول MoS₂ وCZTS كفاءة الخلية المحاكاة من 8.42% إلى 11.43%، وأحوّل بيانات المختبر إلى طاقة نظيفة ومستدامة.',
+hero_cta1:'استعرض المنشورات',hero_cta2:'تواصل معي',badge_eff:'كفاءة بالمحاكاة',badge_q1:'مجلات',
+st_pubs:'منشورات',st_cites:'استشهادات',st_years:'سنوات في البحث',st_tech:'تقنيات مخبرية',
+about_h:'نبذة عني',
+about_p1:'أنا باحث ومهندس بحث وتطوير، أركّز على الخلايا الكهروضوئية رقيقة الأغشية والمواد ثنائية الأبعاد. أنهيت مؤخراً درجة الماجستير في الهندسة الإلكترونية من جامعة تينجا الوطنية (UNITEN) في ماليزيا، حيث عملت مساعد باحث بدوام كامل في معهد الطاقة المستدامة.',
+about_p2:'أجمع بين التصنيع والتوصيف العملي في المختبر ومحاكاة الأجهزة، فتنتقل الفكرة من النموذج إلى المختبر ثم تعود إليه مدعومة بالأدلة في كل خطوة.',
+about_p3:'أبحث عن فرص في البحث والتطوير في الصناعة والأوساط الأكاديمية، أسهم فيها بنتائج قابلة للقياس وأواصل التعلّم.',
+facts_h:'نبذة سريعة',f_loc:'مكان الإقامة',f_loc_v:'لابونشارا، خولنا، بنغلاديش',f_deg:'الدرجة العلمية',f_deg_v:'ماجستير الهندسة الإلكترونية (2025)',f_focus:'مجال التركيز',f_focus_v:'الخلايا الكهروضوئية رقيقة الأغشية · MoS₂ · CZTS',f_lang:'اللغات',f_lang_v:'البنغالية · الإنجليزية',f_mail:'البريد الإلكتروني',
+res_h:'مجالات البحث',hl_tag:'نتيجة مميزة',hl_h:'طبقة MoS₂ من النوع p في الملامس الخلفي ترفع كفاءة CZTS بنسبة 36%',
+hl_p:'باستخدام المحاكاة في SCAPS-1D، حسّنت طبقة MoS₂ من النوع p جهد الدارة المفتوحة من 0.569 إلى 0.665 فولت، وعامل الملء من 64.76% إلى 73.07%. وارتفعت كفاءة الخلية الأساسية من 8.42% إلى 11.43%.',
+read_paper:'اقرأ البحث ←',bar1:'CZTS الأساسية',bar2:'مع MoS₂ من النوع p',bar3:'مع MoS₂ من النوع n',
+r1_h:'تصنيع أغشية MoS₂ الرقيقة',r1_p:'كبرتة أغشية الموليبدينوم. أدرس كيف تؤثر درجة الحرارة وضغط الغرفة والزمن في البلورية والعيوب والخصائص الإلكترونية.',
+r2_h:'محاكاة الخلايا الشمسية CZTS',r2_p:'نمذجة على مستوى الجهاز باستخدام SCAPS-1D لمعرفة كيف تغيّر الطبقات البينية من MoS₂ والعيوب انتقال الحاملات والأداء الكهروضوئي.',
+r3_h:'مسارات الدراجات لتوليد الطاقة المستدامة',r3_p:'بحث في مسارات دراجات تولّد الطاقة لمدينة كوالالمبور، وهو مشروع مدينة ذكية بتمويل من برنامج مؤسسة العلوم الوطنية الأمريكية (NSF) ووزارة الخارجية الأمريكية.',
+exp_h:'الخبرات',ft:'دوام كامل',pt:'دوام جزئي',
+e1_role:'مساعد باحث — تطوير الخلايا الشمسية',
+e1_a:'أجريت أبحاثاً على أغشية MoS₂ الرقيقة من فلزات الانتقال، ودرست تأثير معاملات الكبرتة وضغط الغرفة في الخصائص البنيوية والضوئية والإلكترونية.',
+e1_b:'صمّمت عمليات التصنيع وحسّنتها لرفع البلورية والتحكم في العيوب لاستخدامها في التطبيقات الإلكترونية الضوئية والكهروضوئية.',
+e1_c:'وصّفت المواد باستخدام XRD وطيف رامان وFESEM والتألق الضوئي وتأثير هول لربط البنية بالخصائص.',
+e1_d:'حاكيت خلايا CZTS الشمسية في SCAPS-1D وقيّمت أثر الطبقات البينية من MoS₂ في انتقال الحاملات والأداء.',
+e1_e:'شاركت في تأليف أبحاث محكّمة، وأشرفت على أنشطة المختبر، وتعاونت مع باحثين دوليين.',
+e2_role:'مساعد باحث — مسارات الدراجات للطاقة المستدامة',
+e2_a:'دعمت البحث في الطاقة المتجددة ضمن البنية التحتية الذكية للنقل، وفي آلية إنشاء مسارات دراجات تولّد الطاقة.',
+e2_b:'جمعت وحلّلت بيانات توليد الطاقة من البنية التحتية للدراجات في كوالالمبور.',
+e2_c:'عملت ضمن فريق متعدد التخصصات على دراسات الجدوى والتقارير والعروض المقدمة لأصحاب المصلحة.',
+pub_h:'المنشورات',fl_all:'الكل',fl_j:'مجلات',fl_c:'مؤتمرات',all_scholar:'شاهد الكل على Google Scholar ←',
+sk_h:'المهارات والتقنيات المخبرية',sk1:'التوصيف والعمل المخبري',sk2:'المحاكاة والبرمجيات',sk3:'البرمجة والأدوات',
+edu_h:'التعليم والشهادات',
+d1_h:'ماجستير في الهندسة الإلكترونية',d1_p:'التخصص الرئيسي: هندسة الإلكترونيات والمواد · الفرعي: الكهربائية',
+d2_h:'بكالوريوس في الهندسة الكهربائية والإلكترونية',d2_p:'التخصص الرئيسي: القدرة الكهربائية والرياضيات · الفرعي: الإلكترونيات والكيمياء',
+cert_h:'المؤتمرات والندوات',
+c1:'المؤتمر الدولي للطاقة المستدامة والبنية التحتية والبيئة — بوتراجايا، ماليزيا',
+c2:'المؤتمر الدولي للطاقة المستدامة والتقنيات الخضراء — بانكوك، تايلاند',
+c3:'ندوة حلول القياس بالأشعة السينية لأشباه الموصلات والأجهزة الإلكترونية — MIMOS Berhad، كوالالمبور',
+c4:'ندوة MIMOS لتقنيات أشباه الموصلات عالية القيمة: حلول ANSYS CAE — ماليزيا',
+c5:'تدريب: تصنيع الخلايا الشمسية وتوصيفها (HiCOE، UNITEN) ولحام خلايا PZT الرقيقة (مشروع NSF، UNITEN)',
+ct_h:'لنعمل معاً',ct_p:'أرحّب بفرص هندسة البحث والتطوير والتعاون البحثي وفرص الدكتوراه في الطاقة الشمسية ومواد الأغشية الرقيقة.',ct_mail:'أرسل بريداً إلكترونياً',
+foot:'صُمّم وبُني بعناية.',top:'العودة للأعلى ↑',
+cited:'استُشهد به',open:'افتح البحث',typed:['الخلايا الكهروضوئية رقيقة الأغشية','خلايا MoS₂ وCZTS الشمسية','باحث في المواد ثنائية الأبعاد','مهندس طاقة نظيفة']
+}
+};
 
 /* ---------- Publications data ---------- */
 var P=[
@@ -109,7 +153,7 @@ function render(){
   P.forEach(function(p){
     var a=document.createElement('a');a.className='pub reveal in';a.href='https://doi.org/'+p.d;a.target='_blank';a.rel='noopener';a.dataset.k=p.k;
     var qc=p.q==='Q2'?'q q2':(p.q==='Conf'?'q cf':'q');
-    a.innerHTML='<div class="yr">'+p.y+'</div><div><h3></h3><div class="meta"></div><div class="row"><span class="'+qc+'">'+(p.q==='Conf'?(lang==='bn'?'কনফারেন্স':'Conference'):p.q+' Journal')+'</span>'+(p.c?'<span class="cite">'+T[lang].cited+' '+p.c+'</span>':'')+'<span class="cite">DOI '+p.d+'</span></div></div><span class="go" aria-label="'+T[lang].open+'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>';
+    a.innerHTML='<div class="yr">'+p.y+'</div><div><h3 dir="ltr"></h3><div class="meta" dir="ltr"></div><div class="row"><span class="'+qc+'">'+(p.q==='Conf'?({bn:'কনফারেন্স',ar:'مؤتمر',en:'Conference'}[lang]):p.q+({bn:' জার্নাল',ar:' مجلة',en:' Journal'}[lang]))+'</span>'+(p.c?'<span class="cite">'+T[lang].cited+' '+p.c+'</span>':'')+'<span class="cite" dir="ltr">DOI '+p.d+'</span></div></div><span class="go" aria-label="'+T[lang].open+'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>';
     $('h3',a).textContent=p.t;$('.meta',a).textContent=p.j;
     box.appendChild(a);
   });
@@ -121,12 +165,12 @@ $('#filters').addEventListener('click',function(e){var b=e.target.closest('.chip
 
 /* ---------- Language ---------- */
 function setLang(l){
-  lang=l;document.documentElement.lang=l;store.set('lang',l);
-  $$('[data-i18n]').forEach(function(el){var v=T[l][el.dataset.i18n];if(v!==undefined)el.textContent=v});
-  var s=$$('#lang span');s[0].classList.toggle('on',l==='en');s[1].classList.toggle('on',l==='bn');
+  lang=l;document.documentElement.lang=l;document.documentElement.dir=l==='ar'?'rtl':'ltr';store.set('lang',l);
+  $$('[data-i18n]').forEach(function(el){var v=T[l][el.dataset.i18n];if(v===undefined)v=T.en[el.dataset.i18n];if(v!==undefined)el.textContent=v});
+  $$('#lang button').forEach(function(b){b.classList.toggle('on',b.dataset.l===l)});
   render();restartTyping();
 }
-$('#lang').addEventListener('click',function(){setLang(lang==='en'?'bn':'en')});
+$('#lang').addEventListener('click',function(e){var b=e.target.closest('button');if(b)setLang(b.dataset.l)});
 
 /* ---------- Theme ---------- */
 $('#theme').addEventListener('click',function(){
@@ -204,6 +248,6 @@ var rs;addEventListener('resize',function(){clearTimeout(rs);rs=setTimeout(initB
 /* ---------- Init ---------- */
 $('#yr').textContent=new Date().getFullYear();
 initBg();
-setLang(store.get('lang')==='bn'?'bn':'en');
+(function(){var l=store.get('lang');setLang(l==='bn'||l==='ar'?l:'en')})();
 observe();
 })();
