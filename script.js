@@ -85,6 +85,10 @@ function renderGallery(r){
   $('#galArrows').style.display=galView==='slider'?'':'none';
   g.innerHTML=galItems().map(function(g,i){var c=L(g.caption);return '<figure class="gitem '+(r||'reveal in')+'" data-i="'+i+'" tabindex="0" role="button" aria-label="'+esc(c||'Photo '+(i+1))+'"><img src="'+esc(safeUrl(g.img))+'" alt="'+esc(c)+'" loading="lazy" decoding="async">'+(c?'<figcaption>'+esc(c)+'</figcaption>':'')+'</figure>'}).join('');
 }
+$('#gallery-grid').addEventListener('mousemove',function(e){
+  if(reduce)return;var f=e.target.closest('.gitem');if(!f)return;
+  var r=f.getBoundingClientRect();f.style.setProperty('--zx',((e.clientX-r.left)/r.width*100)+'%');f.style.setProperty('--zy',((e.clientY-r.top)/r.height*100)+'%');
+},{passive:true});
 $('#galFilters').addEventListener('click',function(e){var b=e.target.closest('.chipbtn');if(!b)return;galCat=b.dataset.c;renderGallery('reveal in')});
 $('#galViews').addEventListener('click',function(e){var b=e.target.closest('.vbtn');if(!b)return;store.set('galview',b.dataset.v);renderGallery('reveal in')});
 $('#galPrev').addEventListener('click',function(){var g=$('#gallery-grid');g.scrollBy({left:-g.clientWidth*.8,behavior:'smooth'})});
