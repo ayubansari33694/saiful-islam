@@ -8,14 +8,14 @@ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').mat
 var T={
 en:{
 nav_about:'About',nav_research:'Research',nav_experience:'Experience',nav_pubs:'Publications',nav_skills:'Skills',nav_edu:'Education',nav_contact:'Contact',
-hero_eyebrow:'Researcher · R&D Engineer',hero_hi:"Hi, I'm",status:'Open to R&D roles & collaborations',fl_q1:'Q1 journals',copy:'Copy email',copied:'Email copied to clipboard',
+hero_eyebrow:'Researcher · R&D Engineer',hero_hi:"Hi, I'm",status:'Open to research collaborations & R&D projects',fl_q1:'Q1 journals',copy:'Copy email',copied:'Email copied to clipboard',nav_awards:'Awards',aw_h:'Honours & milestones',aw1_t:'Outstanding Postgraduate Researcher Award',aw1_p:'Awarded at the Research Excellence Awards (RExA 2026), hosted by the Research Excellence Centre, UNITEN.',aw2_t:'Global Research Academia Fellow (GRAF) 2026',aw2_p:'Selected as a Global Research Academia Fellow at Universiti Teknologi Malaysia (UTM), with a focus on renewable energy research.',aw3_t:'100+ citations on Google Scholar',aw3_p:'My research on thin-film photovoltaics and 2D materials passed 100 citations and keeps growing.',aw4_t:'Master\'s research completed',aw4_p:'Passed the viva (with minor revision). Thesis topic: defects in the MoS₂ interfacial layer of CZTS thin-film solar cells, at the PV Energy Research Lab (PERL), ISE-HICoE, UNITEN.',now:'Current',e0_role:'Research Academia Fellow (GRAF 2026)',e0_a:'Selected as a Global Research Academia Fellow (GRAF) 2026 at Universiti Teknologi Malaysia (UTM).',e0_b:'Research focus: renewable energy, bridging academic research and real-world industrial applications.',e2_d:'Worked on the prototype construction, fabrication and testing of an Energy Generating Pad (EGP).',int1:'Thin-film semiconductors',int2:'Renewable energy',int3:'Nanomaterials',int4:'PV device engineering',f_now:'Now',f_now_v:'Research Academia Fellow, UTM',sk4:'Research domains',d3_h:'Alim / HSC (Science)',d3_p:'Khulna Alia Kamil Madrasha, Khulna',d4_h:'Dakhil / SSC (Science)',d1_s:'Supervisors: Prof. Ir. Ts. Dr. Tiong Sieh Kiong, Prof. Dr. Nowshad Amin',
 hero_lead:'I engineer next-generation thin-film solar cells. My work on MoS₂ and CZTS lifted simulated cell efficiency from 8.42% to 11.43%, and I turn lab data into clean, sustainable energy.',
 hero_cta1:'View Publications',hero_cta2:'Get in touch',badge_eff:'simulated efficiency',badge_q1:'journals',
 st_pubs:'Publications',st_cites:'Citations',st_years:'Years in research',st_tech:'Lab techniques',
 about_h:'About me',
 about_p1:"I'm a researcher and R&D engineer focused on thin-film photovoltaics and 2D materials. I recently completed my MSc in Electronic Engineering at Universiti Tenaga Nasional (UNITEN), Malaysia, where I worked as a full-time Research Assistant at the Institute of Sustainable Energy.",
 about_p2:'I combine hands-on fabrication and characterisation with device-level simulation, so ideas move from the model to the lab and back with evidence at every step.',
-about_p3:"I'm looking for R&D engineering roles in industry and academia where I can contribute to measurable results and keep learning.",
+about_p3:'Today I\'m a Global Research Academia Fellow at Universiti Teknologi Malaysia, focused on renewable energy and on bridging academic research with real industrial applications. I welcome collaborations with researchers, professors and industry R&D teams.',
 facts_h:'Quick facts',f_loc:'Based in',f_loc_v:'Labonchara, Khulna, Bangladesh',f_deg:'Degree',f_deg_v:'MSc Electronic Engineering (2025)',f_focus:'Focus',f_focus_v:'Thin-film PV · MoS₂ · CZTS',f_lang:'Languages',f_lang_v:'Bangla · English',f_mail:'Email',
 res_h:'Research focus',hl_tag:'Featured result',hl_h:'p-type MoS₂ back contact lifts CZTS efficiency by 36%',
 hl_p:'Using SCAPS-1D modelling, a p-type MoS₂ interlayer improved the open-circuit voltage from 0.569 V to 0.665 V and the fill factor from 64.76% to 73.07%. The baseline device rose from 8.42% to 11.43% efficiency.',
@@ -37,7 +37,7 @@ e2_c:'Worked in a multidisciplinary team on feasibility, reports and presentatio
 pub_h:'Publications',fl_all:'All',fl_j:'Journals',fl_c:'Conference',all_scholar:'See all on Google Scholar →',
 sk_h:'Skills & lab techniques',sk1:'Characterisation & lab',sk2:'Simulation & software',sk3:'Programming & tools',
 edu_h:'Education & certifications',
-d1_h:'MSc in Electronic Engineering',d1_p:'Major: Electronics and Materials Engineering · Minor: Electrical',
+d1_h:'MSc in Electronic Engineering',d1_p:'Major: Electronics and Materials Engineering · Minor: Electrical · Result: Pass (by research)',
 d2_h:'BSc in Electrical & Electronic Engineering',d2_p:'Major: Electrical Power and Mathematics · Minor: Electronics, Chemistry',
 cert_h:'Conferences & seminars',
 c1:'International Conference on Sustainable Energy, Infrastructure and Environment — Putrajaya, Malaysia',
@@ -45,20 +45,20 @@ c2:'International Conference on Sustainable Energy and Green Technology — Bang
 c3:'X-ray Metrology Solutions for Semiconductor and Electronic Devices seminar — MIMOS Berhad, Kuala Lumpur',
 c4:'MIMOS High-Value Semiconductor Technology Seminar: ANSYS CAE Solution — Malaysia',
 c5:'Training: solar cell fabrication and characterisation (HiCOE, UNITEN) and thin-film PZT cell soldering (NSF project, UNITEN)',
-ct_h:"Let's work together",ct_p:'Open to R&D engineering roles, research collaborations and PhD opportunities in solar energy and thin-film materials.',ct_mail:'Send an email',
+ct_h:"Let's work together",ct_p:'Open to research collaborations, industrial R&D projects and technical dialogue in solar energy and thin-film materials.',ct_mail:'Send an email',
 foot:'Designed & built with care.',cap:'Thin-film solar researcher',top:'Back to top ↑',
 cited:'Cited by',open:'Open paper',typed:['Thin-Film Photovoltaics','2D Materials Researcher','Renewable Energy Engineer']
 },
 bn:{
 nav_about:'পরিচিতি',nav_research:'গবেষণা',nav_experience:'অভিজ্ঞতা',nav_pubs:'প্রকাশনা',nav_skills:'দক্ষতা',nav_edu:'শিক্ষা',nav_contact:'যোগাযোগ',
-hero_eyebrow:'গবেষক · আর অ্যান্ড ডি ইঞ্জিনিয়ার',hero_hi:'আমি',status:'আর অ্যান্ড ডি কাজ ও সহযোগিতার জন্য প্রস্তুত',fl_q1:'Q1 জার্নাল',copy:'ইমেইল কপি করুন',copied:'ইমেইল কপি হয়েছে',
+hero_eyebrow:'গবেষক · আর অ্যান্ড ডি ইঞ্জিনিয়ার',hero_hi:'আমি',status:'গবেষণা সহযোগিতা ও আর অ্যান্ড ডি প্রকল্পের জন্য প্রস্তুত',fl_q1:'Q1 জার্নাল',copy:'ইমেইল কপি করুন',copied:'ইমেইল কপি হয়েছে',nav_awards:'পুরস্কার',aw_h:'সম্মাননা ও অর্জন',aw1_t:'আউটস্ট্যান্ডিং পোস্টগ্র্যাজুয়েট রিসার্চার অ্যাওয়ার্ড',aw1_p:'UNITEN-এর Research Excellence Centre আয়োজিত Research Excellence Awards (RExA 2026)-এ এই পুরস্কার পেয়েছি।',aw2_t:'গ্লোবাল রিসার্চ একাডেমিয়া ফেলো (GRAF) ২০২৬',aw2_p:'মালয়েশিয়ার Universiti Teknologi Malaysia (UTM)-এ নবায়নযোগ্য শক্তি গবেষণার ওপর গুরুত্ব দিয়ে গ্লোবাল রিসার্চ একাডেমিয়া ফেলো হিসেবে নির্বাচিত হয়েছি।',aw3_t:'গুগল স্কলারে ১০০+ সাইটেশন',aw3_p:'থিন-ফিল্ম ফটোভোলটাইক ও ২ডি ম্যাটেরিয়ালস নিয়ে আমার গবেষণা ১০০ সাইটেশন ছাড়িয়েছে, আর সংখ্যা বাড়ছে।',aw4_t:'মাস্টার্স গবেষণা সম্পন্ন',aw4_p:'ভাইভা (সামান্য সংশোধনসহ) উত্তীর্ণ। থিসিসের বিষয়: UNITEN-এর ISE-HICoE-র PV Energy Research Lab (PERL)-এ CZTS থিন-ফিল্ম সোলার সেলের MoS₂ ইন্টারফেস স্তরের ত্রুটি।',now:'বর্তমান',e0_role:'রিসার্চ একাডেমিয়া ফেলো (GRAF ২০২৬)',e0_a:'Universiti Teknologi Malaysia (UTM)-এ গ্লোবাল রিসার্চ একাডেমিয়া ফেলো (GRAF) ২০২৬ হিসেবে নির্বাচিত।',e0_b:'গবেষণার ক্ষেত্র: নবায়নযোগ্য শক্তি। একাডেমিক গবেষণা ও বাস্তব শিল্প প্রয়োগের মধ্যে সেতুবন্ধন তৈরি।',e2_d:'এনার্জি জেনারেটিং প্যাড (EGP)-এর প্রোটোটাইপ নির্মাণ, ফ্যাব্রিকেশন ও পরীক্ষার কাজ করেছি।',int1:'থিন-ফিল্ম সেমিকন্ডাক্টর',int2:'নবায়নযোগ্য শক্তি',int3:'ন্যানোম্যাটেরিয়ালস',int4:'পিভি ডিভাইস ইঞ্জিনিয়ারিং',f_now:'বর্তমানে',f_now_v:'রিসার্চ একাডেমিয়া ফেলো, UTM',sk4:'গবেষণার ক্ষেত্র',d3_h:'আলিম / এইচএসসি (বিজ্ঞান)',d3_p:'খুলনা আলিয়া কামিল মাদরাসা, খুলনা',d4_h:'দাখিল / এসএসসি (বিজ্ঞান)',d1_s:'সুপারভাইজার: Prof. Ir. Ts. Dr. Tiong Sieh Kiong, Prof. Dr. Nowshad Amin',
 hero_lead:'আমি পরবর্তী প্রজন্মের থিন-ফিল্ম সোলার সেল নিয়ে কাজ করি। MoS₂ ও CZTS নিয়ে আমার গবেষণায় সিমুলেটেড সেলের দক্ষতা ৮.৪২% থেকে বেড়ে ১১.৪৩% হয়েছে। ল্যাবের তথ্যকে আমি পরিষ্কার ও টেকসই শক্তিতে রূপ দিই।',
 hero_cta1:'প্রকাশনা দেখুন',hero_cta2:'যোগাযোগ করুন',badge_eff:'সিমুলেটেড দক্ষতা',badge_q1:'জার্নাল',
 st_pubs:'প্রকাশনা',st_cites:'সাইটেশন',st_years:'গবেষণার বছর',st_tech:'ল্যাব টেকনিক',
 about_h:'আমার পরিচয়',
 about_p1:'আমি থিন-ফিল্ম ফটোভোলটাইক ও ২ডি ম্যাটেরিয়ালস নিয়ে কাজ করা একজন গবেষক ও আর অ্যান্ড ডি ইঞ্জিনিয়ার। সম্প্রতি মালয়েশিয়ার Universiti Tenaga Nasional (UNITEN) থেকে ইলেকট্রনিক ইঞ্জিনিয়ারিংয়ে এমএসসি শেষ করেছি। সেখানে Institute of Sustainable Energy-তে ফুল-টাইম রিসার্চ অ্যাসিস্ট্যান্ট ছিলাম।',
 about_p2:'আমি হাতে-কলমে ফ্যাব্রিকেশন ও ক্যারেক্টারাইজেশনের সঙ্গে ডিভাইস-স্তরের সিমুলেশন মেলাই। ফলে প্রতিটি ধাপে প্রমাণসহ মডেল থেকে ল্যাবে আর ল্যাব থেকে আবার মডেলে ফেরা যায়।',
-about_p3:'আমি ইন্ডাস্ট্রি ও একাডেমিয়ায় আর অ্যান্ড ডি ইঞ্জিনিয়ারিং কাজ খুঁজছি, যেখানে পরিমাপযোগ্য ফলাফলে অবদান রাখতে পারব এবং শিখতে থাকব।',
+about_p3:'বর্তমানে আমি Universiti Teknologi Malaysia-তে গ্লোবাল রিসার্চ একাডেমিয়া ফেলো। নবায়নযোগ্য শক্তি এবং একাডেমিক গবেষণাকে বাস্তব শিল্প প্রয়োগের সঙ্গে যুক্ত করাই আমার লক্ষ্য। গবেষক, অধ্যাপক ও শিল্প আর অ্যান্ড ডি দলের সঙ্গে সহযোগিতায় আমি আগ্রহী।',
 facts_h:'সংক্ষেপে',f_loc:'অবস্থান',f_loc_v:'লবণচরা, খুলনা, বাংলাদেশ',f_deg:'ডিগ্রি',f_deg_v:'ইলেকট্রনিক ইঞ্জিনিয়ারিংয়ে এমএসসি (২০২৫)',f_focus:'গবেষণার বিষয়',f_focus_v:'থিন-ফিল্ম পিভি · MoS₂ · CZTS',f_lang:'ভাষা',f_lang_v:'বাংলা · ইংরেজি',f_mail:'ইমেইল',
 res_h:'গবেষণার ক্ষেত্র',hl_tag:'বিশেষ ফলাফল',hl_h:'p-type MoS₂ ব্যাক কন্টাক্টে CZTS-এর দক্ষতা ৩৬% বেড়েছে',
 hl_p:'SCAPS-1D মডেলিংয়ে p-type MoS₂ ইন্টারলেয়ার ব্যবহার করে ওপেন-সার্কিট ভোল্টেজ ০.৫৬৯ V থেকে ০.৬৬৫ V এবং ফিল ফ্যাক্টর ৬৪.৭৬% থেকে ৭৩.০৭% হয়েছে। বেসলাইন ডিভাইসের দক্ষতা ৮.৪২% থেকে বেড়ে ১১.৪৩% হয়েছে।',
@@ -80,7 +80,7 @@ e2_c:'বহুবিষয়ক দলে কাজ করে সম্ভা�
 pub_h:'প্রকাশনা',fl_all:'সব',fl_j:'জার্নাল',fl_c:'কনফারেন্স',all_scholar:'গুগল স্কলারে সব দেখুন →',
 sk_h:'দক্ষতা ও ল্যাব টেকনিক',sk1:'ক্যারেক্টারাইজেশন ও ল্যাব',sk2:'সিমুলেশন ও সফটওয়্যার',sk3:'প্রোগ্রামিং ও টুলস',
 edu_h:'শিক্ষা ও সনদ',
-d1_h:'ইলেকট্রনিক ইঞ্জিনিয়ারিংয়ে এমএসসি',d1_p:'মেজর: ইলেকট্রনিক্স ও ম্যাটেরিয়ালস ইঞ্জিনিয়ারিং · মাইনর: ইলেকট্রিক্যাল',
+d1_h:'ইলেকট্রনিক ইঞ্জিনিয়ারিংয়ে এমএসসি',d1_p:'মেজর: ইলেকট্রনিক্স ও ম্যাটেরিয়ালস ইঞ্জিনিয়ারিং · মাইনর: ইলেকট্রিক্যাল · ফলাফল: পাস (গবেষণাভিত্তিক)',
 d2_h:'ইলেকট্রিক্যাল ও ইলেকট্রনিক ইঞ্জিনিয়ারিংয়ে বিএসসি',d2_p:'মেজর: ইলেকট্রিক্যাল পাওয়ার ও গণিত · মাইনর: ইলেকট্রনিক্স, রসায়ন',
 cert_h:'কনফারেন্স ও সেমিনার',
 c1:'টেকসই শক্তি, অবকাঠামো ও পরিবেশ বিষয়ক আন্তর্জাতিক কনফারেন্স — পুত্রাজায়া, মালয়েশিয়া',
@@ -88,20 +88,20 @@ c2:'টেকসই শক্তি ও গ্রিন টেকনোলজি
 c3:'সেমিকন্ডাক্টর ও ইলেকট্রনিক ডিভাইসের জন্য এক্স-রে মেট্রোলজি সমাধান সেমিনার — MIMOS Berhad, কুয়ালালামপুর',
 c4:'MIMOS হাই-ভ্যালু সেমিকন্ডাক্টর টেকনোলজি সেমিনার: ANSYS CAE Solution — মালয়েশিয়া',
 c5:'প্রশিক্ষণ: সোলার সেল ফ্যাব্রিকেশন ও ক্যারেক্টারাইজেশন (HiCOE, UNITEN) এবং থিন-ফিল্ম PZT সেল সোল্ডারিং (NSF প্রকল্প, UNITEN)',
-ct_h:'চলুন একসঙ্গে কাজ করি',ct_p:'সোলার এনার্জি ও থিন-ফিল্ম ম্যাটেরিয়ালসে আর অ্যান্ড ডি ইঞ্জিনিয়ারিং কাজ, গবেষণা সহযোগিতা ও পিএইচডি সুযোগের জন্য আমি প্রস্তুত।',ct_mail:'ইমেইল পাঠান',
+ct_h:'চলুন একসঙ্গে কাজ করি',ct_p:'সোলার এনার্জি ও থিন-ফিল্ম ম্যাটেরিয়ালসে গবেষণা সহযোগিতা, শিল্প আর অ্যান্ড ডি প্রকল্প ও প্রযুক্তিগত আলোচনার জন্য আমি প্রস্তুত।',ct_mail:'ইমেইল পাঠান',
 foot:'যত্ন নিয়ে ডিজাইন ও তৈরি।',cap:'থিন-ফিল্ম সোলার গবেষক',top:'উপরে যান ↑',
 cited:'সাইটেশন',open:'পেপার খুলুন',typed:['থিন-ফিল্ম ফটোভোলটাইক','২ডি ম্যাটেরিয়ালস গবেষক','নবায়নযোগ্য শক্তি ইঞ্জিনিয়ার']
 },
 ar:{
 nav_about:'نبذة',nav_research:'الأبحاث',nav_experience:'الخبرات',nav_pubs:'المنشورات',nav_skills:'المهارات',nav_edu:'التعليم',nav_contact:'تواصل',
-hero_eyebrow:'باحث · مهندس بحث وتطوير',hero_hi:'مرحباً، أنا',status:'متاح لفرص البحث والتطوير والتعاون',fl_q1:'مجلات Q1',copy:'انسخ البريد',copied:'تم نسخ البريد الإلكتروني',
+hero_eyebrow:'باحث · مهندس بحث وتطوير',hero_hi:'مرحباً، أنا',status:'متاح للتعاون البحثي ومشاريع البحث والتطوير',fl_q1:'مجلات Q1',copy:'انسخ البريد',copied:'تم نسخ البريد الإلكتروني',nav_awards:'الإنجازات',aw_h:'التكريمات والإنجازات',aw1_t:'جائزة الباحث المتميز في الدراسات العليا',aw1_p:'نلتُها في حفل جوائز التميز البحثي (RExA 2026) الذي نظّمه مركز التميز البحثي في جامعة UNITEN.',aw2_t:'زميل الأكاديمية البحثية العالمية (GRAF) 2026',aw2_p:'اختِرتُ زميلاً في الأكاديمية البحثية العالمية بجامعة تكنولوجيا ماليزيا (UTM)، مع التركيز على أبحاث الطاقة المتجددة.',aw3_t:'أكثر من 100 استشهاد على Google Scholar',aw3_p:'تجاوزت أبحاثي في الخلايا الكهروضوئية رقيقة الأغشية والمواد ثنائية الأبعاد 100 استشهاد، وما زال العدد في ازدياد.',aw4_t:'إتمام بحث الماجستير',aw4_p:'اجتزتُ المناقشة (مع تعديلات طفيفة). موضوع الرسالة: عيوب الطبقة البينية MoS₂ في الخلايا الشمسية رقيقة الأغشية CZTS، في مختبر أبحاث الطاقة الكهروضوئية (PERL) بمعهد الطاقة المستدامة (ISE-HICoE) بجامعة UNITEN.',now:'حالياً',e0_role:'زميل أكاديمي باحث (GRAF 2026)',e0_a:'اختِرتُ زميلاً في الأكاديمية البحثية العالمية (GRAF) 2026 بجامعة تكنولوجيا ماليزيا (UTM).',e0_b:'مجال البحث: الطاقة المتجددة، وربط البحث الأكاديمي بالتطبيقات الصناعية الواقعية.',e2_d:'عملتُ على بناء نموذج أولي لوسادة توليد الطاقة (EGP) وتصنيعه واختباره.',int1:'أشباه الموصلات رقيقة الأغشية',int2:'الطاقة المتجددة',int3:'المواد النانوية',int4:'هندسة الأجهزة الكهروضوئية',f_now:'حالياً',f_now_v:'زميل أكاديمي باحث، UTM',sk4:'مجالات البحث',d3_h:'العالِم / الثانوية العامة (علمي)',d3_p:'مدرسة خولنا عاليا كامل، خولنا',d4_h:'الداخل / الثانوية (علمي)',d1_s:'المشرفان: Prof. Ir. Ts. Dr. Tiong Sieh Kiong وProf. Dr. Nowshad Amin',
 hero_lead:'أعمل على تطوير الجيل القادم من الخلايا الشمسية رقيقة الأغشية. رفعت أبحاثي حول MoS₂ وCZTS كفاءة الخلية المحاكاة من 8.42% إلى 11.43%، وأحوّل بيانات المختبر إلى طاقة نظيفة ومستدامة.',
 hero_cta1:'استعرض المنشورات',hero_cta2:'تواصل معي',badge_eff:'كفاءة بالمحاكاة',badge_q1:'مجلات',
 st_pubs:'منشورات',st_cites:'استشهادات',st_years:'سنوات في البحث',st_tech:'تقنيات مخبرية',
 about_h:'نبذة عني',
 about_p1:'أنا باحث ومهندس بحث وتطوير، أركّز على الخلايا الكهروضوئية رقيقة الأغشية والمواد ثنائية الأبعاد. أنهيت مؤخراً درجة الماجستير في الهندسة الإلكترونية من جامعة تينجا الوطنية (UNITEN) في ماليزيا، حيث عملت مساعد باحث بدوام كامل في معهد الطاقة المستدامة.',
 about_p2:'أجمع بين التصنيع والتوصيف العملي في المختبر ومحاكاة الأجهزة، فتنتقل الفكرة من النموذج إلى المختبر ثم تعود إليه مدعومة بالأدلة في كل خطوة.',
-about_p3:'أبحث عن فرص في البحث والتطوير في الصناعة والأوساط الأكاديمية، أسهم فيها بنتائج قابلة للقياس وأواصل التعلّم.',
+about_p3:'أعمل اليوم زميلاً في الأكاديمية البحثية العالمية بجامعة تكنولوجيا ماليزيا، وأركّز على الطاقة المتجددة وربط البحث الأكاديمي بالتطبيقات الصناعية الحقيقية. أرحّب بالتعاون مع الباحثين والأساتذة وفرق البحث والتطوير في الصناعة.',
 facts_h:'نبذة سريعة',f_loc:'مكان الإقامة',f_loc_v:'لابونشارا، خولنا، بنغلاديش',f_deg:'الدرجة العلمية',f_deg_v:'ماجستير الهندسة الإلكترونية (2025)',f_focus:'مجال التركيز',f_focus_v:'الخلايا الكهروضوئية رقيقة الأغشية · MoS₂ · CZTS',f_lang:'اللغات',f_lang_v:'البنغالية · الإنجليزية',f_mail:'البريد الإلكتروني',
 res_h:'مجالات البحث',hl_tag:'نتيجة مميزة',hl_h:'طبقة MoS₂ من النوع p في الملامس الخلفي ترفع كفاءة CZTS بنسبة 36%',
 hl_p:'باستخدام المحاكاة في SCAPS-1D، حسّنت طبقة MoS₂ من النوع p جهد الدارة المفتوحة من 0.569 إلى 0.665 فولت، وعامل الملء من 64.76% إلى 73.07%. وارتفعت كفاءة الخلية الأساسية من 8.42% إلى 11.43%.',
@@ -123,7 +123,7 @@ e2_c:'عملت ضمن فريق متعدد التخصصات على دراسات �
 pub_h:'المنشورات',fl_all:'الكل',fl_j:'مجلات',fl_c:'مؤتمرات',all_scholar:'شاهد الكل على Google Scholar ←',
 sk_h:'المهارات والتقنيات المخبرية',sk1:'التوصيف والعمل المخبري',sk2:'المحاكاة والبرمجيات',sk3:'البرمجة والأدوات',
 edu_h:'التعليم والشهادات',
-d1_h:'ماجستير في الهندسة الإلكترونية',d1_p:'التخصص الرئيسي: هندسة الإلكترونيات والمواد · الفرعي: الكهربائية',
+d1_h:'ماجستير في الهندسة الإلكترونية',d1_p:'التخصص الرئيسي: هندسة الإلكترونيات والمواد · الفرعي: الكهربائية · النتيجة: ناجح (بالبحث)',
 d2_h:'بكالوريوس في الهندسة الكهربائية والإلكترونية',d2_p:'التخصص الرئيسي: القدرة الكهربائية والرياضيات · الفرعي: الإلكترونيات والكيمياء',
 cert_h:'المؤتمرات والندوات',
 c1:'المؤتمر الدولي للطاقة المستدامة والبنية التحتية والبيئة — بوتراجايا، ماليزيا',
@@ -131,7 +131,7 @@ c2:'المؤتمر الدولي للطاقة المستدامة والتقنيا
 c3:'ندوة حلول القياس بالأشعة السينية لأشباه الموصلات والأجهزة الإلكترونية — MIMOS Berhad، كوالالمبور',
 c4:'ندوة MIMOS لتقنيات أشباه الموصلات عالية القيمة: حلول ANSYS CAE — ماليزيا',
 c5:'تدريب: تصنيع الخلايا الشمسية وتوصيفها (HiCOE، UNITEN) ولحام خلايا PZT الرقيقة (مشروع NSF، UNITEN)',
-ct_h:'لنعمل معاً',ct_p:'أرحّب بفرص هندسة البحث والتطوير والتعاون البحثي وفرص الدكتوراه في الطاقة الشمسية ومواد الأغشية الرقيقة.',ct_mail:'أرسل بريداً إلكترونياً',
+ct_h:'لنعمل معاً',ct_p:'أرحّب بالتعاون البحثي ومشاريع البحث والتطوير الصناعية والحوار التقني في الطاقة الشمسية ومواد الأغشية الرقيقة.',ct_mail:'أرسل بريداً إلكترونياً',
 foot:'صُمّم وبُني بعناية.',cap:'باحث في الخلايا الشمسية رقيقة الأغشية',top:'العودة للأعلى ↑',
 cited:'استُشهد به',open:'افتح البحث',typed:['الخلايا الكهروضوئية رقيقة الأغشية','باحث في المواد ثنائية الأبعاد','مهندس طاقة متجددة']
 }
@@ -140,10 +140,10 @@ cited:'استُشهد به',open:'افتح البحث',typed:['الخلايا ا
 /* ---------- Publications data ---------- */
 var P=[
 {y:2025,t:'Current scenario and future trends on stability issues of perovskite solar cells: A mini review',j:'Current Opinion in Colloid & Interface Science 76, 101895',q:'Q1',c:60,d:'10.1016/j.cocis.2025.101895',k:'journal'},
-{y:2025,t:'Thermal modulation of crystallinity and defect landscape in sputtered MoS₂ thin films for optoelectronic applications',j:'Journal of Science: Advanced Materials and Devices, 101060',q:'Q1',c:5,d:'10.1016/j.jsamd.2025.101060',k:'journal'},
-{y:2024,t:'A comprehensive modeling on MoS₂ interface and defect engineering in CZTS thin film solar cells',j:'Journal of Materials Research and Technology 33, 6601–6609',q:'Q1',c:22,d:'10.1016/j.jmrt.2024.11.016',k:'journal'},
+{y:2025,t:'Thermal modulation of crystallinity and defect landscape in sputtered MoS₂ thin films for optoelectronic applications',j:'Journal of Science: Advanced Materials and Devices, 101060',q:'Q1',c:5,d:'10.1016/j.jsamd.2025.101060',n:{en:'RF-sputtered MoS₂ films grown from room temperature to 300 °C. 200 °C gave the best balance of crystallinity, electrical transport and low structural disorder (impact factor 6.8).',bn:'আরএফ স্পাটারিংয়ে ঘরের তাপমাত্রা থেকে ৩০০ °C পর্যন্ত MoS₂ ফিল্ম তৈরি। ২০০ °C-এ ক্রিস্টালিনিটি, বৈদ্যুতিক পরিবহন ও কম কাঠামোগত বিশৃঙ্খলার সেরা ভারসাম্য মিলেছে (ইমপ্যাক্ট ফ্যাক্টর ৬.৮)।',ar:'نُمّيت أغشية MoS₂ بالرش المغناطيسي الراديوي من درجة حرارة الغرفة حتى 300 °م. حقّقت 200 °م أفضل توازن بين البلورية والنقل الكهربائي وقلة الاضطراب البنيوي (معامل التأثير 6.8).'},k:'journal'},
+{y:2024,t:'A comprehensive modeling on MoS₂ interface and defect engineering in CZTS thin film solar cells',j:'Journal of Materials Research and Technology 33, 6601–6609',q:'Q1',c:22,d:'10.1016/j.jmrt.2024.11.016',n:{en:'SCAPS-1D modelling shows a p-type MoS₂ back interlayer lifts CZTS efficiency from 8.42% to 11.43%.',bn:'SCAPS-1D মডেলিংয়ে দেখা গেছে p-type MoS₂ ব্যাক ইন্টারলেয়ার CZTS-এর দক্ষতা ৮.৪২% থেকে ১১.৪৩% করে।',ar:'تُظهر محاكاة SCAPS-1D أن طبقة MoS₂ من النوع p في الخلف ترفع كفاءة CZTS من 8.42% إلى 11.43%.'},k:'journal'},
 {y:2024,t:'MoS₂ thin film hetero-interface as effective back surface field in CZTS-based solar cells',j:'Materials Science in Semiconductor Processing 182, 108721',q:'Q2',c:19,d:'10.1016/j.mssp.2024.108721',k:'journal'},
-{y:2025,t:'Pressure-dependent sulfurization of molybdenum thin films for high-quality MoS₂ formation',j:'IOP Conf. Series: Earth and Environmental Science 1500, 012020',q:'Conf',c:1,d:'10.1088/1755-1315/1500/1/012020',k:'conf'},
+{y:2025,t:'Pressure-dependent sulfurization of molybdenum thin films for high-quality MoS₂ formation',j:'IOP Conf. Series: Earth and Environmental Science 1500, 012020',q:'Conf',c:1,d:'10.1088/1755-1315/1500/1/012020',n:{en:'How the pressure in the sulfurization chamber changes the quality of MoS₂ made from molybdenum films.',bn:'সালফারাইজেশন চেম্বারের চাপ মলিবডেনাম ফিল্ম থেকে তৈরি MoS₂-এর মান কীভাবে বদলায়।',ar:'كيف يغيّر ضغط غرفة الكبرتة جودة MoS₂ المتكوّن من أغشية الموليبدينوم.'},k:'conf'},
 {y:2025,t:'Modulating Molybdenum Disulfide (MoS₂) Thin Films Formation via Vapor-Phase Synthesis: Time Variation',j:'IOP Conf. Series: Earth and Environmental Science 1560, 012038',q:'Conf',c:0,d:'10.1088/1755-1315/1560/1/012038',k:'conf'}
 ];
 
@@ -153,7 +153,7 @@ function render(){
   P.forEach(function(p){
     var a=document.createElement('a');a.className='pub reveal in';a.href='https://doi.org/'+p.d;a.target='_blank';a.rel='noopener';a.dataset.k=p.k;a.dataset.q=p.q;
     var qc=p.q==='Q2'?'q q2':(p.q==='Conf'?'q cf':'q');
-    a.innerHTML='<div class="yr">'+p.y+'</div><div><h3 dir="ltr"></h3><div class="meta" dir="ltr"></div><div class="row"><span class="'+qc+'">'+(p.q==='Conf'?({bn:'কনফারেন্স',ar:'مؤتمر',en:'Conference'}[lang]):p.q+({bn:' জার্নাল',ar:' مجلة',en:' Journal'}[lang]))+'</span>'+(p.c?'<span class="cite">'+T[lang].cited+' '+p.c+'</span>':'')+'<span class="cite" dir="ltr">DOI '+p.d+'</span></div></div><span class="go" aria-label="'+T[lang].open+'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>';
+    a.innerHTML='<div class="yr">'+p.y+'</div><div><h3 dir="ltr"></h3><div class="meta" dir="ltr"></div><div class="row"><span class="'+qc+'">'+(p.q==='Conf'?({bn:'কনফারেন্স',ar:'مؤتمر',en:'Conference'}[lang]):p.q+({bn:' জার্নাল',ar:' مجلة',en:' Journal'}[lang]))+'</span>'+(p.c?'<span class="cite">'+T[lang].cited+' '+p.c+'</span>':'')+'<span class="cite" dir="ltr">DOI '+p.d+'</span></div>'+(p.n?'<p class="pnote">'+p.n[lang]+'</p>':'')+'</div><span class="go" aria-label="'+T[lang].open+'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>';
     $('h3',a).textContent=p.t;$('.meta',a).textContent=p.j;
     box.appendChild(a);
   });
