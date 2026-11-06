@@ -8,7 +8,7 @@ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').mat
 var T={
 en:{
 nav_about:'About',nav_research:'Research',nav_experience:'Experience',nav_pubs:'Publications',nav_skills:'Skills',nav_edu:'Education',nav_contact:'Contact',
-hero_eyebrow:'Researcher · R&D Engineer',hero_hi:"Hi, I'm",
+hero_eyebrow:'Researcher · R&D Engineer',hero_hi:"Hi, I'm",status:'Open to R&D roles & collaborations',fl_q1:'Q1 journals',copy:'Copy email',copied:'Email copied to clipboard',
 hero_lead:'I engineer next-generation thin-film solar cells. My work on MoS₂ and CZTS lifted simulated cell efficiency from 8.42% to 11.43%, and I turn lab data into clean, sustainable energy.',
 hero_cta1:'View Publications',hero_cta2:'Get in touch',badge_eff:'simulated efficiency',badge_q1:'journals',
 st_pubs:'Publications',st_cites:'Citations',st_years:'Years in research',st_tech:'Lab techniques',
@@ -51,7 +51,7 @@ cited:'Cited by',open:'Open paper',typed:['Thin-Film Photovoltaics','MoS₂ & CZ
 },
 bn:{
 nav_about:'পরিচিতি',nav_research:'গবেষণা',nav_experience:'অভিজ্ঞতা',nav_pubs:'প্রকাশনা',nav_skills:'দক্ষতা',nav_edu:'শিক্ষা',nav_contact:'যোগাযোগ',
-hero_eyebrow:'গবেষক · আর অ্যান্ড ডি ইঞ্জিনিয়ার',hero_hi:'আমি',
+hero_eyebrow:'গবেষক · আর অ্যান্ড ডি ইঞ্জিনিয়ার',hero_hi:'আমি',status:'আর অ্যান্ড ডি কাজ ও সহযোগিতার জন্য প্রস্তুত',fl_q1:'Q1 জার্নাল',copy:'ইমেইল কপি করুন',copied:'ইমেইল কপি হয়েছে',
 hero_lead:'আমি পরবর্তী প্রজন্মের থিন-ফিল্ম সোলার সেল নিয়ে কাজ করি। MoS₂ ও CZTS নিয়ে আমার গবেষণায় সিমুলেটেড সেলের দক্ষতা ৮.৪২% থেকে বেড়ে ১১.৪৩% হয়েছে। ল্যাবের তথ্যকে আমি পরিষ্কার ও টেকসই শক্তিতে রূপ দিই।',
 hero_cta1:'প্রকাশনা দেখুন',hero_cta2:'যোগাযোগ করুন',badge_eff:'সিমুলেটেড দক্ষতা',badge_q1:'জার্নাল',
 st_pubs:'প্রকাশনা',st_cites:'সাইটেশন',st_years:'গবেষণার বছর',st_tech:'ল্যাব টেকনিক',
@@ -94,7 +94,7 @@ cited:'সাইটেশন',open:'পেপার খুলুন',typed:['থ
 },
 ar:{
 nav_about:'نبذة',nav_research:'الأبحاث',nav_experience:'الخبرات',nav_pubs:'المنشورات',nav_skills:'المهارات',nav_edu:'التعليم',nav_contact:'تواصل',
-hero_eyebrow:'باحث · مهندس بحث وتطوير',hero_hi:'مرحباً، أنا',
+hero_eyebrow:'باحث · مهندس بحث وتطوير',hero_hi:'مرحباً، أنا',status:'متاح لفرص البحث والتطوير والتعاون',fl_q1:'مجلات Q1',copy:'انسخ البريد',copied:'تم نسخ البريد الإلكتروني',
 hero_lead:'أعمل على تطوير الجيل القادم من الخلايا الشمسية رقيقة الأغشية. رفعت أبحاثي حول MoS₂ وCZTS كفاءة الخلية المحاكاة من 8.42% إلى 11.43%، وأحوّل بيانات المختبر إلى طاقة نظيفة ومستدامة.',
 hero_cta1:'استعرض المنشورات',hero_cta2:'تواصل معي',badge_eff:'كفاءة بالمحاكاة',badge_q1:'مجلات',
 st_pubs:'منشورات',st_cites:'استشهادات',st_years:'سنوات في البحث',st_tech:'تقنيات مخبرية',
@@ -151,7 +151,7 @@ var lang='en';
 function render(){
   var box=$('#pubs');box.innerHTML='';
   P.forEach(function(p){
-    var a=document.createElement('a');a.className='pub reveal in';a.href='https://doi.org/'+p.d;a.target='_blank';a.rel='noopener';a.dataset.k=p.k;
+    var a=document.createElement('a');a.className='pub reveal in';a.href='https://doi.org/'+p.d;a.target='_blank';a.rel='noopener';a.dataset.k=p.k;a.dataset.q=p.q;
     var qc=p.q==='Q2'?'q q2':(p.q==='Conf'?'q cf':'q');
     a.innerHTML='<div class="yr">'+p.y+'</div><div><h3 dir="ltr"></h3><div class="meta" dir="ltr"></div><div class="row"><span class="'+qc+'">'+(p.q==='Conf'?({bn:'কনফারেন্স',ar:'مؤتمر',en:'Conference'}[lang]):p.q+({bn:' জার্নাল',ar:' مجلة',en:' Journal'}[lang]))+'</span>'+(p.c?'<span class="cite">'+T[lang].cited+' '+p.c+'</span>':'')+'<span class="cite" dir="ltr">DOI '+p.d+'</span></div></div><span class="go" aria-label="'+T[lang].open+'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>';
     $('h3',a).textContent=p.t;$('.meta',a).textContent=p.j;
@@ -160,7 +160,7 @@ function render(){
   applyFilter();
 }
 var cur='all';
-function applyFilter(){$$('.pub').forEach(function(e){e.style.display=(cur==='all'||e.dataset.k===cur)?'':'none'})}
+function applyFilter(){$$('.pub').forEach(function(e){e.style.display=(cur==='all'||e.dataset.k===cur||(cur==='q1'&&e.dataset.q==='Q1'))?'':'none'})}
 $('#filters').addEventListener('click',function(e){var b=e.target.closest('.chipbtn');if(!b)return;cur=b.dataset.f;$$('.chipbtn').forEach(function(x){x.classList.toggle('active',x===b)});applyFilter()});
 
 /* ---------- Language ---------- */
@@ -231,7 +231,7 @@ function initBg(){
   for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.6+.6});
   cancelAnimationFrame(raf);if(reduce){draw();return}loop();
 }
-function col(){return document.documentElement.getAttribute('data-theme')==='light'?'8,145,178':'34,211,238'}
+function col(){return document.documentElement.getAttribute('data-theme')==='light'?'79,70,229':'34,211,238'}
 function draw(){
   cx.clearRect(0,0,W,H);var c=col();
   for(var i=0;i<pts.length;i++){var p=pts[i];
@@ -244,6 +244,44 @@ function loop(){
   draw();raf=requestAnimationFrame(loop);
 }
 var rs;addEventListener('resize',function(){clearTimeout(rs);rs=setTimeout(initBg,200)});
+
+/* ---------- Stagger delays ---------- */
+$$('.hero-text > .reveal').forEach(function(e,i){e.style.transitionDelay=(i*0.09)+'s'});
+$('.hero-visual').style.transitionDelay='.25s';
+['.cards3','.skills-grid','.stats','.edu-grid','.certs','.about-grid','.timeline'].forEach(function(sel){
+  var c=$(sel);if(!c)return;$$(':scope > .reveal',c).forEach(function(e,i){e.style.transitionDelay=(i*0.11)+'s'});
+});
+
+/* ---------- Pointer effects ---------- */
+if(!reduce&&matchMedia('(pointer:fine)').matches){
+  document.addEventListener('mousemove',function(e){
+    var t=e.target.closest&&e.target.closest('.card,.pub,.stat');
+    if(t){var r=t.getBoundingClientRect();t.style.setProperty('--mx',(e.clientX-r.left)+'px');t.style.setProperty('--my',(e.clientY-r.top)+'px')}
+  },{passive:true});
+  $$('.btn').forEach(function(b){
+    b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.28)+'px)'});
+    b.addEventListener('mouseleave',function(){b.style.transform=''});
+  });
+  var hv=$('.hero-visual'),st=$('#stage');
+  hv.addEventListener('mousemove',function(e){
+    var r=hv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    st.style.setProperty('--ry',(x*10)+'deg');st.style.setProperty('--rx',(-y*8)+'deg');
+    st.style.setProperty('--px',(x*-14)+'px');st.style.setProperty('--py',(y*-8)+'px');
+  });
+  hv.addEventListener('mouseleave',function(){['--ry','--rx','--px','--py'].forEach(function(k){st.style.removeProperty(k)})});
+}
+
+/* ---------- Timeline draws as you scroll ---------- */
+var tl=$('.timeline');
+function drawTL(){if(!tl||reduce)return;var r=tl.getBoundingClientRect(),f=(innerHeight*.75-r.top)/r.height;tl.style.setProperty('--tl',Math.max(.04,Math.min(1,f)))}
+addEventListener('scroll',drawTL,{passive:true});drawTL();
+
+/* ---------- Copy email ---------- */
+var tt;
+$('#copy').addEventListener('click',function(){
+  var m='saifsaifulislam765@gmail.com',done=function(){var t=$('#toast');t.textContent=T[lang].copied;t.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show')},2200)};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(m).then(done,function(){location.href='mailto:'+m})}else{location.href='mailto:'+m}
+});
 
 /* ---------- Init ---------- */
 $('#yr').textContent=new Date().getFullYear();

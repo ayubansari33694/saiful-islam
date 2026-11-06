@@ -25,9 +25,11 @@
 </script>
 </head>
 <body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 <canvas id="bg" aria-hidden="true"></canvas>
 <div class="glow" id="glow" aria-hidden="true"></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <header class="nav" id="nav">
   <a href="#home" class="brand" aria-label="Md Saiful Islam"><span class="logo">MS</span><span class="brand-name">Saiful Islam</span></a>
@@ -54,6 +56,7 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-text">
+    <p class="status reveal"><span class="pulse"></span><span data-i18n="status">Open to R&amp;D roles &amp; collaborations</span></p>
     <p class="eyebrow reveal" data-i18n="hero_eyebrow">Researcher · R&amp;D Engineer</p>
     <h1 class="reveal">
       <span data-i18n="hero_hi">Hi, I'm</span><br>
@@ -75,12 +78,20 @@
     <div class="orbit o1"><span class="chip">MoS₂</span></div>
     <div class="orbit o2"><span class="chip">CZTS</span></div>
     <div class="orbit o3"><span class="chip">SCAPS-1D</span></div>
-    <div class="photo-ring"><div class="photo"><img src="assets/photo.jpg" alt="Portrait of Md Saiful Islam" width="256" height="256"></div></div>
+    <div class="stage" id="stage">
+      <div class="stage-bg"><i class="blob b-a"></i><i class="blob b-b"></i><span class="grid"></span><span class="halo"></span></div>
+      <img class="cutout" src="assets/portrait.png" alt="Portrait of Md Saiful Islam giving a thumbs up" width="380" height="540" fetchpriority="high">
+    </div>
     <div class="badge b1"><b>11.43%</b><small data-i18n="badge_eff">simulated efficiency</small></div>
     <div class="badge b2"><b>Q1</b><small data-i18n="badge_q1">journals</small></div>
   </div>
   <a href="#about" class="scroll" aria-label="Scroll"><span></span></a>
 </section>
+
+<div class="marquee" aria-hidden="true"><div class="track">
+  <span>MoS₂</span><span>CZTS</span><span>SCAPS-1D</span><span>Thin-Film PV</span><span>XRD</span><span>Raman</span><span>FESEM</span><span>Hall Effect</span><span>Sulfurization</span><span>Kesterite</span>
+  <span>MoS₂</span><span>CZTS</span><span>SCAPS-1D</span><span>Thin-Film PV</span><span>XRD</span><span>Raman</span><span>FESEM</span><span>Hall Effect</span><span>Sulfurization</span><span>Kesterite</span>
+</div></div>
 
 <!-- STATS -->
 <section class="stats" aria-label="Highlights">
@@ -175,6 +186,7 @@
   <div class="sec-head reveal"><span class="num">04</span><h2 data-i18n="pub_h">Publications</h2></div>
   <div class="filters reveal" id="filters">
     <button class="chipbtn active" data-f="all" data-i18n="fl_all">All</button>
+    <button class="chipbtn" data-f="q1" data-i18n="fl_q1">Q1 journals</button>
     <button class="chipbtn" data-f="journal" data-i18n="fl_j">Journals</button>
     <button class="chipbtn" data-f="conf" data-i18n="fl_c">Conference</button>
   </div>
@@ -219,6 +231,7 @@
     <p data-i18n="ct_p">Open to R&amp;D engineering roles, research collaborations and PhD opportunities in solar energy and thin-film materials.</p>
     <div class="cta center">
       <a class="btn primary" href="mailto:saifsaifulislam765@gmail.com" data-i18n="ct_mail">Send an email</a>
+      <button class="btn ghost" id="copy" type="button" data-i18n="copy">Copy email</button>
       <a class="btn ghost" href="https://www.linkedin.com/in/md-saiful-islam-8713b7220/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn ghost" href="https://scholar.google.com/citations?hl=en&user=llZV_GoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
     </div>
