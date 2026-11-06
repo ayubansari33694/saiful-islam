@@ -90,3 +90,9 @@ code{background:var(--panel2);border:1px solid var(--line);padding:1px 6px;borde
 .lrow.off{opacity:.55}
 .lrow .lname{flex:1;font-weight:600}
 .lrow .acts button{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:16px;margin-left:4px}
+
+.upbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.upbar select,.gcard select{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px 8px;font:inherit}
+.galtabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.gtab{border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:99px;padding:6px 14px;cursor:pointer;font:600 13px system-ui}
+.gtab.on{color:#fff;border-color:transparent;background:linear-gradient(135deg,var(--acc),var(--acc2))}

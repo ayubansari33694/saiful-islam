@@ -228,47 +228,87 @@ function render(){
 
 
 /* ---------- photo gallery editor ---------- */
+var GAL_VIEWS=[['masonry','Masonry – natural heights, like a magazine'],['grid','Grid – equal squares, neat and tidy'],['mosaic','Mosaic – some photos bigger, creative collage'],['slider','Slider – swipe sideways, one by one'],['polaroid','Polaroid – tilted instant-photo cards']];
+var DEFAULT_CATS=[['lab','Lab & research','ল্যাব ও গবেষণা','المختبر والبحث'],['conf','Conferences & seminars','কনফারেন্স ও সেমিনার','المؤتمرات والندوات'],['awards','Awards & achievements','পুরস্কার ও অর্জন','الجوائز والإنجازات'],['results','Research results','গবেষণার ফলাফল','نتائج البحث'],['campus','University & team','বিশ্ববিদ্যালয় ও টিম','الجامعة والفريق'],['travel','Travel','ভ্রমণ','رحلات'],['life','Personal moments','ব্যক্তিগত মুহূর্ত','لحظات شخصية']];
+var galFilter='all',galUpCat='';
+function ensureGal(){
+  if(!Array.isArray(C.gallery))C.gallery=[];
+  if(!Array.isArray(C.galleryCats))C.galleryCats=DEFAULT_CATS.map(function(c){return {id:c[0],name:{en:c[1],bn:c[2],ar:c[3]}}});
+  C.galleryCats.forEach(function(c){if(!c.id)c.id='c'+Date.now().toString(36)+Math.random().toString(36).slice(2,5)});
+}
 function galleryView(v){
+  ensureGal();
   v.appendChild(el('h1',{text:'Photo gallery'}));
-  v.appendChild(el('p',{class:'lead',text:'Add photos any time. They appear in the “Photo gallery” section of the website. Reorder, caption or delete them whenever you like.'}));
-  var tb=el('section',{class:'block'},[el('h2',{text:'Titles'})]);
+  v.appendChild(el('p',{class:'lead',text:'Add photos into sections (categories), choose how the gallery looks, and change anything any time.'}));
+
+  /* 1. titles + look */
+  var tb=el('section',{class:'block'},[el('h2',{text:'Title & look'})]);
   tb.appendChild(field(T('gal_h','Section title'),C));
   tb.appendChild(field(T('gal_sub','Short description under the title','tria'),C));
+  tb.appendChild(field({k:'galleryView',label:'Default view',type:'select',options:GAL_VIEWS.map(function(x){return [x[0],x[1]]}),help:'How the photos look when someone opens the gallery.'},C));
+  tb.appendChild(field({k:'galleryPick',label:'Let visitors switch between views (shows small view buttons)',type:'bool'},C));
   v.appendChild(tb);
-  if(!Array.isArray(C.gallery))C.gallery=[];
+
+  /* 2. categories */
+  var cb=el('section',{class:'block'},[el('h2',{text:'Gallery sections (categories)'}),el('p',{class:'hint',text:'Visitors get filter buttons like “Lab & research”, “Conferences”. Rename, reorder, add or remove sections freely. A section with no photos is not shown on the website.'})]);
+  cb.appendChild(field({k:'galleryCats',label:'Sections',type:'list',add:'Add gallery section',blank:{name:{en:'',bn:'',ar:''}},sum:function(i){return asTri(i.name).en},fields:[{k:'name',label:'Section name',type:'tri'}]},C));
+  v.appendChild(cb);
+
+  /* 3. photos */
   var blk=el('section',{class:'block'},[el('h2',{text:'Photos'})]);
-  blk.appendChild(el('p',{class:'hint',text:'You can pick many photos at once. Each photo is resized automatically. The caption is optional and shows when someone hovers or opens the photo.'}));
-  var grid=el('div',{class:'galadm'}),status=el('div',{class:'help'});
-  var file=el('input',{type:'file',accept:'image/*',multiple:'multiple'});file.style.display='none';
-  function build(){
-    grid.innerHTML='';var a=C.gallery;
-    a.forEach(function(g,i){
-      function mv(dx){return function(){var j=i+dx;if(j<0||j>=a.length)return;var t=a[i];a[i]=a[j];a[j]=t;touch();build()}}
+  blk.appendChild(el('p',{class:'hint',text:'Choose a section, then press “Add photos” (you can pick many at once). Each photo can be moved to another section later.'}));
+  var tabs=el('div',{class:'galtabs'}),grid=el('div',{class:'galadm'}),status=el('div',{class:'help'});
+  var upSel=el('select'),file=el('input',{type:'file',accept:'image/*',multiple:'multiple'});file.style.display='none';
+  function catOpts(sel,withAll){
+    sel.innerHTML='';
+    if(withAll)sel.appendChild(el('option',{value:'',text:'No section'}));
+    C.galleryCats.forEach(function(c){sel.appendChild(el('option',{value:c.id,text:asTri(c.name).en||'(unnamed)'}))});
+  }
+  function visible(){return C.gallery.filter(function(g){return galFilter==='all'||(galFilter==='none'?!g.cat||!C.galleryCats.some(function(c){return c.id===g.cat}):g.cat===galFilter)})}
+  function buildTabs(){
+    tabs.innerHTML='';
+    function tab(id,label,n){tabs.appendChild(el('button',{type:'button',class:'gtab'+(galFilter===id?' on':''),text:label+' ('+n+')',onclick:function(){galFilter=id;if(id!=='all'&&id!=='none')galUpCat=id;buildAll()}}))}
+    tab('all','All',C.gallery.length);
+    C.galleryCats.forEach(function(c){tab(c.id,asTri(c.name).en||'(unnamed)',C.gallery.filter(function(g){return g.cat===c.id}).length)});
+    var un=C.gallery.filter(function(g){return !g.cat||!C.galleryCats.some(function(c){return c.id===g.cat})}).length;
+    if(un)tab('none','No section',un);
+  }
+  function buildGrid(){
+    grid.innerHTML='';var a=C.gallery,fl=visible();
+    fl.forEach(function(g,pos){
+      function mv(dx){return function(){var t=fl[pos+dx];if(!t)return;var i=a.indexOf(g),j=a.indexOf(t);a[i]=t;a[j]=g;touch();buildAll()}}
       var im=el('img',{alt:'',loading:'lazy'});im.src=g.img||'';
       var acts=el('div',{class:'ga'},[
         el('button',{type:'button',title:'Move earlier',text:'←',onclick:mv(-1)}),
         el('button',{type:'button',title:'Move later',text:'→',onclick:mv(1)}),
-        el('button',{type:'button',title:'Move to first',text:'⇤',onclick:function(){if(i){a.unshift(a.splice(i,1)[0]);touch();build()}}}),
-        el('button',{type:'button',class:'del',title:'Delete',text:'🗑',onclick:function(){if(confirm('Remove this photo from the gallery?')){a.splice(i,1);touch();build()}}})]);
+        el('button',{type:'button',title:'Move to first',text:'⇤',onclick:function(){var i=a.indexOf(g);if(i>0){a.unshift(a.splice(i,1)[0]);touch();buildAll()}}}),
+        el('button',{type:'button',class:'del',title:'Delete',text:'🗑',onclick:function(){if(confirm('Remove this photo from the gallery?')){a.splice(a.indexOf(g),1);touch();buildAll()}}})]);
+      var cs=el('select');catOpts(cs,true);cs.value=g.cat||'';
+      cs.addEventListener('change',function(){g.cat=cs.value;touch();buildAll()});
       var cap=ctlTri(function(){return g.caption},function(x){g.caption=x},false);
-      grid.appendChild(el('div',{class:'gcard'},[el('div',{class:'gimg'},[im,el('span',{class:'gn',text:String(i+1)})]),acts,cap]));
+      grid.appendChild(el('div',{class:'gcard'},[el('div',{class:'gimg'},[im,el('span',{class:'gn',text:String(pos+1)})]),acts,el('div',{class:'lbl',text:'Section'}),cs,cap]));
     });
-    if(!a.length)grid.appendChild(el('div',{class:'help',text:'No photos yet. Press “Add photos” to start.'}));
-    status.textContent=a.length?a.length+' photo'+(a.length>1?'s':'')+' in the gallery':'';
+    if(!fl.length)grid.appendChild(el('div',{class:'help',text:C.gallery.length?'No photos in this section yet.':'No photos yet. Choose a section above and press “Add photos”.'}));
+    status.textContent=C.gallery.length?C.gallery.length+' photo'+(C.gallery.length>1?'s':'')+' in total':'';
   }
+  function buildAll(){ensureGal();catOpts(upSel,true);upSel.value=C.galleryCats.some(function(c){return c.id===galUpCat})?galUpCat:'';buildTabs();buildGrid()}
+  upSel.addEventListener('change',function(){galUpCat=upSel.value});
   var add=el('button',{class:'btn primary',type:'button',text:'+ Add photos',onclick:function(){file.click()}});
   file.addEventListener('change',function(){
     var fl=Array.prototype.slice.call(file.files);file.value='';if(!fl.length)return;
-    add.disabled=true;var n=0,fail=0;
+    var cat=upSel.value;add.disabled=true;var n=0,fail=0;
     fl.reduce(function(p,f){return p.then(function(){
       add.textContent='Uploading '+(n+fail+1)+' of '+fl.length+'…';
-      return uploadImage(f).then(function(url){C.gallery.push({img:url,caption:{en:'',bn:'',ar:''}});n++;touch();build()}).catch(function(e){fail++;toast(f.name+': '+(e.message||e),'err')});
+      return uploadImage(f).then(function(url){C.gallery.push({img:url,cat:cat,caption:{en:'',bn:'',ar:''}});n++;touch();buildAll()}).catch(function(e){fail++;toast(f.name+': '+(e.message||e),'err')});
     })},Promise.resolve()).then(function(){add.disabled=false;add.textContent='+ Add photos';if(n)toast(n+' photo'+(n>1?'s':'')+' added. Press Publish to make them live.')});
   });
-  blk.appendChild(el('div',{style:'margin-bottom:14px'},[add,file]));
-  blk.appendChild(status);blk.appendChild(grid);build();
+  blk.appendChild(el('div',{class:'upbar'},[el('label',{class:'lbl',text:'Add into section:'}),upSel,add,file]));
+  blk.appendChild(tabs);blk.appendChild(status);blk.appendChild(grid);
   v.appendChild(blk);
-  v.appendChild(el('div',{class:'msg',text:'The gallery section is hidden on the website automatically while it has no photos.'}));
+  /* keep photo section lists in step when categories are edited above */
+  cb.addEventListener('input',function(){buildAll()});cb.addEventListener('click',function(){setTimeout(buildAll,0)});
+  buildAll();
+  v.appendChild(el('div',{class:'msg',text:'The gallery is hidden on the website automatically while it has no photos.'}));
 }
 
 /* ---------- page sections: order + show/hide ---------- */

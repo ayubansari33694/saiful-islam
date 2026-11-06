@@ -257,6 +257,11 @@
    "en": "Gallery",
    "bn": "গ্যালারি",
    "ar": "المعرض"
+  },
+  "gal_all": {
+   "en": "All",
+   "bn": "সব",
+   "ar": "الكل"
   }
  },
  "typed": [
@@ -991,6 +996,66 @@
   {
    "id": "contact",
    "show": true
+  }
+ ],
+ "galleryView": "masonry",
+ "galleryPick": true,
+ "galleryCats": [
+  {
+   "id": "lab",
+   "name": {
+    "en": "Lab & research",
+    "bn": "ল্যাব ও গবেষণা",
+    "ar": "المختبر والبحث"
+   }
+  },
+  {
+   "id": "conf",
+   "name": {
+    "en": "Conferences & seminars",
+    "bn": "কনফারেন্স ও সেমিনার",
+    "ar": "المؤتمرات والندوات"
+   }
+  },
+  {
+   "id": "awards",
+   "name": {
+    "en": "Awards & achievements",
+    "bn": "পুরস্কার ও অর্জন",
+    "ar": "الجوائز والإنجازات"
+   }
+  },
+  {
+   "id": "results",
+   "name": {
+    "en": "Research results",
+    "bn": "গবেষণার ফলাফল",
+    "ar": "نتائج البحث"
+   }
+  },
+  {
+   "id": "campus",
+   "name": {
+    "en": "University & team",
+    "bn": "বিশ্ববিদ্যালয় ও টিম",
+    "ar": "الجامعة والفريق"
+   }
+  },
+  {
+   "id": "travel",
+   "name": {
+    "en": "Travel",
+    "bn": "ভ্রমণ",
+    "ar": "رحلات"
+   }
+  },
+  {
+   "id": "life",
+   "name": {
+    "en": "Personal moments",
+    "bn": "ব্যক্তিগত মুহূর্ত",
+    "ar": "لحظات شخصية"
+   }
   }
  ]
 }
