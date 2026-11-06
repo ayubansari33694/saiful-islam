@@ -27,7 +27,6 @@
 <body>
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 <canvas id="bg" aria-hidden="true"></canvas>
-<div class="glow" id="glow" aria-hidden="true"></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -75,12 +74,15 @@
     </ul>
   </div>
   <div class="hero-visual reveal">
-    <div class="orbit o1"><span class="chip">MoS₂</span></div>
-    <div class="orbit o2"><span class="chip">CZTS</span></div>
-    <div class="orbit o3"><span class="chip">SCAPS-1D</span></div>
     <div class="stage" id="stage">
-      <div class="stage-bg"><i class="blob b-a"></i><i class="blob b-b"></i><span class="grid"></span><span class="halo"></span></div>
-      <img class="cutout" src="assets/portrait.png" alt="Portrait of Md Saiful Islam giving a thumbs up" width="380" height="540" fetchpriority="high">
+      <div class="frame">
+        <div class="frame-in">
+          <img class="shot" src="assets/hero.jpg" alt="Md Saiful Islam standing in front of a Knowledge Technology sign, giving two thumbs up" width="960" height="1280" fetchpriority="high">
+          <span class="sheen"></span>
+          <div class="cap"><b>Md Saiful Islam</b><small data-i18n="cap">Thin-film solar researcher</small></div>
+        </div>
+      </div>
+      <span class="spark s1">✦</span><span class="spark s2">✦</span><span class="spark s3">✦</span>
     </div>
     <div class="badge b1"><b>11.43%</b><small data-i18n="badge_eff">simulated efficiency</small></div>
     <div class="badge b2"><b>Q1</b><small data-i18n="badge_q1">journals</small></div>
@@ -203,7 +205,7 @@
     <div class="card reveal"><h3 data-i18n="sk2">Simulation &amp; software</h3>
       <div class="chips"><span>SCAPS-1D</span><span>PVsol</span><span>MATLAB</span><span>Origin</span><span>Burai</span><span>Mendeley</span></div></div>
     <div class="card reveal"><h3 data-i18n="sk3">Programming &amp; tools</h3>
-      <div class="chips"><span>C / C++</span><span>C#</span><span>Linux (basic)</span><span>MS Word</span><span>MS Excel</span><span>MS PowerPoint</span></div></div>
+      <div class="chips"><span>C / C++</span><span>C#</span><span>Linux (basic)</span></div></div>
   </div>
 </section>
 

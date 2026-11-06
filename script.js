@@ -46,8 +46,8 @@ c3:'X-ray Metrology Solutions for Semiconductor and Electronic Devices seminar �
 c4:'MIMOS High-Value Semiconductor Technology Seminar: ANSYS CAE Solution — Malaysia',
 c5:'Training: solar cell fabrication and characterisation (HiCOE, UNITEN) and thin-film PZT cell soldering (NSF project, UNITEN)',
 ct_h:"Let's work together",ct_p:'Open to R&D engineering roles, research collaborations and PhD opportunities in solar energy and thin-film materials.',ct_mail:'Send an email',
-foot:'Designed & built with care.',top:'Back to top ↑',
-cited:'Cited by',open:'Open paper',typed:['Thin-Film Photovoltaics','MoS₂ & CZTS Solar Cells','2D Materials Researcher','Clean Energy Engineer']
+foot:'Designed & built with care.',cap:'Thin-film solar researcher',top:'Back to top ↑',
+cited:'Cited by',open:'Open paper',typed:['Thin-Film Photovoltaics','2D Materials Researcher','Renewable Energy Engineer']
 },
 bn:{
 nav_about:'পরিচিতি',nav_research:'গবেষণা',nav_experience:'অভিজ্ঞতা',nav_pubs:'প্রকাশনা',nav_skills:'দক্ষতা',nav_edu:'শিক্ষা',nav_contact:'যোগাযোগ',
@@ -89,8 +89,8 @@ c3:'সেমিকন্ডাক্টর ও ইলেকট্রনিক �
 c4:'MIMOS হাই-ভ্যালু সেমিকন্ডাক্টর টেকনোলজি সেমিনার: ANSYS CAE Solution — মালয়েশিয়া',
 c5:'প্রশিক্ষণ: সোলার সেল ফ্যাব্রিকেশন ও ক্যারেক্টারাইজেশন (HiCOE, UNITEN) এবং থিন-ফিল্ম PZT সেল সোল্ডারিং (NSF প্রকল্প, UNITEN)',
 ct_h:'চলুন একসঙ্গে কাজ করি',ct_p:'সোলার এনার্জি ও থিন-ফিল্ম ম্যাটেরিয়ালসে আর অ্যান্ড ডি ইঞ্জিনিয়ারিং কাজ, গবেষণা সহযোগিতা ও পিএইচডি সুযোগের জন্য আমি প্রস্তুত।',ct_mail:'ইমেইল পাঠান',
-foot:'যত্ন নিয়ে ডিজাইন ও তৈরি।',top:'উপরে যান ↑',
-cited:'সাইটেশন',open:'পেপার খুলুন',typed:['থিন-ফিল্ম ফটোভোলটাইক','MoS₂ ও CZTS সোলার সেল','২ডি ম্যাটেরিয়ালস গবেষক','ক্লিন এনার্জি ইঞ্জিনিয়ার']
+foot:'যত্ন নিয়ে ডিজাইন ও তৈরি।',cap:'থিন-ফিল্ম সোলার গবেষক',top:'উপরে যান ↑',
+cited:'সাইটেশন',open:'পেপার খুলুন',typed:['থিন-ফিল্ম ফটোভোলটাইক','২ডি ম্যাটেরিয়ালস গবেষক','নবায়নযোগ্য শক্তি ইঞ্জিনিয়ার']
 },
 ar:{
 nav_about:'نبذة',nav_research:'الأبحاث',nav_experience:'الخبرات',nav_pubs:'المنشورات',nav_skills:'المهارات',nav_edu:'التعليم',nav_contact:'تواصل',
@@ -132,8 +132,8 @@ c3:'ندوة حلول القياس بالأشعة السينية لأشباه ا
 c4:'ندوة MIMOS لتقنيات أشباه الموصلات عالية القيمة: حلول ANSYS CAE — ماليزيا',
 c5:'تدريب: تصنيع الخلايا الشمسية وتوصيفها (HiCOE، UNITEN) ولحام خلايا PZT الرقيقة (مشروع NSF، UNITEN)',
 ct_h:'لنعمل معاً',ct_p:'أرحّب بفرص هندسة البحث والتطوير والتعاون البحثي وفرص الدكتوراه في الطاقة الشمسية ومواد الأغشية الرقيقة.',ct_mail:'أرسل بريداً إلكترونياً',
-foot:'صُمّم وبُني بعناية.',top:'العودة للأعلى ↑',
-cited:'استُشهد به',open:'افتح البحث',typed:['الخلايا الكهروضوئية رقيقة الأغشية','خلايا MoS₂ وCZTS الشمسية','باحث في المواد ثنائية الأبعاد','مهندس طاقة نظيفة']
+foot:'صُمّم وبُني بعناية.',cap:'باحث في الخلايا الشمسية رقيقة الأغشية',top:'العودة للأعلى ↑',
+cited:'استُشهد به',open:'افتح البحث',typed:['الخلايا الكهروضوئية رقيقة الأغشية','باحث في المواد ثنائية الأبعاد','مهندس طاقة متجددة']
 }
 };
 
@@ -216,7 +216,7 @@ addEventListener('scroll',function(){
 
 /* ---------- Cursor glow + tilt ---------- */
 if(!reduce&&matchMedia('(pointer:fine)').matches){
-  var g=$('#glow');addEventListener('mousemove',function(e){g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+  
   $$('.tilt').forEach(function(c){
     c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(800px) rotateY('+x*8+'deg) rotateX('+-y*8+'deg) translateY(-4px)'});
     c.addEventListener('mouseleave',function(){c.style.transform=''});
@@ -254,10 +254,6 @@ $('.hero-visual').style.transitionDelay='.25s';
 
 /* ---------- Pointer effects ---------- */
 if(!reduce&&matchMedia('(pointer:fine)').matches){
-  document.addEventListener('mousemove',function(e){
-    var t=e.target.closest&&e.target.closest('.card,.pub,.stat');
-    if(t){var r=t.getBoundingClientRect();t.style.setProperty('--mx',(e.clientX-r.left)+'px');t.style.setProperty('--my',(e.clientY-r.top)+'px')}
-  },{passive:true});
   $$('.btn').forEach(function(b){
     b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.28)+'px)'});
     b.addEventListener('mouseleave',function(){b.style.transform=''});
@@ -266,7 +262,7 @@ if(!reduce&&matchMedia('(pointer:fine)').matches){
   hv.addEventListener('mousemove',function(e){
     var r=hv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
     st.style.setProperty('--ry',(x*10)+'deg');st.style.setProperty('--rx',(-y*8)+'deg');
-    st.style.setProperty('--px',(x*-14)+'px');st.style.setProperty('--py',(y*-8)+'px');
+    
   });
   hv.addEventListener('mouseleave',function(){['--ry','--rx','--px','--py'].forEach(function(k){st.style.removeProperty(k)})});
 }
