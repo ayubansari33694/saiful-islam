@@ -20,7 +20,7 @@ function load(){
     var d=store.get('portfolio_draft');
     if(d){try{return Promise.resolve(JSON.parse(d))}catch(e){}}
   }
-  return fetch('content.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()});
+  return fetch('/api/content',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).catch(function(){return fetch('content.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()})});
 }
 
 /* ---------- render ---------- */

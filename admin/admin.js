@@ -1,10 +1,9 @@
 (function(){
 'use strict';
 var $=function(s,r){return (r||document).querySelector(s)};
-var DRAFT='portfolio_draft',CFG='portfolio_admin_cfg',TOK='portfolio_admin_token';
+var DRAFT='portfolio_draft';
 var store={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}},del:function(k){try{localStorage.removeItem(k)}catch(e){}}};
 var C=null,published=null,cur='dash',openSet=new WeakSet(),saveT=null;
-var cfg=Object.assign({owner:'ayubansari33694',repo:'saiful-islam',branch:'main'},JSON.parse(store.get(CFG)||'{}'));
 
 /* ---------- small helpers ---------- */
 function el(tag,attrs,kids){
@@ -63,8 +62,9 @@ function ctlLines(get,set){
 }
 function ctlImage(f,get,set){
   var wrap=el('div',{class:'imgbox'}),img=el('img',{alt:'preview'}),path=el('input',{type:'text'});
-  function show(){var v=get()||'';path.value=v;img.src=v?'../'+v.replace(/^\//,''):''}
-  path.addEventListener('input',function(){set(path.value);touch();img.src=path.value?'../'+path.value.replace(/^\//,''):''});
+  function src(v){return !v?'':(/^https?:/.test(v)?v:'../'+v.replace(/^\//,''))}
+  function show(){var v=get()||'';path.value=v;img.src=src(v)}
+  path.addEventListener('input',function(){set(path.value);touch();img.src=src(path.value)});
   var file=el('input',{type:'file',accept:'image/*'});file.style.display='none';
   var up=el('button',{class:'btn',text:'Upload new photo',onclick:function(){file.click()}});
   file.addEventListener('change',function(){
@@ -72,7 +72,7 @@ function ctlImage(f,get,set){
     uploadImage(fl).then(function(p){set(p);touch();show();toast('Photo uploaded: '+p)}).catch(function(e){toast(e.message||String(e),'err')});
   });
   show();
-  var right=el('div',{style:'flex:1;min-width:220px'},[path,el('div',{class:'help',text:'Path of the image on the site. Uploading needs the GitHub token (Dashboard).'}),el('div',{style:'margin-top:8px'},[up,file])]);
+  var right=el('div',{style:'flex:1;min-width:220px'},[path,el('div',{class:'help',text:'Path of the image on the site. Use “Upload new photo” to replace it.'}),el('div',{style:'margin-top:8px'},[up,file])]);
   wrap.appendChild(img);wrap.appendChild(right);return wrap;
 }
 
@@ -227,35 +227,15 @@ function dash(v){
   var counts=[['Publications',(C.publications||[]).length],['Positions',(C.experience||[]).length],['Awards',(C.awards||[]).length],['Skill groups',(C.skills||[]).length],['Education',(C.education||[]).length]];
   var grid=el('div',{class:'cards'});counts.forEach(function(c){grid.appendChild(el('div',{class:'stat'},[el('b',{text:String(c[1])}),el('span',{text:c[0]})]))});
   v.appendChild(el('section',{class:'block'},[el('h2',{text:'Your site at a glance'}),grid]));
-  // GitHub connection
-  var tokenIn=el('input',{type:'password',placeholder:'github_pat_…',autocomplete:'off'});tokenIn.value=store.get(TOK)||'';
-  var remember=el('input',{type:'checkbox'});remember.checked=!!store.get(TOK);
-  var o=el('input',{type:'text'}),r=el('input',{type:'text'}),br=el('input',{type:'text'});o.value=cfg.owner;r.value=cfg.repo;br.value=cfg.branch;
-  var status=el('div');
-  function saveCfg(){cfg={owner:o.value.trim(),repo:r.value.trim(),branch:br.value.trim()||'main'};store.set(CFG,JSON.stringify(cfg));if(remember.checked&&tokenIn.value)store.set(TOK,tokenIn.value.trim());else store.del(TOK);sessionTok=tokenIn.value.trim()}
-  var test=el('button',{class:'btn',text:'Test connection',onclick:function(){
-    saveCfg();status.innerHTML='';
-    gh('GET','/repos/'+cfg.owner+'/'+cfg.repo).then(function(j){
-      var ok=j.permissions&&j.permissions.push;
-      status.appendChild(el('div',{class:'msg '+(ok?'ok':'warn'),text:ok?('Connected to '+j.full_name+'. You can publish.'):('Connected to '+j.full_name+', but this token cannot write. Give it “Contents: Read and write”.')}));
-    }).catch(function(e){status.appendChild(el('div',{class:'msg err',text:e.message}))});
-  }});
-  v.appendChild(el('section',{class:'block'},[
-    el('h2',{text:'Publishing connection (GitHub)'}),
-    el('p',{class:'hint',text:'Publishing saves your changes to GitHub. Vercel then updates the live site automatically in about 30 seconds. You only set this up once on each device.'}),
-    el('ol',{class:'steps'},[
-      el('li',null,['Open ',el('a',{href:'https://github.com/settings/personal-access-tokens/new',target:'_blank',rel:'noopener',text:'GitHub → New fine-grained token'}),'.']),
-      el('li',{text:'Repository access: “Only select repositories” → saiful-islam.'}),
-      el('li',{text:'Permissions → Repository → Contents: “Read and write”. Then create the token and paste it below.'})]),
-    el('div',{class:'field'},[el('div',{class:'lbl',text:'Access token'}),tokenIn,el('label',{class:'chk',style:'margin-top:8px'},[remember,'Remember on this device (stored only in this browser)'])]),
-    el('div',{class:'row3'},[el('div',{class:'field'},[el('div',{class:'lbl',text:'GitHub user'}),o]),el('div',{class:'field'},[el('div',{class:'lbl',text:'Repository'}),r]),el('div',{class:'field'},[el('div',{class:'lbl',text:'Branch'}),br])]),
-    test,status]));
   v.appendChild(el('section',{class:'block'},[el('h2',{text:'Publish'}),
-    el('p',{class:'hint',text:'Preview first to check how it looks. Publishing replaces the live content with this draft.'}),
+    el('p',{class:'hint',text:'Preview first to check how it looks. Publishing makes this draft live within seconds.'}),
     el('div',{style:'display:flex;gap:10px;flex-wrap:wrap'},[
       el('button',{class:'btn',text:'Preview draft',onclick:previewDraft}),
-      el('button',{class:'btn primary',text:'Publish now',onclick:function(){saveCfg();doPublish()}}),
+      el('button',{class:'btn primary',text:'Publish now',onclick:function(){doPublish()}}),
       el('button',{class:'btn danger',text:'Discard draft',onclick:discard})])]));
+  v.appendChild(el('section',{class:'block'},[el('h2',{text:'Account'}),
+    el('p',{class:'hint',text:'You are signed in. The session stays active on this device for 30 days.'}),
+    el('button',{class:'btn',text:'Sign out',onclick:function(){api('/api/logout',{}).then(function(){location.reload()})}})]));
 }
 function backup(v){
   v.appendChild(el('h1',{text:'Backup & import'}));
@@ -280,30 +260,19 @@ function discard(){
   store.del(DRAFT);C=clone(published);refreshState();render();toast('Draft discarded');
 }
 
-/* ---------- GitHub ---------- */
-var sessionTok=store.get(TOK)||'';
-function gh(method,path,body){
-  if(!sessionTok)return Promise.reject(new Error('Add your GitHub access token on the Dashboard first.'));
-  return fetch('https://api.github.com'+path,{method:method,headers:{'Authorization':'Bearer '+sessionTok,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'},body:body?JSON.stringify(body):undefined}).then(function(r){
+/* ---------- server API ---------- */
+function api(path,body){
+  return fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify(body||{})}).then(function(r){
     return r.json().catch(function(){return {}}).then(function(j){
-      if(!r.ok){var m=j.message||('HTTP '+r.status);
-        if(r.status===401)m='The token was rejected (401). Check that it is correct and not expired.';
-        if(r.status===403||r.status===404)m+=' — check the token has access to '+cfg.owner+'/'+cfg.repo+' with “Contents: Read and write”.';
-        throw new Error(m)}
+      if(!r.ok){
+        if(r.status===401&&path!=='/api/login'){sessionExpired()}
+        throw new Error(j.error||('Server error '+r.status));
+      }
       return j;
     });
   });
 }
-function putFile(path,contentB64,message){
-  var url='/repos/'+cfg.owner+'/'+cfg.repo+'/contents/'+path.split('/').map(encodeURIComponent).join('/');
-  function attempt(){
-    return gh('GET',url+'?ref='+encodeURIComponent(cfg.branch)).then(function(j){return j.sha},function(e){if(/Not Found/i.test(e.message)&&!/token/i.test(e.message))return undefined;throw e}).then(function(sha){
-      var body={message:message,content:contentB64,branch:cfg.branch};if(sha)body.sha=sha;
-      return gh('PUT',url,body);
-    });
-  }
-  return attempt().catch(function(e){if(/does not match|409/.test(e.message))return attempt();throw e});
-}
+function sessionExpired(){toast('Your session ended. Please sign in again (your draft is safe).','err');setTimeout(function(){location.reload()},1800)}
 function doPublish(){
   var bad=[];
   if(!C.profile||!C.profile.email)bad.push('Main email is empty');
@@ -312,36 +281,58 @@ function doPublish(){
   if(!isDirty()&&!confirm('There are no changes compared with the published version. Publish anyway?'))return;
   if(!confirm('Publish these changes to the live website?'))return;
   var btn=$('#publish');btn.disabled=true;btn.textContent='Publishing…';
-  var json=JSON.stringify(C,null,1)+'\n';
-  putFile('content.json',b64(json),'Update portfolio content from admin panel').then(function(){
+  api('/api/save',C).then(function(){
     published=clone(C);store.del(DRAFT);refreshState();
-    toast('Published! The live site updates in about 30 seconds.');
+    toast('Published! The live site shows it within a minute.');
   }).catch(function(e){toast(e.message,'err');alert('Could not publish:\n\n'+e.message)}).then(function(){btn.disabled=false;btn.textContent='Publish'});
 }
 function uploadImage(file){
-  if(!sessionTok)return Promise.reject(new Error('Add your GitHub access token on the Dashboard first.'));
   return createImageBitmap(file).then(function(bm){
     var max=1600,sc=Math.min(1,max/Math.max(bm.width,bm.height)),cv=document.createElement('canvas');
     cv.width=Math.round(bm.width*sc);cv.height=Math.round(bm.height*sc);cv.getContext('2d').drawImage(bm,0,0,cv.width,cv.height);
     return new Promise(function(res){cv.toBlob(res,'image/jpeg',.88)});
   }).then(function(blob){
     return new Promise(function(res){var rd=new FileReader();rd.onload=function(){res(rd.result.split(',')[1])};rd.readAsDataURL(blob)});
-  }).then(function(b){
-    var name='assets/uploads/'+Date.now()+'-'+file.name.replace(/[^a-z0-9._-]/gi,'_').replace(/\.[^.]+$/,'')+'.jpg';
-    return putFile(name,b,'Upload photo from admin panel').then(function(){return name});
-  });
+  }).then(function(b){return api('/api/upload',{name:file.name,data:b})}).then(function(j){return j.url});
 }
 
-/* ---------- init ---------- */
-$('#burger').addEventListener('click',function(){$('#side').classList.toggle('open')});
-$('#preview').addEventListener('click',previewDraft);
-$('#publish').addEventListener('click',function(){doPublish()});
-fetch('../content.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('Could not load content.json ('+r.status+')');return r.json()}).then(function(j){
-  published=j;var d=store.get(DRAFT),draft=null;
-  if(d){try{draft=JSON.parse(d)}catch(e){}}
-  C=draft||clone(j);
-  if(draft&&JSON.stringify(draft)!==JSON.stringify(j))toast('Your unpublished draft was restored.');
-  refreshState();render();
-}).catch(function(e){$('#view').appendChild(el('div',{class:'msg err',text:e.message}))});
-addEventListener('beforeunload',function(e){if(C&&isDirty()){touch()}});
+/* ---------- login + init ---------- */
+function loginScreen(info){
+  document.querySelector('.layout').style.display='none';
+  document.querySelector('.top').style.display='none';
+  var pw=el('input',{type:'password',placeholder:'Password',autocomplete:'current-password'});
+  var err=el('div',{class:'msg err',style:'display:none'});
+  var btn=el('button',{class:'btn primary',type:'submit',text:'Sign in'});
+  var form=el('form',{class:'login'},[
+    el('div',{class:'logo',text:'MS'}),
+    el('h1',{text:'Portfolio Admin'}),
+    el('p',{class:'lead',text:'Sign in to edit your portfolio.'}),
+    pw,btn,err]);
+  if(info&&!info.passwordSet){err.style.display='block';err.textContent='Setup not finished: the admin password has not been set on the server yet.'}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();err.style.display='none';btn.disabled=true;btn.textContent='Checking…';
+    api('/api/login',{password:pw.value}).then(function(){location.reload()}).catch(function(x){err.textContent=x.message;err.style.display='block';btn.disabled=false;btn.textContent='Sign in';pw.select()});
+  });
+  document.body.appendChild(el('div',{class:'loginwrap'},[form]));
+  pw.focus();
+}
+function start(){
+  $('#burger').addEventListener('click',function(){$('#side').classList.toggle('open')});
+  $('#preview').addEventListener('click',previewDraft);
+  $('#publish').addEventListener('click',function(){doPublish()});
+  store.del('portfolio_admin_token');store.del('portfolio_admin_cfg');
+  fetch('/api/content?fresh=1',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).catch(function(){return fetch('../content.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('Could not load the content ('+r.status+')');return r.json()})}).then(function(j){
+    published=j;var d=store.get(DRAFT),draft=null;
+    if(d){try{draft=JSON.parse(d)}catch(e){}}
+    C=draft||clone(j);
+    if(draft&&JSON.stringify(draft)!==JSON.stringify(j))toast('Your unpublished draft was restored.');
+    refreshState();render();
+  }).catch(function(e){$('#view').appendChild(el('div',{class:'msg err',text:e.message}))});
+}
+fetch('/api/me',{credentials:'same-origin',cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('no api');return r.json()}).then(function(info){
+  if(info.authed)start();else loginScreen(info);
+}).catch(function(){
+  document.body.appendChild(el('div',{class:'loginwrap'},[el('div',{class:'login'},[el('h1',{text:'Portfolio Admin'}),el('div',{class:'msg err',text:'The admin service is not reachable here. Open the admin from the live website address.'})])]));
+  document.querySelector('.layout').style.display='none';document.querySelector('.top').style.display='none';
+});
 })();
