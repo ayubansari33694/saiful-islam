@@ -16,12 +16,24 @@ function safeUrl(u){u=String(u||'');return /^(https?:|mailto:|assets\/|\/|#)/i.t
 function get(o,path){return path.split('.').reduce(function(a,k){return a==null?a:a[k]},o)}
 
 /* ---------- load content ---------- */
+function migrate(d,b){
+  if(!d||!b)return d;
+  var hadTraining=Array.isArray(d.training);
+  Object.keys(b).forEach(function(k){if(d[k]===undefined)d[k]=b[k]});
+  if(b.t){d.t=d.t||{};Object.keys(b.t).forEach(function(k){if(d.t[k]===undefined)d.t[k]=b.t[k]})}
+  if(!hadTraining&&Array.isArray(d.certs))d.certs=d.certs.filter(function(c){var e=c&&c.text&&(c.text.en||c.text);return !/^Training:/.test(String(e))});
+  return d;
+}
 function load(){
   if(location.search.indexOf('preview=1')>-1){
     var d=store.get('portfolio_draft');
     if(d){try{return Promise.resolve(JSON.parse(d))}catch(e){}}
   }
-  return fetch('/api/content',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).catch(function(){return fetch('content.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()})});
+  var bundled=function(){return fetch('content.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()})};
+  return fetch('/api/content',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(live){
+    if(Array.isArray(live.training)&&live.layout&&live.galleryCats)return live;
+    return bundled().then(function(b){return migrate(live,b)}).catch(function(){return live});
+  }).catch(bundled);
 }
 
 /* ---------- render ---------- */
@@ -59,6 +71,8 @@ function renderLists(){
   $('#certs').innerHTML=arr(C.certs).map(function(c){return '<li class="'+r+'"><b>'+esc(c.year)+'</b><span>'+esc(L(c.text))+'</span></li>'}).join('');
   $('#skills-grid').innerHTML=arr(C.skills).map(function(s){return '<div class="card '+r+'"><h3>'+esc(L(s.title))+'</h3><div class="chips">'+arr(s.chips).map(function(x){return '<span>'+esc(x)+'</span>'}).join('')+'</div></div>'}).join('');
   $('#edu-grid').innerHTML=arr(C.education).map(function(e){return '<article class="card '+r+'"><span class="year">'+esc(e.year)+'</span><h3>'+esc(L(e.title))+'</h3>'+(L(e.org)?'<p class="org">'+esc(L(e.org))+'</p>':'')+(L(e.text)?'<p class="edtext">'+esc(L(e.text))+'</p>':'')+(L(e.extra)?'<p class="edtext">'+esc(L(e.extra))+'</p>':'')+'</article>'}).join('');
+  $('#training-cards').innerHTML=arr(C.training).map(function(t){return '<article class="card tilt '+r+'">'+(t.year?'<span class="'+(String(t.year).length>5?'tag':'year')+'">'+esc(t.year)+'</span>':'')+'<div class="ico">'+esc(t.icon||'🛠️')+'</div><h3>'+esc(L(t.title))+'</h3>'+(L(t.org)?'<p class="org">'+esc(L(t.org))+'</p>':'')+(L(t.text)?'<p>'+esc(L(t.text))+'</p>':'')+'</article>'}).join('');
+  renderCustom(r);
   renderGallery(r);
   $('#extra-links').innerHTML=arr(C.links).filter(function(l){return l&&l.url}).map(function(l){return '<a class="btn ghost" href="'+esc(safeUrl(l.url))+'" target="_blank" rel="noopener">'+esc(L(l.label)||l.url)+'</a>'}).join('');
   renderPubs();
@@ -92,24 +106,50 @@ $('#galPrev').addEventListener('click',function(){var g=$('#gallery-grid');g.scr
 $('#galNext').addEventListener('click',function(){var g=$('#gallery-grid');g.scrollBy({left:g.clientWidth*.8,behavior:'smooth'})});
 
 /* ---------- section order / visibility (from admin "Page sections") ---------- */
-var DEF_LAYOUT=['about','research','experience','achievements','gallery','publications','skills','education','contact'];
-var NAVKEY={about:'nav_about',research:'nav_research',experience:'nav_experience',achievements:'nav_awards',gallery:'nav_gallery',publications:'nav_pubs',skills:'nav_skills',education:'nav_edu',contact:'nav_contact'};
-var NAVDEF={about:'About',research:'Research',experience:'Experience',achievements:'Awards',gallery:'Gallery',publications:'Publications',skills:'Skills',education:'Education',contact:'Contact'};
+var DEF_LAYOUT=['about','research','experience','achievements','training','gallery','publications','skills','education','contact'];
+var NAVKEY={about:'nav_about',research:'nav_research',experience:'nav_experience',achievements:'nav_awards',training:'nav_training',gallery:'nav_gallery',publications:'nav_pubs',skills:'nav_skills',education:'nav_edu',contact:'nav_contact'};
+var NAVDEF={about:'About',research:'Research',experience:'Experience',achievements:'Awards',training:'Training',gallery:'Gallery',publications:'Publications',skills:'Skills',education:'Education',contact:'Contact'};
+function customs(){return arr(C.customSections).filter(function(c){return c&&c.id})}
 function layout(){
-  var seen={},l=arr(C.layout).filter(function(x){return x&&NAVKEY[x.id]&&!seen[x.id]&&(seen[x.id]=1)});
-  DEF_LAYOUT.forEach(function(id){if(!seen[id])l.push({id:id,show:true})});
+  var ids=DEF_LAYOUT.concat(customs().map(function(c){return 'cs_'+c.id})),known={};ids.forEach(function(i){known[i]=1});
+  var seen={},l=arr(C.layout).filter(function(x){return x&&known[x.id]&&!seen[x.id]&&(seen[x.id]=1)});
+  ids.forEach(function(id,k){
+    if(seen[id])return;seen[id]=1;
+    var at=-1;
+    if(id.indexOf('cs_')===0){for(var q=0;q<l.length;q++)if(l[q].id==='contact')at=q}
+    else{for(var m=k-1;m>=0&&at<0;m--)for(var q2=0;q2<l.length;q2++)if(l[q2].id===DEF_LAYOUT[m])at=q2+1}
+    if(at<0)l.push({id:id,show:true});else l.splice(at,0,{id:id,show:true});
+  });
   return l;
+}
+/* extra sections made in the admin ("Add new sections") */
+function renderCustom(r){
+  var main=$('main'),have={};
+  customs().forEach(function(c){
+    var id='cs_'+c.id,s=document.getElementById(id);have[id]=1;
+    if(!s){s=document.createElement('section');s.className='section';s.id=id;main.insertBefore(s,$('#contact'))}
+    var items=arr(c.items).filter(function(i){return i&&(L(i.title)||L(i.text))}),lay=c.layout||'cards',h='';
+    h+='<div class="sec-head reveal in"><span class="num">00</span><h2>'+esc(L(c.title))+'</h2></div>';
+    if(L(c.intro))h+='<p class="gal-sub reveal in">'+esc(L(c.intro))+'</p>';
+    function link(i){return i.link?'<a class="link" href="'+esc(safeUrl(i.link))+'" target="_blank" rel="noopener">'+esc(L(i.linkText)||'Open →')+'</a>':''}
+    if(lay==='list')h+='<ul class="certs">'+items.map(function(i){return '<li class="'+r+'"><b>'+esc(i.tag||'•')+'</b><span>'+esc(L(i.title))+(L(i.text)?' — '+esc(L(i.text)):'')+' '+link(i)+'</span></li>'}).join('')+'</ul>';
+    else if(lay==='timeline')h+='<div class="timeline">'+items.map(function(i){return '<article class="t-item '+r+'"><span class="dot"></span><div class="t-card card"><div class="t-meta"><span>'+esc(i.tag||'')+'</span></div><h3>'+esc(L(i.title))+'</h3>'+(L(i.text)?'<p class="org">'+esc(L(i.text))+'</p>':'')+link(i)+'</div></article>'}).join('')+'</div>';
+    else h+='<div class="cards3">'+items.map(function(i){return '<article class="card tilt '+r+'">'+(i.tag?'<span class="'+(String(i.tag).length>5?'tag':'year')+'">'+esc(i.tag)+'</span>':'')+'<div class="ico">'+esc(i.icon||'✨')+'</div><h3>'+esc(L(i.title))+'</h3>'+(L(i.text)?'<p>'+esc(L(i.text))+'</p>':'')+link(i)+'</article>'}).join('')+'</div>';
+    s.innerHTML=h;s.dataset.empty=items.length?'':'1';
+  });
+  $$('main section[id^="cs_"]').forEach(function(s){if(!have[s.id])s.remove()});
 }
 function applyLayout(){
   var prev=$('#stats'),n=0,nav='';
   layout().forEach(function(x){
     var s=document.getElementById(x.id);if(!s)return;
-    var show=x.show!==false&&!(x.id==='gallery'&&!arr(C.gallery).filter(function(g){return g&&g.img}).length);
+    var show=x.show!==false&&!(x.id==='gallery'&&!arr(C.gallery).filter(function(g){return g&&g.img}).length)&&!(x.id==='training'&&!arr(C.training).length)&&s.dataset.empty!=='1';
     s.style.display=show?'':'none';
     prev.after(s);prev=s;
     if(!show)return;
     var num=$('.num',s);if(num){n++;num.textContent=(n<10?'0':'')+n}
-    nav+='<a href="#'+x.id+'">'+esc(T(NAVKEY[x.id])||NAVDEF[x.id])+'</a>';
+    var lbl=x.id.indexOf('cs_')===0?L((customs().filter(function(c){return 'cs_'+c.id===x.id})[0]||{}).title):(T(NAVKEY[x.id])||NAVDEF[x.id]);
+    nav+='<a href="#'+x.id+'">'+esc(lbl)+'</a>';
   });
   $('#links').innerHTML=nav;
 }

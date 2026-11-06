@@ -262,6 +262,21 @@
    "en": "All",
    "bn": "সব",
    "ar": "الكل"
+  },
+  "tr_h": {
+   "en": "Training",
+   "bn": "প্রশিক্ষণ",
+   "ar": "التدريب"
+  },
+  "tr_sub": {
+   "en": "Hands-on lab training and technical courses.",
+   "bn": "ল্যাবের হাতে-কলমে প্রশিক্ষণ ও কারিগরি কোর্স।",
+   "ar": "تدريب مخبري عملي ودورات تقنية."
+  },
+  "nav_training": {
+   "en": "Training",
+   "bn": "প্রশিক্ষণ",
+   "ar": "التدريب"
   }
  },
  "typed": [
@@ -744,14 +759,6 @@
     "bn": "MIMOS হাই-ভ্যালু সেমিকন্ডাক্টর টেকনোলজি সেমিনার: ANSYS CAE Solution — মালয়েশিয়া",
     "ar": "ندوة MIMOS لتقنيات أشباه الموصلات عالية القيمة: حلول ANSYS CAE — ماليزيا"
    }
-  },
-  {
-   "year": "—",
-   "text": {
-    "en": "Training: solar cell fabrication and characterisation (HiCOE, UNITEN) and thin-film PZT cell soldering (NSF project, UNITEN)",
-    "bn": "প্রশিক্ষণ: সোলার সেল ফ্যাব্রিকেশন ও ক্যারেক্টারাইজেশন (HiCOE, UNITEN) এবং থিন-ফিল্ম PZT সেল সোল্ডারিং (NSF প্রকল্প, UNITEN)",
-    "ar": "تدريب: تصنيع الخلايا الشمسية وتوصيفها (HiCOE، UNITEN) ولحام خلايا PZT الرقيقة (مشروع NSF، UNITEN)"
-   }
   }
  ],
  "publications": [
@@ -978,6 +985,10 @@
    "show": true
   },
   {
+   "id": "training",
+   "show": true
+  },
+  {
    "id": "gallery",
    "show": true
   },
@@ -1058,5 +1069,46 @@
    }
   }
  ],
- "background": "classic"
+ "background": "classic",
+ "training": [
+  {
+   "year": "HiCOE · UNITEN",
+   "icon": "🔬",
+   "title": {
+    "en": "Solar cell fabrication and characterisation",
+    "bn": "সোলার সেল ফ্যাব্রিকেশন ও ক্যারেক্টারাইজেশন",
+    "ar": "تصنيع الخلايا الشمسية وتوصيفها"
+   },
+   "org": {
+    "en": "HiCOE, UNITEN",
+    "bn": "HiCOE, UNITEN",
+    "ar": "HiCOE، UNITEN"
+   },
+   "text": {
+    "en": "Hands-on training in fabricating thin-film solar cells and measuring their performance.",
+    "bn": "থিন-ফিল্ম সোলার সেল তৈরি এবং এর কার্যক্ষমতা পরিমাপের হাতে-কলমে প্রশিক্ষণ।",
+    "ar": "تدريب عملي على تصنيع الخلايا الشمسية الرقيقة وقياس أدائها."
+   }
+  },
+  {
+   "year": "NSF · UNITEN",
+   "icon": "🛠️",
+   "title": {
+    "en": "Thin-film PZT cell soldering",
+    "bn": "থিন-ফিল্ম PZT সেল সোল্ডারিং",
+    "ar": "لحام خلايا PZT الرقيقة"
+   },
+   "org": {
+    "en": "NSF project, UNITEN",
+    "bn": "NSF প্রকল্প, UNITEN",
+    "ar": "مشروع NSF، UNITEN"
+   },
+   "text": {
+    "en": "Soldering and assembly of thin-film PZT cells for the NSF project.",
+    "bn": "NSF প্রকল্পের জন্য থিন-ফিল্ম PZT সেলের সোল্ডারিং ও অ্যাসেম্বলি।",
+    "ar": "لحام وتجميع خلايا PZT الرقيقة لمشروع NSF."
+   }
+  }
+ ],
+ "customSections": []
 }

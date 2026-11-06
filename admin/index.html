@@ -9,15 +9,21 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0b1220">
 <link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem('admin_theme');if(!t)t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}</script>
 <link rel="stylesheet" href="admin.css">
 </head>
 <body>
+<div class="aur" aria-hidden="true"><i></i><i></i><i></i></div>
 <header class="top">
   <button class="burger" id="burger" aria-label="Menu">☰</button>
   <div class="brand"><span class="logo">MS</span><div class="ttl"><b>Portfolio Admin</b><span id="who">Md Saiful Islam</span></div></div>
   <span class="pill" id="state">Loading…</span>
   <div class="grow"></div>
   <div class="seg" id="editlang" role="group" aria-label="Language you are editing"><span class="seglbl">Editing</span><button type="button" data-l="en">EN</button><button type="button" data-l="bn">বাং</button><button type="button" data-l="ar">عربي</button><button type="button" data-l="all">All</button></div>
+  <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch light / dark theme" title="Light / dark"><span class="i-moon">🌙</span><span class="i-sun">☀️</span></button>
   <a class="btn ghost" id="viewSite" href="../" target="_blank" rel="noopener">View site ↗</a>
   <button class="btn" id="preview">Preview</button>
   <button class="btn primary pubbtn" id="publish" data-l="Publish">Publish</button>
