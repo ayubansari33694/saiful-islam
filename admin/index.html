@@ -14,17 +14,19 @@
 <body>
 <header class="top">
   <button class="burger" id="burger" aria-label="Menu">☰</button>
-  <div class="ttl"><b>Portfolio Admin</b><span id="who">Md Saiful Islam</span></div>
+  <div class="brand"><span class="logo">MS</span><div class="ttl"><b>Portfolio Admin</b><span id="who">Md Saiful Islam</span></div></div>
   <span class="pill" id="state">Loading…</span>
   <div class="grow"></div>
-  <a class="btn" id="viewSite" href="../" target="_blank" rel="noopener">View site</a>
-  <button class="btn" id="preview">Preview draft</button>
-  <button class="btn primary" id="publish">Publish</button>
+  <div class="seg" id="editlang" role="group" aria-label="Language you are editing"><span class="seglbl">Editing</span><button type="button" data-l="en">EN</button><button type="button" data-l="bn">বাং</button><button type="button" data-l="ar">عربي</button><button type="button" data-l="all">All</button></div>
+  <a class="btn ghost" id="viewSite" href="../" target="_blank" rel="noopener">View site ↗</a>
+  <button class="btn" id="preview">Preview</button>
+  <button class="btn primary pubbtn" id="publish" data-l="Publish">Publish</button>
 </header>
 <div class="layout">
-  <nav class="side" id="side" aria-label="Sections"></nav>
-  <main class="main" id="view"></main>
+  <nav class="side" id="side" aria-label="Sections"><div class="sidesearch"><input id="sideq" type="search" placeholder="Find a section…" autocomplete="off"></div><div id="sidelist"></div></nav>
+  <main class="main" id="view" data-el="all"></main>
 </div>
+<div class="mbar"><button class="btn" id="mPreview" type="button">Preview</button><button class="btn primary pubbtn" id="mPublish" type="button" data-l="Publish">Publish</button></div>
 <div class="toasts" id="toasts" aria-live="polite"></div>
 <script src="admin.js"></script>
 <script>if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js",{scope:"/admin/"}).catch(function(){});</script>
