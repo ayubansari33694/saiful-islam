@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Md Saiful Islam — Solar Energy & Thin-Film Researcher</title>
+<meta name="description" content="Portfolio of Md Saiful Islam: R&D engineer and researcher in thin-film photovoltaics, MoS₂ and CZTS solar cells. MSc Electronic Engineering, UNITEN, Malaysia.">
+<meta property="og:title" content="Md Saiful Islam — Solar Energy & Thin-Film Researcher">
+<meta property="og:description" content="Thin-film photovoltaics, MoS₂ & CZTS solar cells, 6 publications.">
+<meta property="og:image" content="assets/photo.jpg">
+<meta name="theme-color" content="#050b18">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);
+  else if(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)document.documentElement.setAttribute('data-theme','light');}catch(e){}
+</script>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="glow" id="glow" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a href="#home" class="brand" aria-label="Md Saiful Islam"><span class="logo">MS</span><span class="brand-name">Saiful Islam</span></a>
+  <nav class="links" id="links">
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#research" data-i18n="nav_research">Research</a>
+    <a href="#experience" data-i18n="nav_experience">Experience</a>
+    <a href="#publications" data-i18n="nav_pubs">Publications</a>
+    <a href="#skills" data-i18n="nav_skills">Skills</a>
+    <a href="#education" data-i18n="nav_edu">Education</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+  </nav>
+  <div class="tools">
+    <button class="pill" id="lang" aria-label="Switch language"><span class="on">EN</span><span>বাং</span></button>
+    <button class="icon-btn" id="theme" aria-label="Toggle theme">
+      <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <button class="icon-btn menu" id="menu" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <p class="eyebrow reveal" data-i18n="hero_eyebrow">Researcher · R&amp;D Engineer</p>
+    <h1 class="reveal">
+      <span data-i18n="hero_hi">Hi, I'm</span><br>
+      <span class="grad">Md Saiful Islam</span>
+    </h1>
+    <p class="typed reveal"><span id="typed"></span><i class="caret"></i></p>
+    <p class="lead reveal" data-i18n="hero_lead">I engineer next-generation thin-film solar cells. My work on MoS₂ and CZTS lifted simulated cell efficiency from 8.42% to 11.43%, and I turn lab data into clean, sustainable energy.</p>
+    <div class="cta reveal">
+      <a class="btn primary" href="#publications" data-i18n="hero_cta1">View Publications</a>
+      <a class="btn ghost" href="#contact" data-i18n="hero_cta2">Get in touch</a>
+    </div>
+    <ul class="social reveal">
+      <li><a href="https://scholar.google.com/citations?hl=en&user=llZV_GoAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3 1 9l4 2.2v6h2v-5L12 15l7-3.8V17h2V9L12 3zm0 14.5-5-2.7V18c0 1.7 2.2 3 5 3s5-1.3 5-3v-3.2l-5 2.7z" transform="translate(0 -1)"/></svg><span>Scholar</span></a></li>
+      <li><a href="https://www.linkedin.com/in/md-saiful-islam-8713b7220/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.5zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4V9.5z"/></svg><span>LinkedIn</span></a></li>
+      <li><a href="mailto:saifsaifulislam765@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a></li>
+    </ul>
+  </div>
+  <div class="hero-visual reveal">
+    <div class="orbit o1"><span class="chip">MoS₂</span></div>
+    <div class="orbit o2"><span class="chip">CZTS</span></div>
+    <div class="orbit o3"><span class="chip">SCAPS-1D</span></div>
+    <div class="photo-ring"><div class="photo"><img src="assets/photo.jpg" alt="Portrait of Md Saiful Islam" width="256" height="256"></div></div>
+    <div class="badge b1"><b>11.43%</b><small data-i18n="badge_eff">simulated efficiency</small></div>
+    <div class="badge b2"><b>Q1</b><small data-i18n="badge_q1">journals</small></div>
+  </div>
+  <a href="#about" class="scroll" aria-label="Scroll"><span></span></a>
+</section>
+
+<!-- STATS -->
+<section class="stats" aria-label="Highlights">
+  <div class="stat reveal"><b data-count="6">0</b><span data-i18n="st_pubs">Publications</span></div>
+  <div class="stat reveal"><b data-count="107" data-suffix="+">0</b><span data-i18n="st_cites">Citations</span></div>
+  <div class="stat reveal"><b data-count="3" data-suffix="+">0</b><span data-i18n="st_years">Years in research</span></div>
+  <div class="stat reveal"><b data-count="9">0</b><span data-i18n="st_tech">Lab techniques</span></div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="sec-head reveal"><span class="num">01</span><h2 data-i18n="about_h">About me</h2></div>
+  <div class="about-grid">
+    <div class="card reveal">
+      <p data-i18n="about_p1">I'm a researcher and R&amp;D engineer focused on thin-film photovoltaics and 2D materials. I recently completed my MSc in Electronic Engineering at Universiti Tenaga Nasional (UNITEN), Malaysia, where I worked as a full-time Research Assistant at the Institute of Sustainable Energy.</p>
+      <p data-i18n="about_p2">I combine hands-on fabrication and characterisation with device-level simulation, so ideas move from the model to the lab and back with evidence at every step.</p>
+      <p data-i18n="about_p3">I'm looking for R&amp;D engineering roles in industry and academia where I can contribute to measurable results and keep learning.</p>
+    </div>
+    <div class="card reveal facts">
+      <h3 data-i18n="facts_h">Quick facts</h3>
+      <ul>
+        <li><span data-i18n="f_loc">Based in</span><b data-i18n="f_loc_v">Labonchara, Khulna, Bangladesh</b></li>
+        <li><span data-i18n="f_deg">Degree</span><b data-i18n="f_deg_v">MSc Electronic Engineering (2025)</b></li>
+        <li><span data-i18n="f_focus">Focus</span><b data-i18n="f_focus_v">Thin-film PV · MoS₂ · CZTS</b></li>
+        <li><span data-i18n="f_lang">Languages</span><b data-i18n="f_lang_v">Bangla · English</b></li>
+        <li><span data-i18n="f_mail">Email</span><b><a href="mailto:saifsaifulislam765@gmail.com">saifsaifulislam765@gmail.com</a></b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="section" id="research">
+  <div class="sec-head reveal"><span class="num">02</span><h2 data-i18n="res_h">Research focus</h2></div>
+  <div class="highlight card reveal">
+    <div class="hl-text">
+      <span class="tag" data-i18n="hl_tag">Featured result</span>
+      <h3 data-i18n="hl_h">p-type MoS₂ back contact lifts CZTS efficiency by 36%</h3>
+      <p data-i18n="hl_p">Using SCAPS-1D modelling, a p-type MoS₂ interlayer improved the open-circuit voltage from 0.569 V to 0.665 V and the fill factor from 64.76% to 73.07%. The baseline device rose from 8.42% to 11.43% efficiency.</p>
+      <a class="link" href="https://doi.org/10.1016/j.jmrt.2024.11.016" target="_blank" rel="noopener" data-i18n="read_paper">Read the paper →</a>
+    </div>
+    <div class="hl-chart" role="img" aria-label="Efficiency comparison: baseline 8.42 percent, with p-type MoS2 11.43 percent, with n-type MoS2 7.39 percent">
+      <div class="bar-row"><span data-i18n="bar1">Baseline CZTS</span><div class="bar"><i style="--w:73.7%"></i></div><b>8.42%</b></div>
+      <div class="bar-row"><span data-i18n="bar2">With p-type MoS₂</span><div class="bar best"><i style="--w:100%"></i></div><b>11.43%</b></div>
+      <div class="bar-row"><span data-i18n="bar3">With n-type MoS₂</span><div class="bar"><i style="--w:64.7%"></i></div><b>7.39%</b></div>
+    </div>
+  </div>
+  <div class="cards3">
+    <article class="card tilt reveal"><div class="ico">🔬</div><h3 data-i18n="r1_h">MoS₂ thin-film synthesis</h3><p data-i18n="r1_p">Sulfurization of molybdenum films. I study how temperature, chamber pressure and time shape crystallinity, defects and electronic properties.</p><div class="tags"><span>Sputtering</span><span>Sulfurization</span><span>2D materials</span></div></article>
+    <article class="card tilt reveal"><div class="ico">☀️</div><h3 data-i18n="r2_h">CZTS solar-cell simulation</h3><p data-i18n="r2_p">Device-level modelling in SCAPS-1D to see how MoS₂ interlayers and defects change carrier transport and photovoltaic performance.</p><div class="tags"><span>SCAPS-1D</span><span>Defect engineering</span><span>Kesterite</span></div></article>
+    <article class="card tilt reveal"><div class="ico">🚲</div><h3 data-i18n="r3_h">Sustainable energy bike lanes</h3><p data-i18n="r3_p">Research on energy-harvesting bicycle lanes for Kuala Lumpur, a smart-city project funded under the NSF and U.S. State Department programme.</p><div class="tags"><span>Smart cities</span><span>Energy harvesting</span><span>Green mobility</span></div></article>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="sec-head reveal"><span class="num">03</span><h2 data-i18n="exp_h">Experience</h2></div>
+  <div class="timeline">
+    <article class="t-item reveal">
+      <span class="dot"></span>
+      <div class="t-card card">
+        <div class="t-meta"><span>Oct 2022 – Jun 2025</span><span class="tag" data-i18n="ft">Full-time</span></div>
+        <h3 data-i18n="e1_role">Research Assistant — Developing Solar Cells</h3>
+        <p class="org">Institute of Sustainable Energy (ISE), Universiti Tenaga Nasional (UNITEN), Malaysia</p>
+        <ul>
+          <li data-i18n="e1_a">Researched MoS₂ transition-metal dichalcogenide thin films, studying how sulfurization parameters and chamber pressure affect structural, optical and electronic properties.</li>
+          <li data-i18n="e1_b">Designed and optimised fabrication processes to improve crystallinity and control defects for optoelectronic and photovoltaic use.</li>
+          <li data-i18n="e1_c">Characterised materials with XRD, Raman, FESEM, photoluminescence and Hall effect to link structure with properties.</li>
+          <li data-i18n="e1_d">Simulated CZTS solar cells in SCAPS-1D and evaluated the effect of MoS₂ interlayers on carrier transport and performance.</li>
+          <li data-i18n="e1_e">Co-authored peer-reviewed journal papers, supervised lab activities and collaborated with international researchers.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="t-item reveal">
+      <span class="dot"></span>
+      <div class="t-card card">
+        <div class="t-meta"><span>May 2024 – Jul 2024</span><span class="tag" data-i18n="pt">Part-time</span></div>
+        <h3 data-i18n="e2_role">Research Assistant — Sustainable Energy Bike Lanes</h3>
+        <p class="org">Monash University Malaysia · NSF / U.S. State Department project, Kuala Lumpur</p>
+        <ul>
+          <li data-i18n="e2_a">Supported research on renewable energy in smart transport infrastructure and on the energy-harvesting bike-lane process.</li>
+          <li data-i18n="e2_b">Collected and analysed energy-generation data from cycling infrastructure in Kuala Lumpur.</li>
+          <li data-i18n="e2_c">Worked in a multidisciplinary team on feasibility, reports and presentations for stakeholders.</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="section" id="publications">
+  <div class="sec-head reveal"><span class="num">04</span><h2 data-i18n="pub_h">Publications</h2></div>
+  <div class="filters reveal" id="filters">
+    <button class="chipbtn active" data-f="all" data-i18n="fl_all">All</button>
+    <button class="chipbtn" data-f="journal" data-i18n="fl_j">Journals</button>
+    <button class="chipbtn" data-f="conf" data-i18n="fl_c">Conference</button>
+  </div>
+  <div class="pubs" id="pubs"></div>
+  <p class="note reveal"><a class="link" href="https://scholar.google.com/citations?hl=en&user=llZV_GoAAAAJ" target="_blank" rel="noopener" data-i18n="all_scholar">See all on Google Scholar →</a></p>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="sec-head reveal"><span class="num">05</span><h2 data-i18n="sk_h">Skills &amp; lab techniques</h2></div>
+  <div class="skills-grid">
+    <div class="card reveal"><h3 data-i18n="sk1">Characterisation &amp; lab</h3>
+      <div class="chips"><span>Thin film deposition</span><span>Sulfurization</span><span>XRD</span><span>Raman</span><span>FESEM</span><span>Photoluminescence</span><span>Hall effect</span><span>UV/Vis</span><span>Profilometer</span><span>Microscopy</span><span>PZT cell soldering</span></div></div>
+    <div class="card reveal"><h3 data-i18n="sk2">Simulation &amp; software</h3>
+      <div class="chips"><span>SCAPS-1D</span><span>PVsol</span><span>MATLAB</span><span>Origin</span><span>Burai</span><span>Mendeley</span></div></div>
+    <div class="card reveal"><h3 data-i18n="sk3">Programming &amp; tools</h3>
+      <div class="chips"><span>C / C++</span><span>C#</span><span>Linux (basic)</span><span>MS Word</span><span>MS Excel</span><span>MS PowerPoint</span></div></div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="sec-head reveal"><span class="num">06</span><h2 data-i18n="edu_h">Education &amp; certifications</h2></div>
+  <div class="edu-grid">
+    <article class="card reveal"><span class="year">2025</span><h3 data-i18n="d1_h">MSc in Electronic Engineering</h3><p class="org">Universiti Tenaga Nasional (UNITEN), Malaysia</p><p data-i18n="d1_p">Major: Electronics and Materials Engineering · Minor: Electrical</p></article>
+    <article class="card reveal"><span class="year">2021</span><h3 data-i18n="d2_h">BSc in Electrical &amp; Electronic Engineering</h3><p class="org">North Western University (NWU), Khulna</p><p data-i18n="d2_p">Major: Electrical Power and Mathematics · Minor: Electronics, Chemistry</p></article>
+  </div>
+  <h3 class="sub reveal" data-i18n="cert_h">Conferences &amp; seminars</h3>
+  <ul class="certs">
+    <li class="reveal"><b>2024</b><span data-i18n="c1">International Conference on Sustainable Energy, Infrastructure and Environment — Putrajaya, Malaysia</span></li>
+    <li class="reveal"><b>2024</b><span data-i18n="c2">International Conference on Sustainable Energy and Green Technology — Bangkok, Thailand</span></li>
+    <li class="reveal"><b>2024</b><span data-i18n="c3">X-ray Metrology Solutions for Semiconductor and Electronic Devices seminar — MIMOS Berhad, Kuala Lumpur</span></li>
+    <li class="reveal"><b>2023</b><span data-i18n="c4">MIMOS High-Value Semiconductor Technology Seminar: ANSYS CAE Solution — Malaysia</span></li>
+    <li class="reveal"><b>—</b><span data-i18n="c5">Training: solar cell fabrication and characterisation (HiCOE, UNITEN) and thin-film PZT cell soldering (NSF project, UNITEN)</span></li>
+  </ul>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="contact card reveal">
+    <h2 data-i18n="ct_h">Let's work together</h2>
+    <p data-i18n="ct_p">Open to R&amp;D engineering roles, research collaborations and PhD opportunities in solar energy and thin-film materials.</p>
+    <div class="cta center">
+      <a class="btn primary" href="mailto:saifsaifulislam765@gmail.com" data-i18n="ct_mail">Send an email</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/md-saiful-islam-8713b7220/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://scholar.google.com/citations?hl=en&user=llZV_GoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+    </div>
+    <p class="small">saifsaifulislam765@gmail.com · mdsaiful@uniten.edu.my</p>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <span>© <span id="yr"></span> Md Saiful Islam</span>
+  <span data-i18n="foot">Designed &amp; built with care.</span>
+  <a href="#home" data-i18n="top">Back to top ↑</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
