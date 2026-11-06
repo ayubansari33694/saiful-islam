@@ -96,3 +96,10 @@ code{background:var(--panel2);border:1px solid var(--line);padding:1px 6px;borde
 .galtabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
 .gtab{border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:99px;padding:6px 14px;cursor:pointer;font:600 13px system-ui}
 .gtab.on{color:#fff;border-color:transparent;background:linear-gradient(135deg,var(--acc),var(--acc2))}
+
+.bgpick{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.bgcard{text-align:left;background:var(--panel2);border:2px solid var(--line);border-radius:14px;padding:10px;color:var(--text);cursor:pointer;display:flex;flex-direction:column;gap:6px;font:inherit;transition:.2s}
+.bgcard:hover{border-color:var(--acc)}
+.bgcard.on{border-color:var(--acc);box-shadow:0 0 0 3px #22d3ee33}
+.bgcard .bgprev{display:block;height:110px;border-radius:10px;border:1px solid var(--line)}
+.bgcard small{color:var(--muted);line-height:1.4}

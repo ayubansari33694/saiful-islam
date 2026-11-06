@@ -195,6 +195,7 @@ var SECTIONS=[
   {title:'Contact card',fields:[T('ct_h','Title'),T('ct_p','Message','tria'),T('ct_mail','“Send an email” button'),T('copy','“Copy email” button'),T('copied','Message after copying')]},
   {title:'Footer',fields:[T('foot','Footer text'),T('top','“Back to top” text')]}]},
  {sep:'Site'},
+ {id:'background',title:'Background',icon:'🎨',custom:'background'},
  {id:'layout',title:'Page sections',icon:'🧩',custom:'layout'},
  {id:'menu',title:'Menu labels',icon:'🧭',lead:'Names in the top navigation bar.',blocks:[
   {title:'Navigation',fields:[T('nav_about','About'),T('nav_research','Research'),T('nav_experience','Experience'),T('nav_awards','Awards'),T('nav_gallery','Gallery'),T('nav_pubs','Publications'),T('nav_skills','Skills'),T('nav_edu','Education'),T('nav_contact','Contact')]}]},
@@ -216,6 +217,7 @@ function render(){
   if(sec.custom==='backup')return backup(v);
   if(sec.custom==='gallery')return galleryView(v);
   if(sec.custom==='layout')return layoutView(v);
+  if(sec.custom==='background')return backgroundView(v);
   v.appendChild(el('h1',{text:sec.title}));v.appendChild(el('p',{class:'lead',text:sec.lead||''}));
   sec.blocks.forEach(function(b){
     var bl=el('section',{class:'block'},[el('h2',{text:b.title})]);
@@ -309,6 +311,31 @@ function galleryView(v){
   cb.addEventListener('input',function(){buildAll()});cb.addEventListener('click',function(){setTimeout(buildAll,0)});
   buildAll();
   v.appendChild(el('div',{class:'msg',text:'The gallery is hidden on the website automatically while it has no photos.'}));
+}
+
+/* ---------- background theme switcher ---------- */
+var BG_THEMES=[
+ ['classic','Classic','Dark blue with soft glowing colours and drifting dots (the original look).','radial-gradient(circle at 20% 20%,#0ea5e9aa,transparent 50%),radial-gradient(circle at 80% 70%,#6366f1aa,transparent 50%),#050b18'],
+ ['solar','Solar cells','A faint solar-panel grid with a light beam sweeping across and a warm sun glow. Fits your research.','radial-gradient(circle at 85% 0%,#fde04755,transparent 45%),linear-gradient(#8cc8ff30 1px,transparent 1px) 0 0/16px 16px,linear-gradient(90deg,#8cc8ff30 1px,transparent 1px) 0 0/16px 16px,#06132a'],
+ ['sunrise','Sunrise','Warm golden sunrise at the top that slowly turns into bright daylight as you scroll down.','radial-gradient(circle at 85% 5%,#ffe58a,#fb923c88 25%,transparent 55%),linear-gradient(#2a1450,#0a2147)'],
+ ['sections','Section-wise','Every section has its own mood and pattern. The background changes smoothly as you scroll.','linear-gradient(90deg,#0a1030,#04141f 25%,#1a1206 50%,#1a0b24 75%,#1d1040)']
+];
+function backgroundView(v){
+  v.appendChild(el('h1',{text:'Background'}));
+  v.appendChild(el('p',{class:'lead',text:'Choose the look of the website background. It works in both dark and light mode. Press “Preview draft” to see it, then Publish.'}));
+  var blk=el('section',{class:'block'},[el('h2',{text:'Choose a style'})]),grid=el('div',{class:'bgpick'});
+  function build(){
+    grid.innerHTML='';var cur=C.background||'classic';
+    BG_THEMES.forEach(function(t){
+      var card=el('button',{type:'button',class:'bgcard'+(cur===t[0]?' on':''),onclick:function(){C.background=t[0];touch();build()}},[
+        el('span',{class:'bgprev',style:'background:'+t[3]}),
+        el('b',{text:t[1]+(cur===t[0]?'  ✓':'')}),
+        el('small',{text:t[2]})]);
+      grid.appendChild(card);
+    });
+  }
+  build();blk.appendChild(grid);v.appendChild(blk);
+  v.appendChild(el('div',{class:'msg',text:'You can switch back and forth any time. Nothing is lost.'}));
 }
 
 /* ---------- page sections: order + show/hide ---------- */

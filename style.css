@@ -389,3 +389,71 @@ html[lang="bn"] .facts li span{text-transform:none}
 .v-polaroid .gitem img{aspect-ratio:1/1;object-fit:cover;border-radius:2px;height:auto}
 .v-polaroid .gitem figcaption{position:absolute;left:8px;right:8px;bottom:0;height:46px;padding:0;display:flex;align-items:center;justify-content:center;text-align:center;font:500 13px var(--font);color:#222;background:none;opacity:1;transform:none}
 @media(max-width:600px){.gallery.v-masonry{columns:2 140px;column-gap:10px}.gallery.v-grid{grid-template-columns:repeat(2,1fr);gap:10px}.gallery.v-mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px;gap:8px}.v-polaroid .gitem{width:calc(50% - 14px)}.gal-arrows button{width:38px;height:38px}}
+
+/* ---------- background themes (chosen in admin → Background) ---------- */
+@property --s1{syntax:'<color>';inherits:true;initial-value:#050b18}
+@property --s2{syntax:'<color>';inherits:true;initial-value:#0a1b3a}
+.bgx{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden;display:none;background:var(--bg)}
+.bgx i{position:absolute;display:none;pointer-events:none}
+html:not([data-bg="classic"]) .bgx{display:block}
+html:not([data-bg="classic"]) .aurora,html:not([data-bg="classic"]) #bg{display:none}
+@keyframes bgsweep{from{transform:translateX(-38%)}to{transform:translateX(38%)}}
+@keyframes bgpulse{from{opacity:.75;transform:scale(1)}to{opacity:1;transform:scale(1.07)}}
+@keyframes bgspin{to{transform:rotate(360deg)}}
+
+/* 1) Solar cells */
+html[data-bg="solar"] .bgx{background:radial-gradient(120% 80% at 82% -12%,rgba(56,189,248,.20),transparent 60%),radial-gradient(90% 70% at 0% 112%,rgba(99,102,241,.18),transparent 60%),linear-gradient(180deg,#040a16,#071327 60%,#050b18)}
+html[data-bg="solar"] .bgx .grid,html[data-bg="solar"] .bgx .sweep,html[data-bg="solar"] .bgx .sun{display:block}
+html[data-bg="solar"] .bgx .grid{inset:-2px;--c:rgba(150,205,255,.2);--b:rgba(150,205,255,.09);
+  background-image:linear-gradient(var(--c) 1px,transparent 1px),linear-gradient(90deg,var(--c) 1px,transparent 1px),linear-gradient(90deg,transparent 31.5%,var(--b) 31.5%,var(--b) 33%,transparent 33%,transparent 65%,var(--b) 65%,var(--b) 66.5%,transparent 66.5%);
+  background-size:76px 76px;-webkit-mask-image:radial-gradient(ellipse 120% 90% at 72% 18%,#000 0,rgba(0,0,0,.45) 75%);mask-image:radial-gradient(ellipse 120% 90% at 72% 18%,#000 0,rgba(0,0,0,.45) 75%)}
+html[data-bg="solar"] .bgx .sweep{inset:-30% -50%;background:linear-gradient(115deg,transparent 43%,rgba(255,255,255,.07) 50%,transparent 57%);animation:bgsweep 18s linear infinite alternate}
+html[data-bg="solar"] .bgx .sun{width:46vmax;height:46vmax;right:-14vmax;top:-18vmax;border-radius:50%;background:radial-gradient(circle,rgba(253,224,71,.40),rgba(251,146,60,.18) 45%,transparent 70%);filter:blur(8px);animation:bgpulse 9s ease-in-out infinite alternate}
+html[data-theme="light"][data-bg="solar"] .bgx{background:radial-gradient(120% 80% at 82% -12%,rgba(251,191,36,.28),transparent 60%),radial-gradient(90% 70% at 0% 112%,rgba(129,140,248,.2),transparent 60%),linear-gradient(180deg,#f5f9ff,#e6f0ff)}
+html[data-theme="light"][data-bg="solar"] .bgx .grid{--c:rgba(30,90,170,.14);--b:rgba(30,90,170,.07)}
+html[data-theme="light"][data-bg="solar"] .bgx .sweep{background:linear-gradient(115deg,transparent 43%,rgba(255,255,255,.65) 50%,transparent 57%)}
+
+/* 2) Sunrise (changes from dawn to daylight while you scroll) */
+html[data-bg="sunrise"] .bgx .l1,html[data-bg="sunrise"] .bgx .l2,html[data-bg="sunrise"] .bgx .sun,html[data-bg="sunrise"] .bgx .rays{display:block}
+html[data-bg="sunrise"] .bgx .l1,html[data-bg="sunrise"] .bgx .l2{inset:0}
+html[data-bg="sunrise"] .bgx .l1{background:radial-gradient(95% 62% at 82% 0%,rgba(251,146,60,.55),transparent 62%),radial-gradient(80% 60% at 8% 100%,rgba(244,114,182,.30),transparent 60%),linear-gradient(180deg,#1d1040,#0b0f26);opacity:calc(1 - var(--p,0))}
+html[data-bg="sunrise"] .bgx .l2{background:radial-gradient(95% 62% at 18% 0%,rgba(56,189,248,.45),transparent 60%),radial-gradient(80% 60% at 92% 100%,rgba(250,204,21,.20),transparent 60%),linear-gradient(180deg,#0a2147,#06142b);opacity:var(--p,0)}
+html[data-bg="sunrise"] .bgx .sun{width:40vmax;height:40vmax;right:-10vmax;top:-12vmax;border-radius:50%;background:radial-gradient(circle,rgba(255,236,150,.8) 0,rgba(253,186,60,.42) 22%,rgba(251,146,60,.14) 50%,transparent 70%);filter:blur(6px);transform:translateY(calc(var(--p,0)*38vh));transition:transform .25s linear}
+html[data-bg="sunrise"] .bgx .rays{width:100vmax;height:100vmax;right:-38vmax;top:-38vmax;background:repeating-conic-gradient(rgba(253,224,71,.10) 0 5deg,transparent 5deg 16deg);-webkit-mask-image:radial-gradient(circle,#000 0,transparent 62%);mask-image:radial-gradient(circle,#000 0,transparent 62%);animation:bgspin 160s linear infinite;opacity:calc(1 - var(--p,0)*.7)}
+html[data-theme="light"][data-bg="sunrise"] .bgx{background:#fff7ed}
+html[data-theme="light"][data-bg="sunrise"] .bgx .l1{background:radial-gradient(95% 62% at 82% 0%,rgba(251,146,60,.42),transparent 62%),radial-gradient(80% 60% at 8% 100%,rgba(244,114,182,.24),transparent 60%),linear-gradient(180deg,#fff1e3,#fde6f0)}
+html[data-theme="light"][data-bg="sunrise"] .bgx .l2{background:radial-gradient(95% 62% at 18% 0%,rgba(56,189,248,.4),transparent 60%),radial-gradient(80% 60% at 92% 100%,rgba(250,204,21,.28),transparent 60%),linear-gradient(180deg,#e3f3ff,#f3f9ff)}
+html[data-theme="light"][data-bg="sunrise"] .bgx .rays{background:repeating-conic-gradient(rgba(251,146,60,.13) 0 5deg,transparent 5deg 16deg)}
+
+/* 3) Section-wise: every section has its own mood */
+html[data-bg="sections"] .bgx{background:linear-gradient(180deg,var(--s1),var(--s2));transition:--s1 1.4s ease,--s2 1.4s ease}
+html[data-bg="sections"] .bgx .grid,html[data-bg="sections"] .bgx .dots,html[data-bg="sections"] .bgx .lines,html[data-bg="sections"] .bgx .sun{display:block;transition:opacity 1.4s ease}
+html[data-bg="sections"] .bgx .grid{inset:0;opacity:var(--og,0);background-image:linear-gradient(rgba(140,200,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(140,200,255,.12) 1px,transparent 1px);background-size:44px 44px}
+html[data-bg="sections"] .bgx .dots{inset:0;opacity:var(--od,0);background-image:radial-gradient(rgba(200,215,255,.22) 1.4px,transparent 1.6px);background-size:26px 26px}
+html[data-bg="sections"] .bgx .lines{inset:0;opacity:var(--ol,0);background-image:repeating-linear-gradient(135deg,rgba(200,215,255,.09) 0 1px,transparent 1px 22px)}
+html[data-bg="sections"] .bgx .sun{width:50vmax;height:50vmax;right:-16vmax;top:-20vmax;border-radius:50%;background:radial-gradient(circle,rgba(253,200,80,.34),rgba(251,146,60,.14) 45%,transparent 70%);filter:blur(8px);opacity:var(--os,0)}
+html[data-bg="sections"]{--s1:#050b18;--s2:#0a1b3a;--og:0;--od:0;--ol:0;--os:0}
+html[data-bg="sections"][data-sec="about"]{--s1:#0a1030;--s2:#1a1a4d;--od:.9}
+html[data-bg="sections"][data-sec="research"]{--s1:#04141f;--s2:#06283a;--og:1}
+html[data-bg="sections"][data-sec="experience"]{--s1:#0b1020;--s2:#17193a;--ol:1}
+html[data-bg="sections"][data-sec="achievements"]{--s1:#1a1206;--s2:#2d1c08;--od:.6;--os:.9}
+html[data-bg="sections"][data-sec="gallery"]{--s1:#1a0b24;--s2:#2d0f35;--od:.5}
+html[data-bg="sections"][data-sec="publications"]{--s1:#08121c;--s2:#0e2038;--od:.8;--ol:.4}
+html[data-bg="sections"][data-sec="skills"]{--s1:#04161a;--s2:#06302c;--og:.9}
+html[data-bg="sections"][data-sec="education"]{--s1:#0c0f2e;--s2:#1a1752;--od:.7}
+html[data-bg="sections"][data-sec="contact"]{--s1:#1d1040;--s2:#3b1a3e;--os:1;--od:.4}
+html[data-theme="light"][data-bg="sections"]{--s1:#f3f6ff;--s2:#e4ecff}
+html[data-theme="light"][data-bg="sections"][data-sec="about"]{--s1:#eef2ff;--s2:#dfe5ff}
+html[data-theme="light"][data-bg="sections"][data-sec="research"]{--s1:#e8fbff;--s2:#cff1f8}
+html[data-theme="light"][data-bg="sections"][data-sec="experience"]{--s1:#f1f5f9;--s2:#e0e7f0}
+html[data-theme="light"][data-bg="sections"][data-sec="achievements"]{--s1:#fff8e1;--s2:#fdeab8}
+html[data-theme="light"][data-bg="sections"][data-sec="gallery"]{--s1:#fdf0f7;--s2:#f7dff0}
+html[data-theme="light"][data-bg="sections"][data-sec="publications"]{--s1:#eef6ff;--s2:#d9e8fd}
+html[data-theme="light"][data-bg="sections"][data-sec="skills"]{--s1:#e8fff7;--s2:#cdf4e4}
+html[data-theme="light"][data-bg="sections"][data-sec="education"]{--s1:#eef0ff;--s2:#dcdfff}
+html[data-theme="light"][data-bg="sections"][data-sec="contact"]{--s1:#fff1e6;--s2:#ffdccf}
+html[data-theme="light"][data-bg="sections"] .bgx .grid{filter:invert(1) opacity(.5)}
+html[data-theme="light"][data-bg="sections"] .bgx .dots{filter:invert(1) opacity(.45)}
+html[data-theme="light"][data-bg="sections"] .bgx .lines{filter:invert(1) opacity(.4)}
+@media(prefers-reduced-motion:reduce){.bgx i{animation:none!important}.bgx,.bgx i{transition:none!important}}
+@media(max-width:600px){html[data-bg="solar"] .bgx .grid{background-size:56px 56px}}
