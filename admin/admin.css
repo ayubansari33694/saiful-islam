@@ -75,3 +75,18 @@ code{background:var(--panel2);border:1px solid var(--line);padding:1px 6px;borde
 .login .logo{width:54px;height:54px;border-radius:16px;margin:0 auto;display:grid;place-items:center;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--acc),var(--acc2))}
 .login h1{margin:0;font-size:22px}.login .lead{margin:0 0 6px}
 .login .btn{justify-content:center}
+
+/* gallery + layout editors */
+.galadm{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:12px}
+.gcard{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.gimg{position:relative;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:#0003}
+.gimg img{width:100%;height:100%;object-fit:cover;display:block}
+.gimg .gn{position:absolute;left:6px;top:6px;background:#000a;color:#fff;font:600 12px system-ui;border-radius:99px;padding:2px 8px}
+.gcard .ga{display:flex;gap:6px}
+.gcard .ga button{flex:1;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:8px;padding:6px 0;cursor:pointer;font-size:15px}
+.gcard .ga button.del{color:var(--err)}
+.gcard .tri input{font-size:13px;padding:6px 8px}
+.lrow{display:flex;align-items:center;gap:12px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+.lrow.off{opacity:.55}
+.lrow .lname{flex:1;font-weight:600}
+.lrow .acts button{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:16px;margin-left:4px}

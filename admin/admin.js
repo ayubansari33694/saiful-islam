@@ -157,7 +157,8 @@ var SECTIONS=[
   {title:'Basic information',fields:[
     {k:'profile.name',label:'Full name'},{k:'profile.email',label:'Main email'},{k:'profile.email2',label:'Second email'},
     {k:'profile.scholar',label:'Google Scholar link',type:'url'},{k:'profile.linkedin',label:'LinkedIn link',type:'url'}]},
-  {title:'Home page photo',hint:'Shown inside the round frame on the home page.',fields:[{k:'profile.photo',label:'Photo',type:'image'}]}]},
+  {title:'Home page photo',hint:'Shown inside the round frame on the home page.',fields:[{k:'profile.photo',label:'Photo',type:'image'}]},
+  {title:'Extra links',hint:'Add any link you like (YouTube, ResearchGate, ORCID, Facebook…). They appear as buttons in the Contact section. You can reorder or remove them any time.',fields:[{k:'links',label:'Links',type:'list',add:'Add link',blank:{label:{en:'',bn:'',ar:''},url:''},sum:function(i){return asTri(i.label).en||i.url},fields:[{k:'label',label:'Button text',type:'tri'},{k:'url',label:'Link (https://…)',type:'url'}]}]}]},
  {id:'home',title:'Home page',icon:'✨',lead:'Everything you see first: greeting, typing words, badges and numbers.',blocks:[
   {title:'Top texts',fields:[T('status','Availability chip'),T('hero_eyebrow','Small line above the name'),T('hero_hi','Greeting (before the name)'),T('hero_lead','Intro paragraph','tria'),T('hero_cta1','First button'),T('hero_cta2','Second button')]},
   {title:'Typing words',hint:'These words are typed one after another under your name.',fields:[{k:'typed',label:'Words',type:'list',item:'tri',add:'Add word'}]},
@@ -180,6 +181,7 @@ var SECTIONS=[
   {title:'Titles',fields:[T('aw_h','Section title'),T('cert_h','Sub-title for certificates')]},
   {title:'Awards & milestones',fields:[{k:'awards',label:'Cards',type:'list',add:'Add award',blank:{year:'',icon:'🏆',title:{en:'',bn:'',ar:''},text:{en:'',bn:'',ar:''}},sum:function(i){return i.year+' – '+asTri(i.title).en},fields:[{k:'year',label:'Year or label'},{k:'icon',label:'Icon (an emoji)'},{k:'title',label:'Title',type:'tri'},{k:'text',label:'Description',type:'tria'}]}]},
   {title:'Conferences, seminars & training',fields:[{k:'certs',label:'Certificates',type:'list',add:'Add certificate',blank:{year:'',text:{en:'',bn:'',ar:''}},sum:function(i){return i.year+' – '+asTri(i.text).en},fields:[{k:'year',label:'Year'},{k:'text',label:'Text',type:'tria'}]}]}]},
+ {id:'gallery',title:'Photo gallery',icon:'🖼️',custom:'gallery'},
  {id:'publications',title:'Publications',icon:'📚',lead:'Research papers. The DOI makes the card clickable.',blocks:[
   {title:'Labels',fields:[T('pub_h','Section title'),T('fl_all','Filter: All'),T('fl_q1','Filter: Q1'),T('fl_j','Filter: Journals'),T('fl_c','Filter: Conference'),T('all_scholar','Scholar link text'),T('cited','“Cited by” word')]},
   {title:'Papers',fields:[{k:'publications',label:'Papers',type:'list',add:'Add paper',blank:{year:new Date().getFullYear(),title:'',journal:'',q:'Q1',cites:0,doi:'',kind:'journal',note:{en:'',bn:'',ar:''}},sum:function(i){return i.year+' – '+i.title},fields:[{k:'title',label:'Title'},{k:'year',label:'Year',type:'number'},{k:'journal',label:'Journal / conference and volume'},{k:'q',label:'Type / quartile',type:'select',options:QOPT},{k:'kind',label:'Group for filter',type:'select',options:[['journal','Journal'],['conf','Conference']]},{k:'cites',label:'Citations',type:'number'},{k:'doi',label:'DOI (example: 10.1016/j.jmrt.2024.11.016)'},{k:'note',label:'Key finding (optional)',type:'tria'}]}]}]},
@@ -193,8 +195,9 @@ var SECTIONS=[
   {title:'Contact card',fields:[T('ct_h','Title'),T('ct_p','Message','tria'),T('ct_mail','“Send an email” button'),T('copy','“Copy email” button'),T('copied','Message after copying')]},
   {title:'Footer',fields:[T('foot','Footer text'),T('top','“Back to top” text')]}]},
  {sep:'Site'},
+ {id:'layout',title:'Page sections',icon:'🧩',custom:'layout'},
  {id:'menu',title:'Menu labels',icon:'🧭',lead:'Names in the top navigation bar.',blocks:[
-  {title:'Navigation',fields:[T('nav_about','About'),T('nav_research','Research'),T('nav_experience','Experience'),T('nav_awards','Awards'),T('nav_pubs','Publications'),T('nav_skills','Skills'),T('nav_edu','Education'),T('nav_contact','Contact')]}]},
+  {title:'Navigation',fields:[T('nav_about','About'),T('nav_research','Research'),T('nav_experience','Experience'),T('nav_awards','Awards'),T('nav_gallery','Gallery'),T('nav_pubs','Publications'),T('nav_skills','Skills'),T('nav_edu','Education'),T('nav_contact','Contact')]}]},
  {id:'backup',title:'Backup & import',icon:'💾',custom:'backup'}
 ];
 
@@ -211,6 +214,8 @@ function render(){
   var sec=SECTIONS.filter(function(x){return x.id===cur})[0],v=$('#view');v.innerHTML='';
   if(sec.custom==='dash')return dash(v);
   if(sec.custom==='backup')return backup(v);
+  if(sec.custom==='gallery')return galleryView(v);
+  if(sec.custom==='layout')return layoutView(v);
   v.appendChild(el('h1',{text:sec.title}));v.appendChild(el('p',{class:'lead',text:sec.lead||''}));
   sec.blocks.forEach(function(b){
     var bl=el('section',{class:'block'},[el('h2',{text:b.title})]);
@@ -221,10 +226,83 @@ function render(){
   v.appendChild(el('div',{class:'msg',text:'Changes are saved as a draft in this browser automatically. Press “Preview draft” to see them, then “Publish” to make them live.'}));
 }
 
+
+/* ---------- photo gallery editor ---------- */
+function galleryView(v){
+  v.appendChild(el('h1',{text:'Photo gallery'}));
+  v.appendChild(el('p',{class:'lead',text:'Add photos any time. They appear in the “Photo gallery” section of the website. Reorder, caption or delete them whenever you like.'}));
+  var tb=el('section',{class:'block'},[el('h2',{text:'Titles'})]);
+  tb.appendChild(field(T('gal_h','Section title'),C));
+  tb.appendChild(field(T('gal_sub','Short description under the title','tria'),C));
+  v.appendChild(tb);
+  if(!Array.isArray(C.gallery))C.gallery=[];
+  var blk=el('section',{class:'block'},[el('h2',{text:'Photos'})]);
+  blk.appendChild(el('p',{class:'hint',text:'You can pick many photos at once. Each photo is resized automatically. The caption is optional and shows when someone hovers or opens the photo.'}));
+  var grid=el('div',{class:'galadm'}),status=el('div',{class:'help'});
+  var file=el('input',{type:'file',accept:'image/*',multiple:'multiple'});file.style.display='none';
+  function build(){
+    grid.innerHTML='';var a=C.gallery;
+    a.forEach(function(g,i){
+      function mv(dx){return function(){var j=i+dx;if(j<0||j>=a.length)return;var t=a[i];a[i]=a[j];a[j]=t;touch();build()}}
+      var im=el('img',{alt:'',loading:'lazy'});im.src=g.img||'';
+      var acts=el('div',{class:'ga'},[
+        el('button',{type:'button',title:'Move earlier',text:'←',onclick:mv(-1)}),
+        el('button',{type:'button',title:'Move later',text:'→',onclick:mv(1)}),
+        el('button',{type:'button',title:'Move to first',text:'⇤',onclick:function(){if(i){a.unshift(a.splice(i,1)[0]);touch();build()}}}),
+        el('button',{type:'button',class:'del',title:'Delete',text:'🗑',onclick:function(){if(confirm('Remove this photo from the gallery?')){a.splice(i,1);touch();build()}}})]);
+      var cap=ctlTri(function(){return g.caption},function(x){g.caption=x},false);
+      grid.appendChild(el('div',{class:'gcard'},[el('div',{class:'gimg'},[im,el('span',{class:'gn',text:String(i+1)})]),acts,cap]));
+    });
+    if(!a.length)grid.appendChild(el('div',{class:'help',text:'No photos yet. Press “Add photos” to start.'}));
+    status.textContent=a.length?a.length+' photo'+(a.length>1?'s':'')+' in the gallery':'';
+  }
+  var add=el('button',{class:'btn primary',type:'button',text:'+ Add photos',onclick:function(){file.click()}});
+  file.addEventListener('change',function(){
+    var fl=Array.prototype.slice.call(file.files);file.value='';if(!fl.length)return;
+    add.disabled=true;var n=0,fail=0;
+    fl.reduce(function(p,f){return p.then(function(){
+      add.textContent='Uploading '+(n+fail+1)+' of '+fl.length+'…';
+      return uploadImage(f).then(function(url){C.gallery.push({img:url,caption:{en:'',bn:'',ar:''}});n++;touch();build()}).catch(function(e){fail++;toast(f.name+': '+(e.message||e),'err')});
+    })},Promise.resolve()).then(function(){add.disabled=false;add.textContent='+ Add photos';if(n)toast(n+' photo'+(n>1?'s':'')+' added. Press Publish to make them live.')});
+  });
+  blk.appendChild(el('div',{style:'margin-bottom:14px'},[add,file]));
+  blk.appendChild(status);blk.appendChild(grid);build();
+  v.appendChild(blk);
+  v.appendChild(el('div',{class:'msg',text:'The gallery section is hidden on the website automatically while it has no photos.'}));
+}
+
+/* ---------- page sections: order + show/hide ---------- */
+var LAYOUT_SECS={about:['🙋','About'],research:['🔬','Research'],experience:['💼','Experience'],achievements:['🏆','Awards & certifications'],gallery:['🖼️','Photo gallery'],publications:['📚','Publications'],skills:['🛠️','Skills'],education:['🎓','Education'],contact:['✉️','Contact']};
+function normLayout(){
+  var seen={},l=(Array.isArray(C.layout)?C.layout:[]).filter(function(x){return x&&LAYOUT_SECS[x.id]&&!seen[x.id]&&(seen[x.id]=1)});
+  Object.keys(LAYOUT_SECS).forEach(function(id){if(!seen[id])l.push({id:id,show:true})});
+  C.layout=l;return l;
+}
+function layoutView(v){
+  v.appendChild(el('h1',{text:'Page sections'}));
+  v.appendChild(el('p',{class:'lead',text:'Choose the order of the sections on your website and hide any you do not need. The menu bar and the section numbers update by themselves.'}));
+  var blk=el('section',{class:'block'},[el('h2',{text:'Sections, from top to bottom'}),el('p',{class:'hint',text:'The top area (name, photo, numbers strip) always stays first. Use ↑ ↓ to move a section, and the tick box to show or hide it.'})]);
+  var box=el('div',{class:'list'});
+  function build(){
+    box.innerHTML='';var l=normLayout();
+    l.forEach(function(x,i){
+      function mv(dx){return function(){var j=i+dx;if(j<0||j>=l.length)return;var t=l[i];l[i]=l[j];l[j]=t;touch();build()}}
+      var chk=el('input',{type:'checkbox'});chk.checked=x.show!==false;
+      chk.addEventListener('change',function(){x.show=chk.checked;touch();build()});
+      var info=LAYOUT_SECS[x.id];
+      box.appendChild(el('div',{class:'lrow'+(x.show===false?' off':'')},[
+        el('span',{class:'lname',text:(i+1)+'. '+info[0]+' '+info[1]}),
+        el('label',{class:'chk'},[chk,'Show']),
+        el('span',{class:'acts'},[el('button',{type:'button',title:'Move up',text:'↑',onclick:mv(-1)}),el('button',{type:'button',title:'Move down',text:'↓',onclick:mv(1)})])]));
+    });
+  }
+  build();blk.appendChild(box);v.appendChild(blk);
+}
+
 function dash(v){
   v.appendChild(el('h1',{text:'Dashboard'}));
   v.appendChild(el('p',{class:'lead',text:'Edit any section from the menu, preview your draft, then publish.'}));
-  var counts=[['Publications',(C.publications||[]).length],['Positions',(C.experience||[]).length],['Awards',(C.awards||[]).length],['Skill groups',(C.skills||[]).length],['Education',(C.education||[]).length]];
+  var counts=[['Publications',(C.publications||[]).length],['Positions',(C.experience||[]).length],['Awards',(C.awards||[]).length],['Skill groups',(C.skills||[]).length],['Education',(C.education||[]).length],['Photos',(C.gallery||[]).length]];
   var grid=el('div',{class:'cards'});counts.forEach(function(c){grid.appendChild(el('div',{class:'stat'},[el('b',{text:String(c[1])}),el('span',{text:c[0]})]))});
   v.appendChild(el('section',{class:'block'},[el('h2',{text:'Your site at a glance'}),grid]));
   v.appendChild(el('section',{class:'block'},[el('h2',{text:'Publish'}),

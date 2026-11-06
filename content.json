@@ -242,6 +242,21 @@
    "en": "Back to top ↑",
    "bn": "উপরে যান ↑",
    "ar": "العودة للأعلى ↑"
+  },
+  "gal_h": {
+   "en": "Photo gallery",
+   "bn": "ফটো গ্যালারি",
+   "ar": "معرض الصور"
+  },
+  "gal_sub": {
+   "en": "Moments from the lab, conferences and research life.",
+   "bn": "ল্যাব, কনফারেন্স ও গবেষণা জীবনের কিছু মুহূর্ত।",
+   "ar": "لحظات من المختبر والمؤتمرات والحياة البحثية."
+  },
+  "nav_gallery": {
+   "en": "Gallery",
+   "bn": "গ্যালারি",
+   "ar": "المعرض"
   }
  },
  "typed": [
@@ -936,6 +951,46 @@
    },
    "text": "",
    "extra": ""
+  }
+ ],
+ "gallery": [],
+ "links": [],
+ "layout": [
+  {
+   "id": "about",
+   "show": true
+  },
+  {
+   "id": "research",
+   "show": true
+  },
+  {
+   "id": "experience",
+   "show": true
+  },
+  {
+   "id": "achievements",
+   "show": true
+  },
+  {
+   "id": "gallery",
+   "show": true
+  },
+  {
+   "id": "publications",
+   "show": true
+  },
+  {
+   "id": "skills",
+   "show": true
+  },
+  {
+   "id": "education",
+   "show": true
+  },
+  {
+   "id": "contact",
+   "show": true
   }
  ]
 }

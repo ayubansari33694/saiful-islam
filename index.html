@@ -133,6 +133,13 @@
   <ul class="certs" id="certs"></ul>
 </section>
 
+<!-- GALLERY -->
+<section class="section" id="gallery">
+  <div class="sec-head reveal"><span class="num">05</span><h2 data-i18n="gal_h">Photo gallery</h2></div>
+  <p class="gal-sub reveal" id="galSub" data-i18n="gal_sub"></p>
+  <div class="gallery" id="gallery-grid"></div>
+</section>
+
 <!-- PUBLICATIONS -->
 <section class="section" id="publications">
   <div class="sec-head reveal"><span class="num">05</span><h2 data-i18n="pub_h">Publications</h2></div>
@@ -168,6 +175,7 @@
       <button class="btn ghost" id="copy" type="button" data-i18n="copy">Copy email</button>
       <a class="btn ghost" data-link="linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn ghost" data-link="scholar" href="#" target="_blank" rel="noopener">Google Scholar</a>
+      <span class="extra-links" id="extra-links"></span>
     </div>
     <p class="small"><span data-bind="email"></span> · <span data-bind="email2"></span></p>
   </div>
@@ -179,6 +187,13 @@
   <span data-i18n="foot">Designed &amp; built with care.</span>
   <a href="#home" data-i18n="top">Back to top ↑</a>
 </footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <button class="lb-x" id="lbX" type="button" aria-label="Close">×</button>
+  <button class="lb-n lb-prev" id="lbPrev" type="button" aria-label="Previous">‹</button>
+  <figure class="lb-fig"><img id="lbImg" alt=""><figcaption><span id="lbCap"></span><small id="lbCount"></small></figcaption></figure>
+  <button class="lb-n lb-next" id="lbNext" type="button" aria-label="Next">›</button>
+</div>
 
 <script src="script.js"></script>
 </body>
