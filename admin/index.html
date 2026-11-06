@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Portfolio Admin</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<header class="top">
+  <button class="burger" id="burger" aria-label="Menu">☰</button>
+  <div class="ttl"><b>Portfolio Admin</b><span id="who">Md Saiful Islam</span></div>
+  <span class="pill" id="state">Loading…</span>
+  <div class="grow"></div>
+  <a class="btn" id="viewSite" href="../" target="_blank" rel="noopener">View site</a>
+  <button class="btn" id="preview">Preview draft</button>
+  <button class="btn primary" id="publish">Publish</button>
+</header>
+<div class="layout">
+  <nav class="side" id="side" aria-label="Sections"></nav>
+  <main class="main" id="view"></main>
+</div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<script src="admin.js"></script>
+</body>
+</html>

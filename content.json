@@ -1,0 +1,941 @@
+{
+ "profile": {
+  "name": "Md Saiful Islam",
+  "email": "saifsaifulislam765@gmail.com",
+  "email2": "mdsaiful@uniten.edu.my",
+  "scholar": "https://scholar.google.com/citations?hl=en&user=llZV_GoAAAAJ",
+  "linkedin": "https://www.linkedin.com/in/md-saiful-islam-8713b7220/",
+  "photo": "assets/hero.jpg"
+ },
+ "t": {
+  "nav_about": {
+   "en": "About",
+   "bn": "পরিচিতি",
+   "ar": "نبذة"
+  },
+  "nav_research": {
+   "en": "Research",
+   "bn": "গবেষণা",
+   "ar": "الأبحاث"
+  },
+  "nav_experience": {
+   "en": "Experience",
+   "bn": "অভিজ্ঞতা",
+   "ar": "الخبرات"
+  },
+  "nav_awards": {
+   "en": "Awards",
+   "bn": "পুরস্কার",
+   "ar": "الإنجازات"
+  },
+  "nav_pubs": {
+   "en": "Publications",
+   "bn": "প্রকাশনা",
+   "ar": "المنشورات"
+  },
+  "nav_skills": {
+   "en": "Skills",
+   "bn": "দক্ষতা",
+   "ar": "المهارات"
+  },
+  "nav_edu": {
+   "en": "Education",
+   "bn": "শিক্ষা",
+   "ar": "التعليم"
+  },
+  "nav_contact": {
+   "en": "Contact",
+   "bn": "যোগাযোগ",
+   "ar": "تواصل"
+  },
+  "status": {
+   "en": "Open to research collaborations & R&D projects",
+   "bn": "গবেষণা সহযোগিতা ও আর অ্যান্ড ডি প্রকল্পের জন্য প্রস্তুত",
+   "ar": "متاح للتعاون البحثي ومشاريع البحث والتطوير"
+  },
+  "hero_eyebrow": {
+   "en": "Researcher · R&D Engineer",
+   "bn": "গবেষক · আর অ্যান্ড ডি ইঞ্জিনিয়ার",
+   "ar": "باحث · مهندس بحث وتطوير"
+  },
+  "hero_hi": {
+   "en": "Hi, I'm",
+   "bn": "আমি",
+   "ar": "مرحباً، أنا"
+  },
+  "hero_lead": {
+   "en": "I engineer next-generation thin-film solar cells. My work on MoS₂ and CZTS lifted simulated cell efficiency from 8.42% to 11.43%, and I turn lab data into clean, sustainable energy.",
+   "bn": "আমি পরবর্তী প্রজন্মের থিন-ফিল্ম সোলার সেল নিয়ে কাজ করি। MoS₂ ও CZTS নিয়ে আমার গবেষণায় সিমুলেটেড সেলের দক্ষতা ৮.৪২% থেকে বেড়ে ১১.৪৩% হয়েছে। ল্যাবের তথ্যকে আমি পরিষ্কার ও টেকসই শক্তিতে রূপ দিই।",
+   "ar": "أعمل على تطوير الجيل القادم من الخلايا الشمسية رقيقة الأغشية. رفعت أبحاثي حول MoS₂ وCZTS كفاءة الخلية المحاكاة من 8.42% إلى 11.43%، وأحوّل بيانات المختبر إلى طاقة نظيفة ومستدامة."
+  },
+  "hero_cta1": {
+   "en": "View Publications",
+   "bn": "প্রকাশনা দেখুন",
+   "ar": "استعرض المنشورات"
+  },
+  "hero_cta2": {
+   "en": "Get in touch",
+   "bn": "যোগাযোগ করুন",
+   "ar": "تواصل معي"
+  },
+  "about_h": {
+   "en": "About me",
+   "bn": "আমার পরিচয়",
+   "ar": "نبذة عني"
+  },
+  "about_p1": {
+   "en": "I'm a researcher and R&D engineer focused on thin-film photovoltaics and 2D materials. I recently completed my MSc in Electronic Engineering at Universiti Tenaga Nasional (UNITEN), Malaysia, where I worked as a full-time Research Assistant at the Institute of Sustainable Energy.",
+   "bn": "আমি থিন-ফিল্ম ফটোভোলটাইক ও ২ডি ম্যাটেরিয়ালস নিয়ে কাজ করা একজন গবেষক ও আর অ্যান্ড ডি ইঞ্জিনিয়ার। সম্প্রতি মালয়েশিয়ার Universiti Tenaga Nasional (UNITEN) থেকে ইলেকট্রনিক ইঞ্জিনিয়ারিংয়ে এমএসসি শেষ করেছি। সেখানে Institute of Sustainable Energy-তে ফুল-টাইম রিসার্চ অ্যাসিস্ট্যান্ট ছিলাম।",
+   "ar": "أنا باحث ومهندس بحث وتطوير، أركّز على الخلايا الكهروضوئية رقيقة الأغشية والمواد ثنائية الأبعاد. أنهيت مؤخراً درجة الماجستير في الهندسة الإلكترونية من جامعة تينجا الوطنية (UNITEN) في ماليزيا، حيث عملت مساعد باحث بدوام كامل في معهد الطاقة المستدامة."
+  },
+  "about_p2": {
+   "en": "I combine hands-on fabrication and characterisation with device-level simulation, so ideas move from the model to the lab and back with evidence at every step.",
+   "bn": "আমি হাতে-কলমে ফ্যাব্রিকেশন ও ক্যারেক্টারাইজেশনের সঙ্গে ডিভাইস-স্তরের সিমুলেশন মেলাই। ফলে প্রতিটি ধাপে প্রমাণসহ মডেল থেকে ল্যাবে আর ল্যাব থেকে আবার মডেলে ফেরা যায়।",
+   "ar": "أجمع بين التصنيع والتوصيف العملي في المختبر ومحاكاة الأجهزة، فتنتقل الفكرة من النموذج إلى المختبر ثم تعود إليه مدعومة بالأدلة في كل خطوة."
+  },
+  "about_p3": {
+   "en": "Today I'm a Global Research Academia Fellow at Universiti Teknologi Malaysia, focused on renewable energy and on bridging academic research with real industrial applications. I welcome collaborations with researchers, professors and industry R&D teams.",
+   "bn": "বর্তমানে আমি Universiti Teknologi Malaysia-তে গ্লোবাল রিসার্চ একাডেমিয়া ফেলো। নবায়নযোগ্য শক্তি এবং একাডেমিক গবেষণাকে বাস্তব শিল্প প্রয়োগের সঙ্গে যুক্ত করাই আমার লক্ষ্য। গবেষক, অধ্যাপক ও শিল্প আর অ্যান্ড ডি দলের সঙ্গে সহযোগিতায় আমি আগ্রহী।",
+   "ar": "أعمل اليوم زميلاً في الأكاديمية البحثية العالمية بجامعة تكنولوجيا ماليزيا، وأركّز على الطاقة المتجددة وربط البحث الأكاديمي بالتطبيقات الصناعية الحقيقية. أرحّب بالتعاون مع الباحثين والأساتذة وفرق البحث والتطوير في الصناعة."
+  },
+  "facts_h": {
+   "en": "Quick facts",
+   "bn": "সংক্ষেপে",
+   "ar": "نبذة سريعة"
+  },
+  "res_h": {
+   "en": "Research focus",
+   "bn": "গবেষণার ক্ষেত্র",
+   "ar": "مجالات البحث"
+  },
+  "hl_tag": {
+   "en": "Featured result",
+   "bn": "বিশেষ ফলাফল",
+   "ar": "نتيجة مميزة"
+  },
+  "hl_h": {
+   "en": "p-type MoS₂ back contact lifts CZTS efficiency by 36%",
+   "bn": "p-type MoS₂ ব্যাক কন্টাক্টে CZTS-এর দক্ষতা ৩৬% বেড়েছে",
+   "ar": "طبقة MoS₂ من النوع p في الملامس الخلفي ترفع كفاءة CZTS بنسبة 36%"
+  },
+  "hl_p": {
+   "en": "Using SCAPS-1D modelling, a p-type MoS₂ interlayer improved the open-circuit voltage from 0.569 V to 0.665 V and the fill factor from 64.76% to 73.07%. The baseline device rose from 8.42% to 11.43% efficiency.",
+   "bn": "SCAPS-1D মডেলিংয়ে p-type MoS₂ ইন্টারলেয়ার ব্যবহার করে ওপেন-সার্কিট ভোল্টেজ ০.৫৬৯ V থেকে ০.৬৬৫ V এবং ফিল ফ্যাক্টর ৬৪.৭৬% থেকে ৭৩.০৭% হয়েছে। বেসলাইন ডিভাইসের দক্ষতা ৮.৪২% থেকে বেড়ে ১১.৪৩% হয়েছে।",
+   "ar": "باستخدام المحاكاة في SCAPS-1D، حسّنت طبقة MoS₂ من النوع p جهد الدارة المفتوحة من 0.569 إلى 0.665 فولت، وعامل الملء من 64.76% إلى 73.07%. وارتفعت كفاءة الخلية الأساسية من 8.42% إلى 11.43%."
+  },
+  "read_paper": {
+   "en": "Read the paper →",
+   "bn": "পেপারটি পড়ুন →",
+   "ar": "اقرأ البحث ←"
+  },
+  "exp_h": {
+   "en": "Experience",
+   "bn": "অভিজ্ঞতা",
+   "ar": "الخبرات"
+  },
+  "ft": {
+   "en": "Full-time",
+   "bn": "ফুল-টাইম",
+   "ar": "دوام كامل"
+  },
+  "pt": {
+   "en": "Part-time",
+   "bn": "পার্ট-টাইম",
+   "ar": "دوام جزئي"
+  },
+  "now": {
+   "en": "Current",
+   "bn": "বর্তমান",
+   "ar": "حالياً"
+  },
+  "aw_h": {
+   "en": "Awards & certifications",
+   "bn": "পুরস্কার ও সনদ",
+   "ar": "الجوائز والشهادات"
+  },
+  "cert_h": {
+   "en": "Conferences & seminars",
+   "bn": "কনফারেন্স ও সেমিনার",
+   "ar": "المؤتمرات والندوات"
+  },
+  "pub_h": {
+   "en": "Publications",
+   "bn": "প্রকাশনা",
+   "ar": "المنشورات"
+  },
+  "fl_all": {
+   "en": "All",
+   "bn": "সব",
+   "ar": "الكل"
+  },
+  "fl_q1": {
+   "en": "Q1 journals",
+   "bn": "Q1 জার্নাল",
+   "ar": "مجلات Q1"
+  },
+  "fl_j": {
+   "en": "Journals",
+   "bn": "জার্নাল",
+   "ar": "مجلات"
+  },
+  "fl_c": {
+   "en": "Conference",
+   "bn": "কনফারেন্স",
+   "ar": "مؤتمرات"
+  },
+  "all_scholar": {
+   "en": "See all on Google Scholar →",
+   "bn": "গুগল স্কলারে সব দেখুন →",
+   "ar": "شاهد الكل على Google Scholar ←"
+  },
+  "cited": {
+   "en": "Cited by",
+   "bn": "সাইটেশন",
+   "ar": "استُشهد به"
+  },
+  "open": {
+   "en": "Open paper",
+   "bn": "পেপার খুলুন",
+   "ar": "افتح البحث"
+  },
+  "sk_h": {
+   "en": "Skills & lab techniques",
+   "bn": "দক্ষতা ও ল্যাব টেকনিক",
+   "ar": "المهارات والتقنيات المخبرية"
+  },
+  "edu_h": {
+   "en": "Education",
+   "bn": "শিক্ষা",
+   "ar": "التعليم"
+  },
+  "ct_h": {
+   "en": "Let's work together",
+   "bn": "চলুন একসঙ্গে কাজ করি",
+   "ar": "لنعمل معاً"
+  },
+  "ct_p": {
+   "en": "Open to research collaborations, industrial R&D projects and technical dialogue in solar energy and thin-film materials.",
+   "bn": "সোলার এনার্জি ও থিন-ফিল্ম ম্যাটেরিয়ালসে গবেষণা সহযোগিতা, শিল্প আর অ্যান্ড ডি প্রকল্প ও প্রযুক্তিগত আলোচনার জন্য আমি প্রস্তুত।",
+   "ar": "أرحّب بالتعاون البحثي ومشاريع البحث والتطوير الصناعية والحوار التقني في الطاقة الشمسية ومواد الأغشية الرقيقة."
+  },
+  "ct_mail": {
+   "en": "Send an email",
+   "bn": "ইমেইল পাঠান",
+   "ar": "أرسل بريداً إلكترونياً"
+  },
+  "copy": {
+   "en": "Copy email",
+   "bn": "ইমেইল কপি করুন",
+   "ar": "انسخ البريد"
+  },
+  "copied": {
+   "en": "Email copied to clipboard",
+   "bn": "ইমেইল কপি হয়েছে",
+   "ar": "تم نسخ البريد الإلكتروني"
+  },
+  "foot": {
+   "en": "Designed & built with care.",
+   "bn": "যত্ন নিয়ে ডিজাইন ও তৈরি।",
+   "ar": "صُمّم وبُني بعناية."
+  },
+  "top": {
+   "en": "Back to top ↑",
+   "bn": "উপরে যান ↑",
+   "ar": "العودة للأعلى ↑"
+  }
+ },
+ "typed": [
+  {
+   "en": "Thin-Film Photovoltaics",
+   "bn": "থিন-ফিল্ম ফটোভোলটাইক",
+   "ar": "الخلايا الكهروضوئية رقيقة الأغشية"
+  },
+  {
+   "en": "2D Materials Researcher",
+   "bn": "২ডি ম্যাটেরিয়ালস গবেষক",
+   "ar": "باحث في المواد ثنائية الأبعاد"
+  },
+  {
+   "en": "Renewable Energy Engineer",
+   "bn": "নবায়নযোগ্য শক্তি ইঞ্জিনিয়ার",
+   "ar": "مهندس طاقة متجددة"
+  },
+  {
+   "en": "Developing Solar Cells",
+   "bn": "সোলার সেল উন্নয়ন",
+   "ar": "تطوير الخلايا الشمسية"
+  }
+ ],
+ "badges": [
+  {
+   "value": "Q2",
+   "label": {
+    "en": "journals",
+    "bn": "জার্নাল",
+    "ar": "مجلات"
+   }
+  },
+  {
+   "value": "Q1",
+   "label": {
+    "en": "journals",
+    "bn": "জার্নাল",
+    "ar": "مجلات"
+   }
+  }
+ ],
+ "orbit": [
+  "MoS₂",
+  "CZTS",
+  "SCAPS-1D"
+ ],
+ "marquee": [
+  "MoS₂",
+  "CZTS",
+  "SCAPS-1D",
+  "Thin-Film PV",
+  "XRD",
+  "Raman",
+  "FESEM",
+  "Hall Effect",
+  "Sulfurization",
+  "Kesterite"
+ ],
+ "stats": [
+  {
+   "value": 6,
+   "suffix": "",
+   "label": {
+    "en": "Publications",
+    "bn": "প্রকাশনা",
+    "ar": "منشورات"
+   }
+  },
+  {
+   "value": 107,
+   "suffix": "+",
+   "label": {
+    "en": "Citations",
+    "bn": "সাইটেশন",
+    "ar": "استشهادات"
+   }
+  },
+  {
+   "value": 3,
+   "suffix": "+",
+   "label": {
+    "en": "Years in research",
+    "bn": "গবেষণার বছর",
+    "ar": "سنوات في البحث"
+   }
+  },
+  {
+   "value": 9,
+   "suffix": "",
+   "label": {
+    "en": "Lab techniques",
+    "bn": "ল্যাব টেকনিক",
+    "ar": "تقنيات مخبرية"
+   }
+  }
+ ],
+ "interests": [
+  {
+   "en": "Thin-film semiconductors",
+   "bn": "থিন-ফিল্ম সেমিকন্ডাক্টর",
+   "ar": "أشباه الموصلات رقيقة الأغشية"
+  },
+  {
+   "en": "Renewable energy",
+   "bn": "নবায়নযোগ্য শক্তি",
+   "ar": "الطاقة المتجددة"
+  },
+  {
+   "en": "Nanomaterials",
+   "bn": "ন্যানোম্যাটেরিয়ালস",
+   "ar": "المواد النانوية"
+  },
+  {
+   "en": "PV device engineering",
+   "bn": "পিভি ডিভাইস ইঞ্জিনিয়ারিং",
+   "ar": "هندسة الأجهزة الكهروضوئية"
+  }
+ ],
+ "facts": [
+  {
+   "label": {
+    "en": "Now",
+    "bn": "বর্তমানে",
+    "ar": "حالياً"
+   },
+   "value": {
+    "en": "Research Academia Fellow, UTM",
+    "bn": "রিসার্চ একাডেমিয়া ফেলো, UTM",
+    "ar": "زميل أكاديمي باحث، UTM"
+   },
+   "kind": "text"
+  },
+  {
+   "label": {
+    "en": "Based in",
+    "bn": "অবস্থান",
+    "ar": "مكان الإقامة"
+   },
+   "value": {
+    "en": "Labonchara, Khulna, Bangladesh",
+    "bn": "লবণচরা, খুলনা, বাংলাদেশ",
+    "ar": "لابونشارا، خولنا، بنغلاديش"
+   },
+   "kind": "text"
+  },
+  {
+   "label": {
+    "en": "Degree",
+    "bn": "ডিগ্রি",
+    "ar": "الدرجة العلمية"
+   },
+   "value": {
+    "en": "MSc Electronic Engineering (2025)",
+    "bn": "ইলেকট্রনিক ইঞ্জিনিয়ারিংয়ে এমএসসি (২০২৫)",
+    "ar": "ماجستير الهندسة الإلكترونية (2025)"
+   },
+   "kind": "text"
+  },
+  {
+   "label": {
+    "en": "Focus",
+    "bn": "গবেষণার বিষয়",
+    "ar": "مجال التركيز"
+   },
+   "value": {
+    "en": "Thin-film PV · MoS₂ · CZTS",
+    "bn": "থিন-ফিল্ম পিভি · MoS₂ · CZTS",
+    "ar": "الخلايا الكهروضوئية رقيقة الأغشية · MoS₂ · CZTS"
+   },
+   "kind": "text"
+  },
+  {
+   "label": {
+    "en": "Languages",
+    "bn": "ভাষা",
+    "ar": "اللغات"
+   },
+   "value": {
+    "en": "Bangla · English",
+    "bn": "বাংলা · ইংরেজি",
+    "ar": "البنغالية · الإنجليزية"
+   },
+   "kind": "text"
+  },
+  {
+   "label": {
+    "en": "Email",
+    "bn": "ইমেইল",
+    "ar": "البريد الإلكتروني"
+   },
+   "value": "",
+   "kind": "email"
+  }
+ ],
+ "highlightLink": "https://doi.org/10.1016/j.jmrt.2024.11.016",
+ "bars": [
+  {
+   "label": {
+    "en": "Baseline CZTS",
+    "bn": "বেসলাইন CZTS",
+    "ar": "CZTS الأساسية"
+   },
+   "value": "8.42%",
+   "pct": 73.7,
+   "best": false
+  },
+  {
+   "label": {
+    "en": "With p-type MoS₂",
+    "bn": "p-type MoS₂ সহ",
+    "ar": "مع MoS₂ من النوع p"
+   },
+   "value": "11.43%",
+   "pct": 100,
+   "best": true
+  },
+  {
+   "label": {
+    "en": "With n-type MoS₂",
+    "bn": "n-type MoS₂ সহ",
+    "ar": "مع MoS₂ من النوع n"
+   },
+   "value": "7.39%",
+   "pct": 64.7,
+   "best": false
+  }
+ ],
+ "research": [
+  {
+   "icon": "🔬",
+   "title": {
+    "en": "MoS₂ thin-film synthesis",
+    "bn": "MoS₂ থিন-ফিল্ম সংশ্লেষণ",
+    "ar": "تصنيع أغشية MoS₂ الرقيقة"
+   },
+   "text": {
+    "en": "Sulfurization of molybdenum films. I study how temperature, chamber pressure and time shape crystallinity, defects and electronic properties.",
+    "bn": "মলিবডেনাম ফিল্মের সালফারাইজেশন। তাপমাত্রা, চেম্বার প্রেশার ও সময় কীভাবে ক্রিস্টালিনিটি, ত্রুটি ও ইলেকট্রনিক ধর্মকে প্রভাবিত করে তা নিয়ে কাজ করি।",
+    "ar": "كبرتة أغشية الموليبدينوم. أدرس كيف تؤثر درجة الحرارة وضغط الغرفة والزمن في البلورية والعيوب والخصائص الإلكترونية."
+   },
+   "tags": [
+    "Sputtering",
+    "Sulfurization",
+    "2D materials"
+   ]
+  },
+  {
+   "icon": "☀️",
+   "title": {
+    "en": "CZTS solar-cell simulation",
+    "bn": "CZTS সোলার সেল সিমুলেশন",
+    "ar": "محاكاة الخلايا الشمسية CZTS"
+   },
+   "text": {
+    "en": "Device-level modelling in SCAPS-1D to see how MoS₂ interlayers and defects change carrier transport and photovoltaic performance.",
+    "bn": "SCAPS-1D-তে ডিভাইস-স্তরের মডেলিং। MoS₂ ইন্টারলেয়ার ও ত্রুটি কীভাবে ক্যারিয়ার পরিবহন ও ফটোভোলটাইক কার্যক্ষমতা বদলায় তা দেখি।",
+    "ar": "نمذجة على مستوى الجهاز باستخدام SCAPS-1D لمعرفة كيف تغيّر الطبقات البينية من MoS₂ والعيوب انتقال الحاملات والأداء الكهروضوئي."
+   },
+   "tags": [
+    "SCAPS-1D",
+    "Defect engineering",
+    "Kesterite"
+   ]
+  },
+  {
+   "icon": "🚲",
+   "title": {
+    "en": "Sustainable energy bike lanes",
+    "bn": "টেকসই শক্তির বাইক লেন",
+    "ar": "مسارات الدراجات لتوليد الطاقة المستدامة"
+   },
+   "text": {
+    "en": "Research on energy-harvesting bicycle lanes for Kuala Lumpur, a smart-city project funded under the NSF and U.S. State Department programme.",
+    "bn": "কুয়ালালামপুরের জন্য শক্তি-সংগ্রাহী সাইকেল লেন নিয়ে গবেষণা। এটি NSF ও মার্কিন পররাষ্ট্র দপ্তরের অর্থায়নে একটি স্মার্ট-সিটি প্রকল্প।",
+    "ar": "بحث في مسارات دراجات تولّد الطاقة لمدينة كوالالمبور، وهو مشروع مدينة ذكية بتمويل من برنامج مؤسسة العلوم الوطنية الأمريكية (NSF) ووزارة الخارجية الأمريكية."
+   },
+   "tags": [
+    "Smart cities",
+    "Energy harvesting",
+    "Green mobility"
+   ]
+  }
+ ],
+ "experience": [
+  {
+   "dates": "Oct 2026 – Present",
+   "tag": {
+    "en": "Full-time",
+    "bn": "ফুল-টাইম",
+    "ar": "دوام كامل"
+   },
+   "current": true,
+   "role": {
+    "en": "Research Academia Fellow (GRAF 2026)",
+    "bn": "রিসার্চ একাডেমিয়া ফেলো (GRAF ২০২৬)",
+    "ar": "زميل أكاديمي باحث (GRAF 2026)"
+   },
+   "org": "Universiti Teknologi Malaysia (UTM) · Johor Bahru, Malaysia · Remote",
+   "bullets": [
+    {
+     "en": "Selected as a Global Research Academia Fellow (GRAF) 2026 at Universiti Teknologi Malaysia (UTM).",
+     "bn": "Universiti Teknologi Malaysia (UTM)-এ গ্লোবাল রিসার্চ একাডেমিয়া ফেলো (GRAF) ২০২৬ হিসেবে নির্বাচিত।",
+     "ar": "اختِرتُ زميلاً في الأكاديمية البحثية العالمية (GRAF) 2026 بجامعة تكنولوجيا ماليزيا (UTM)."
+    },
+    {
+     "en": "Research focus: renewable energy, bridging academic research and real-world industrial applications.",
+     "bn": "গবেষণার ক্ষেত্র: নবায়নযোগ্য শক্তি। একাডেমিক গবেষণা ও বাস্তব শিল্প প্রয়োগের মধ্যে সেতুবন্ধন তৈরি।",
+     "ar": "مجال البحث: الطاقة المتجددة، وربط البحث الأكاديمي بالتطبيقات الصناعية الواقعية."
+    }
+   ]
+  },
+  {
+   "dates": "Oct 2022 – Jun 2025",
+   "tag": {
+    "en": "Full-time",
+    "bn": "ফুল-টাইম",
+    "ar": "دوام كامل"
+   },
+   "current": false,
+   "role": {
+    "en": "Research Assistant — Developing Solar Cells",
+    "bn": "রিসার্চ অ্যাসিস্ট্যান্ট — সোলার সেল উন্নয়ন",
+    "ar": "مساعد باحث — تطوير الخلايا الشمسية"
+   },
+   "org": "Institute of Sustainable Energy (ISE), Universiti Tenaga Nasional (UNITEN), Malaysia",
+   "bullets": [
+    {
+     "en": "Researched MoS₂ transition-metal dichalcogenide thin films, studying how sulfurization parameters and chamber pressure affect structural, optical and electronic properties.",
+     "bn": "MoS₂ ট্রানজিশন-মেটাল ডাইক্যালকোজেনাইড থিন-ফিল্ম নিয়ে গবেষণা করেছি। সালফারাইজেশন প্যারামিটার ও চেম্বার প্রেশার কীভাবে গঠন, আলোকীয় ও ইলেকট্রনিক ধর্মকে প্রভাবিত করে তা দেখেছি।",
+     "ar": "أجريت أبحاثاً على أغشية MoS₂ الرقيقة من فلزات الانتقال، ودرست تأثير معاملات الكبرتة وضغط الغرفة في الخصائص البنيوية والضوئية والإلكترونية."
+    },
+    {
+     "en": "Designed and optimised fabrication processes to improve crystallinity and control defects for optoelectronic and photovoltaic use.",
+     "bn": "অপটোইলেকট্রনিক ও ফটোভোলটাইক ব্যবহারের জন্য ক্রিস্টালিনিটি বাড়াতে ও ত্রুটি নিয়ন্ত্রণে ফ্যাব্রিকেশন প্রক্রিয়া ডিজাইন ও অপটিমাইজ করেছি।",
+     "ar": "صمّمت عمليات التصنيع وحسّنتها لرفع البلورية والتحكم في العيوب لاستخدامها في التطبيقات الإلكترونية الضوئية والكهروضوئية."
+    },
+    {
+     "en": "Characterised materials with XRD, Raman, FESEM, photoluminescence and Hall effect to link structure with properties.",
+     "bn": "XRD, রামান, FESEM, ফটোলুমিনেসেন্স ও হল ইফেক্ট দিয়ে উপাদানের গঠন ও ধর্মের সম্পর্ক বিশ্লেষণ করেছি।",
+     "ar": "وصّفت المواد باستخدام XRD وطيف رامان وFESEM والتألق الضوئي وتأثير هول لربط البنية بالخصائص."
+    },
+    {
+     "en": "Simulated CZTS solar cells in SCAPS-1D and evaluated the effect of MoS₂ interlayers on carrier transport and performance.",
+     "bn": "SCAPS-1D-তে CZTS সোলার সেল সিমুলেট করে ক্যারিয়ার পরিবহন ও কার্যক্ষমতায় MoS₂ ইন্টারলেয়ারের প্রভাব মূল্যায়ন করেছি।",
+     "ar": "حاكيت خلايا CZTS الشمسية في SCAPS-1D وقيّمت أثر الطبقات البينية من MoS₂ في انتقال الحاملات والأداء."
+    },
+    {
+     "en": "Co-authored peer-reviewed journal papers, supervised lab activities and collaborated with international researchers.",
+     "bn": "পিয়ার-রিভিউড জার্নাল পেপারের সহ-লেখক ছিলাম, ল্যাবের কাজ তত্ত্বাবধান করেছি এবং আন্তর্জাতিক গবেষকদের সঙ্গে কাজ করেছি।",
+     "ar": "شاركت في تأليف أبحاث محكّمة، وأشرفت على أنشطة المختبر، وتعاونت مع باحثين دوليين."
+    }
+   ]
+  },
+  {
+   "dates": "May 2024 – Jul 2024",
+   "tag": {
+    "en": "Part-time",
+    "bn": "পার্ট-টাইম",
+    "ar": "دوام جزئي"
+   },
+   "current": false,
+   "role": {
+    "en": "Research Assistant — Sustainable Energy Bike Lanes",
+    "bn": "রিসার্চ অ্যাসিস্ট্যান্ট — টেকসই শক্তির বাইক লেন",
+    "ar": "مساعد باحث — مسارات الدراجات للطاقة المستدامة"
+   },
+   "org": "Monash University Malaysia · NSF / U.S. State Department project, Kuala Lumpur",
+   "bullets": [
+    {
+     "en": "Supported research on renewable energy in smart transport infrastructure and on the energy-harvesting bike-lane process.",
+     "bn": "স্মার্ট পরিবহন অবকাঠামোতে নবায়নযোগ্য শক্তি এবং শক্তি-সংগ্রাহী বাইক-লেন তৈরির প্রক্রিয়া নিয়ে গবেষণায় সহায়তা করেছি।",
+     "ar": "دعمت البحث في الطاقة المتجددة ضمن البنية التحتية الذكية للنقل، وفي آلية إنشاء مسارات دراجات تولّد الطاقة."
+    },
+    {
+     "en": "Collected and analysed energy-generation data from cycling infrastructure in Kuala Lumpur.",
+     "bn": "কুয়ালালামপুরের সাইকেল অবকাঠামো থেকে বিদ্যুৎ উৎপাদনের তথ্য সংগ্রহ ও বিশ্লেষণ করেছি।",
+     "ar": "جمعت وحلّلت بيانات توليد الطاقة من البنية التحتية للدراجات في كوالالمبور."
+    },
+    {
+     "en": "Worked on the prototype construction, fabrication and testing of an Energy Generating Pad (EGP).",
+     "bn": "এনার্জি জেনারেটিং প্যাড (EGP)-এর প্রোটোটাইপ নির্মাণ, ফ্যাব্রিকেশন ও পরীক্ষার কাজ করেছি।",
+     "ar": "عملتُ على بناء نموذج أولي لوسادة توليد الطاقة (EGP) وتصنيعه واختباره."
+    },
+    {
+     "en": "Worked in a multidisciplinary team on feasibility, reports and presentations for stakeholders.",
+     "bn": "বহুবিষয়ক দলে কাজ করে সম্ভাব্যতা যাচাই, রিপোর্ট ও স্টেকহোল্ডারদের জন্য প্রেজেন্টেশন তৈরি করেছি।",
+     "ar": "عملت ضمن فريق متعدد التخصصات على دراسات الجدوى والتقارير والعروض المقدمة لأصحاب المصلحة."
+    }
+   ]
+  }
+ ],
+ "awards": [
+  {
+   "year": "2026",
+   "icon": "🏆",
+   "title": {
+    "en": "Outstanding Postgraduate Researcher Award",
+    "bn": "আউটস্ট্যান্ডিং পোস্টগ্র্যাজুয়েট রিসার্চার অ্যাওয়ার্ড",
+    "ar": "جائزة الباحث المتميز في الدراسات العليا"
+   },
+   "text": {
+    "en": "Awarded at the Research Excellence Awards (RExA 2026), hosted by the Research Excellence Centre, UNITEN.",
+    "bn": "UNITEN-এর Research Excellence Centre আয়োজিত Research Excellence Awards (RExA 2026)-এ এই পুরস্কার পেয়েছি।",
+    "ar": "نلتُها في حفل جوائز التميز البحثي (RExA 2026) الذي نظّمه مركز التميز البحثي في جامعة UNITEN."
+   }
+  },
+  {
+   "year": "2026",
+   "icon": "🌍",
+   "title": {
+    "en": "Global Research Academia Fellow (GRAF) 2026",
+    "bn": "গ্লোবাল রিসার্চ একাডেমিয়া ফেলো (GRAF) ২০২৬",
+    "ar": "زميل الأكاديمية البحثية العالمية (GRAF) 2026"
+   },
+   "text": {
+    "en": "Selected as a Global Research Academia Fellow at Universiti Teknologi Malaysia (UTM), with a focus on renewable energy research.",
+    "bn": "মালয়েশিয়ার Universiti Teknologi Malaysia (UTM)-এ নবায়নযোগ্য শক্তি গবেষণার ওপর গুরুত্ব দিয়ে গ্লোবাল রিসার্চ একাডেমিয়া ফেলো হিসেবে নির্বাচিত হয়েছি।",
+    "ar": "اختِرتُ زميلاً في الأكاديمية البحثية العالمية بجامعة تكنولوجيا ماليزيا (UTM)، مع التركيز على أبحاث الطاقة المتجددة."
+   }
+  },
+  {
+   "year": "2026",
+   "icon": "📈",
+   "title": {
+    "en": "100+ citations on Google Scholar",
+    "bn": "গুগল স্কলারে ১০০+ সাইটেশন",
+    "ar": "أكثر من 100 استشهاد على Google Scholar"
+   },
+   "text": {
+    "en": "My research on thin-film photovoltaics and 2D materials passed 100 citations and keeps growing.",
+    "bn": "থিন-ফিল্ম ফটোভোলটাইক ও ২ডি ম্যাটেরিয়ালস নিয়ে আমার গবেষণা ১০০ সাইটেশন ছাড়িয়েছে, আর সংখ্যা বাড়ছে।",
+    "ar": "تجاوزت أبحاثي في الخلايا الكهروضوئية رقيقة الأغشية والمواد ثنائية الأبعاد 100 استشهاد، وما زال العدد في ازدياد."
+   }
+  },
+  {
+   "year": "Master’s",
+   "icon": "🎓",
+   "title": {
+    "en": "Master's research completed",
+    "bn": "মাস্টার্স গবেষণা সম্পন্ন",
+    "ar": "إتمام بحث الماجستير"
+   },
+   "text": {
+    "en": "Passed the viva (with minor revision). Thesis topic: defects in the MoS₂ interfacial layer of CZTS thin-film solar cells, at the PV Energy Research Lab (PERL), ISE-HICoE, UNITEN.",
+    "bn": "ভাইভা (সামান্য সংশোধনসহ) উত্তীর্ণ। থিসিসের বিষয়: UNITEN-এর ISE-HICoE-র PV Energy Research Lab (PERL)-এ CZTS থিন-ফিল্ম সোলার সেলের MoS₂ ইন্টারফেস স্তরের ত্রুটি।",
+    "ar": "اجتزتُ المناقشة (مع تعديلات طفيفة). موضوع الرسالة: عيوب الطبقة البينية MoS₂ في الخلايا الشمسية رقيقة الأغشية CZTS، في مختبر أبحاث الطاقة الكهروضوئية (PERL) بمعهد الطاقة المستدامة (ISE-HICoE) بجامعة UNITEN."
+   }
+  }
+ ],
+ "certs": [
+  {
+   "year": "2024",
+   "text": {
+    "en": "International Conference on Sustainable Energy, Infrastructure and Environment — Putrajaya, Malaysia",
+    "bn": "টেকসই শক্তি, অবকাঠামো ও পরিবেশ বিষয়ক আন্তর্জাতিক কনফারেন্স — পুত্রাজায়া, মালয়েশিয়া",
+    "ar": "المؤتمر الدولي للطاقة المستدامة والبنية التحتية والبيئة — بوتراجايا، ماليزيا"
+   }
+  },
+  {
+   "year": "2024",
+   "text": {
+    "en": "International Conference on Sustainable Energy and Green Technology — Bangkok, Thailand",
+    "bn": "টেকসই শক্তি ও গ্রিন টেকনোলজি বিষয়ক আন্তর্জাতিক কনফারেন্স — ব্যাংকক, থাইল্যান্ড",
+    "ar": "المؤتمر الدولي للطاقة المستدامة والتقنيات الخضراء — بانكوك، تايلاند"
+   }
+  },
+  {
+   "year": "2024",
+   "text": {
+    "en": "X-ray Metrology Solutions for Semiconductor and Electronic Devices seminar — MIMOS Berhad, Kuala Lumpur",
+    "bn": "সেমিকন্ডাক্টর ও ইলেকট্রনিক ডিভাইসের জন্য এক্স-রে মেট্রোলজি সমাধান সেমিনার — MIMOS Berhad, কুয়ালালামপুর",
+    "ar": "ندوة حلول القياس بالأشعة السينية لأشباه الموصلات والأجهزة الإلكترونية — MIMOS Berhad، كوالالمبور"
+   }
+  },
+  {
+   "year": "2023",
+   "text": {
+    "en": "MIMOS High-Value Semiconductor Technology Seminar: ANSYS CAE Solution — Malaysia",
+    "bn": "MIMOS হাই-ভ্যালু সেমিকন্ডাক্টর টেকনোলজি সেমিনার: ANSYS CAE Solution — মালয়েশিয়া",
+    "ar": "ندوة MIMOS لتقنيات أشباه الموصلات عالية القيمة: حلول ANSYS CAE — ماليزيا"
+   }
+  },
+  {
+   "year": "—",
+   "text": {
+    "en": "Training: solar cell fabrication and characterisation (HiCOE, UNITEN) and thin-film PZT cell soldering (NSF project, UNITEN)",
+    "bn": "প্রশিক্ষণ: সোলার সেল ফ্যাব্রিকেশন ও ক্যারেক্টারাইজেশন (HiCOE, UNITEN) এবং থিন-ফিল্ম PZT সেল সোল্ডারিং (NSF প্রকল্প, UNITEN)",
+    "ar": "تدريب: تصنيع الخلايا الشمسية وتوصيفها (HiCOE، UNITEN) ولحام خلايا PZT الرقيقة (مشروع NSF، UNITEN)"
+   }
+  }
+ ],
+ "publications": [
+  {
+   "year": 2025,
+   "title": "Current scenario and future trends on stability issues of perovskite solar cells: A mini review",
+   "journal": "Current Opinion in Colloid & Interface Science 76, 101895",
+   "q": "Q1",
+   "cites": 60,
+   "doi": "10.1016/j.cocis.2025.101895",
+   "kind": "journal"
+  },
+  {
+   "year": 2025,
+   "title": "Thermal modulation of crystallinity and defect landscape in sputtered MoS₂ thin films for optoelectronic applications",
+   "journal": "Journal of Science: Advanced Materials and Devices, 101060",
+   "q": "Q1",
+   "cites": 5,
+   "doi": "10.1016/j.jsamd.2025.101060",
+   "kind": "journal",
+   "note": {
+    "en": "RF-sputtered MoS₂ films grown from room temperature to 300 °C. 200 °C gave the best balance of crystallinity, electrical transport and low structural disorder (impact factor 6.8).",
+    "bn": "আরএফ স্পাটারিংয়ে ঘরের তাপমাত্রা থেকে ৩০০ °C পর্যন্ত MoS₂ ফিল্ম তৈরি। ২০০ °C-এ ক্রিস্টালিনিটি, বৈদ্যুতিক পরিবহন ও কম কাঠামোগত বিশৃঙ্খলার সেরা ভারসাম্য মিলেছে (ইমপ্যাক্ট ফ্যাক্টর ৬.৮)।",
+    "ar": "نُمّيت أغشية MoS₂ بالرش المغناطيسي الراديوي من درجة حرارة الغرفة حتى 300 °م. حقّقت 200 °م أفضل توازن بين البلورية والنقل الكهربائي وقلة الاضطراب البنيوي (معامل التأثير 6.8)."
+   }
+  },
+  {
+   "year": 2024,
+   "title": "A comprehensive modeling on MoS₂ interface and defect engineering in CZTS thin film solar cells",
+   "journal": "Journal of Materials Research and Technology 33, 6601–6609",
+   "q": "Q1",
+   "cites": 22,
+   "doi": "10.1016/j.jmrt.2024.11.016",
+   "kind": "journal",
+   "note": {
+    "en": "SCAPS-1D modelling shows a p-type MoS₂ back interlayer lifts CZTS efficiency from 8.42% to 11.43%.",
+    "bn": "SCAPS-1D মডেলিংয়ে দেখা গেছে p-type MoS₂ ব্যাক ইন্টারলেয়ার CZTS-এর দক্ষতা ৮.৪২% থেকে ১১.৪৩% করে।",
+    "ar": "تُظهر محاكاة SCAPS-1D أن طبقة MoS₂ من النوع p في الخلف ترفع كفاءة CZTS من 8.42% إلى 11.43%."
+   }
+  },
+  {
+   "year": 2024,
+   "title": "MoS₂ thin film hetero-interface as effective back surface field in CZTS-based solar cells",
+   "journal": "Materials Science in Semiconductor Processing 182, 108721",
+   "q": "Q2",
+   "cites": 19,
+   "doi": "10.1016/j.mssp.2024.108721",
+   "kind": "journal"
+  },
+  {
+   "year": 2025,
+   "title": "Pressure-dependent sulfurization of molybdenum thin films for high-quality MoS₂ formation",
+   "journal": "IOP Conf. Series: Earth and Environmental Science 1500, 012020",
+   "q": "Conf",
+   "cites": 1,
+   "doi": "10.1088/1755-1315/1500/1/012020",
+   "kind": "conf",
+   "note": {
+    "en": "How the pressure in the sulfurization chamber changes the quality of MoS₂ made from molybdenum films.",
+    "bn": "সালফারাইজেশন চেম্বারের চাপ মলিবডেনাম ফিল্ম থেকে তৈরি MoS₂-এর মান কীভাবে বদলায়।",
+    "ar": "كيف يغيّر ضغط غرفة الكبرتة جودة MoS₂ المتكوّن من أغشية الموليبدينوم."
+   }
+  },
+  {
+   "year": 2025,
+   "title": "Modulating Molybdenum Disulfide (MoS₂) Thin Films Formation via Vapor-Phase Synthesis: Time Variation",
+   "journal": "IOP Conf. Series: Earth and Environmental Science 1560, 012038",
+   "q": "Conf",
+   "cites": 0,
+   "doi": "10.1088/1755-1315/1560/1/012038",
+   "kind": "conf"
+  }
+ ],
+ "skills": [
+  {
+   "title": {
+    "en": "Characterisation & lab",
+    "bn": "ক্যারেক্টারাইজেশন ও ল্যাব",
+    "ar": "التوصيف والعمل المخبري"
+   },
+   "chips": [
+    "Thin film deposition",
+    "Sputter deposition",
+    "Sulfurization",
+    "XRD",
+    "Raman",
+    "FESEM",
+    "Photoluminescence",
+    "Hall effect",
+    "UV/Vis",
+    "Profilometer",
+    "Microscopy",
+    "PZT cell soldering"
+   ]
+  },
+  {
+   "title": {
+    "en": "Simulation & software",
+    "bn": "সিমুলেশন ও সফটওয়্যার",
+    "ar": "المحاكاة والبرمجيات"
+   },
+   "chips": [
+    "SCAPS-1D",
+    "PV device modeling",
+    "Solar PV design",
+    "PVsol",
+    "MATLAB",
+    "Origin",
+    "Burai",
+    "Mendeley"
+   ]
+  },
+  {
+   "title": {
+    "en": "Programming & tools",
+    "bn": "প্রোগ্রামিং ও টুলস",
+    "ar": "البرمجة والأدوات"
+   },
+   "chips": [
+    "C / C++",
+    "C#",
+    "Linux (basic)"
+   ]
+  },
+  {
+   "title": {
+    "en": "Research domains",
+    "bn": "গবেষণার ক্ষেত্র",
+    "ar": "مجالات البحث"
+   },
+   "chips": [
+    "Solar energy",
+    "Photovoltaics",
+    "Renewable energy",
+    "Nanomaterials",
+    "Electrical engineering",
+    "Renewable energy engineering"
+   ]
+  }
+ ],
+ "education": [
+  {
+   "year": "2025",
+   "title": {
+    "en": "MSc in Electronic Engineering",
+    "bn": "ইলেকট্রনিক ইঞ্জিনিয়ারিংয়ে এমএসসি",
+    "ar": "ماجستير في الهندسة الإلكترونية"
+   },
+   "org": "Universiti Tenaga Nasional (UNITEN), Malaysia",
+   "text": {
+    "en": "Major: Electronics and Materials Engineering · Minor: Electrical · Result: Pass (by research)",
+    "bn": "মেজর: ইলেকট্রনিক্স ও ম্যাটেরিয়ালস ইঞ্জিনিয়ারিং · মাইনর: ইলেকট্রিক্যাল · ফলাফল: পাস (গবেষণাভিত্তিক)",
+    "ar": "التخصص الرئيسي: هندسة الإلكترونيات والمواد · الفرعي: الكهربائية · النتيجة: ناجح (بالبحث)"
+   },
+   "extra": {
+    "en": "Supervisors: Prof. Ir. Ts. Dr. Tiong Sieh Kiong, Prof. Dr. Nowshad Amin",
+    "bn": "সুপারভাইজার: Prof. Ir. Ts. Dr. Tiong Sieh Kiong, Prof. Dr. Nowshad Amin",
+    "ar": "المشرفان: Prof. Ir. Ts. Dr. Tiong Sieh Kiong وProf. Dr. Nowshad Amin"
+   }
+  },
+  {
+   "year": "2021",
+   "title": {
+    "en": "BSc in Electrical & Electronic Engineering",
+    "bn": "ইলেকট্রিক্যাল ও ইলেকট্রনিক ইঞ্জিনিয়ারিংয়ে বিএসসি",
+    "ar": "بكالوريوس في الهندسة الكهربائية والإلكترونية"
+   },
+   "org": "North Western University (NWU), Khulna",
+   "text": {
+    "en": "Major: Electrical Power and Mathematics · Minor: Electronics, Chemistry",
+    "bn": "মেজর: ইলেকট্রিক্যাল পাওয়ার ও গণিত · মাইনর: ইলেকট্রনিক্স, রসায়ন",
+    "ar": "التخصص الرئيسي: القدرة الكهربائية والرياضيات · الفرعي: الإلكترونيات والكيمياء"
+   },
+   "extra": ""
+  },
+  {
+   "year": "2015",
+   "title": {
+    "en": "Alim / HSC (Science)",
+    "bn": "আলিম / এইচএসসি (বিজ্ঞান)",
+    "ar": "العالِم / الثانوية العامة (علمي)"
+   },
+   "org": {
+    "en": "Khulna Alia Kamil Madrasha, Khulna",
+    "bn": "খুলনা আলিয়া কামিল মাদরাসা, খুলনা",
+    "ar": "مدرسة خولنا عاليا كامل، خولنا"
+   },
+   "text": "",
+   "extra": ""
+  },
+  {
+   "year": "2013",
+   "title": {
+    "en": "Dakhil / SSC (Science)",
+    "bn": "দাখিল / এসএসসি (বিজ্ঞান)",
+    "ar": "الداخل / الثانوية (علمي)"
+   },
+   "org": {
+    "en": "Khulna Alia Kamil Madrasha, Khulna",
+    "bn": "খুলনা আলিয়া কামিল মাদরাসা, খুলনা",
+    "ar": "مدرسة خولنا عاليا كامل، خولنا"
+   },
+   "text": "",
+   "extra": ""
+  }
+ ]
+}
