@@ -506,3 +506,13 @@ html[data-theme="light"][data-bg="panel"] .bgx .k3{background:linear-gradient(18
 html[data-theme="light"][data-bg="panel"] .bgx::after{background:radial-gradient(120% 90% at 50% 40%,transparent 60%,rgba(120,150,190,.22) 100%),linear-gradient(180deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.46) 44%,rgba(255,255,255,.58) 100%)}
 @media(max-width:600px){html[data-bg="panel"] .bgx .pan{background-size:150px 100px,150px 100px,25px 25px,25px 25px,25px 25px,100% 100%}html[data-bg="panel"] .bgx .orb{width:24vmax;height:24vmax}}
 @media(prefers-reduced-motion:reduce){html[data-bg="panel"] .bgx .cl,html[data-bg="panel"] .bgx .stars,html[data-bg="panel"] .bgx .orb,html[data-bg="panel"] .bgx .glare::after{animation:none!important}}
+
+/* ABOUT blocks */
+.ab-list{display:grid;gap:12px}
+.ab{display:flex;gap:16px;align-items:flex-start;padding:16px 18px;border-radius:16px;background:color-mix(in srgb,var(--accent) 5%,transparent);border:1px solid var(--card-b);border-inline-start:3px solid var(--accent);transition:transform .3s,border-color .3s,background .3s}
+.ab:nth-child(3n+2){border-inline-start-color:var(--accent2)}.ab:nth-child(3n){border-inline-start-color:var(--accent3)}
+.ab:hover{transform:translateY(-2px);background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.ab-ic{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:var(--card);border:1px solid var(--card-b)}
+.ab-tx h3{font-size:17px;margin-bottom:4px}
+.ab-tx p{color:var(--muted);font-size:15.5px;line-height:1.65}
+@media(max-width:600px){.ab{padding:14px;gap:12px}.ab-ic{width:38px;height:38px;font-size:19px}}

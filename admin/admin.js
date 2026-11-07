@@ -23,6 +23,12 @@ function migrate(d,b){
   if(!hadTraining&&Array.isArray(d.certs))d.certs=d.certs.filter(function(c){var e=c&&c.text&&(c.text.en||c.text);return !/^Training:/.test(String(e))});
   return d;
 }
+function ensureAbout(d){
+  if(!d||Array.isArray(d.aboutBlocks))return d;
+  var t=d.t||{},meta=[['👋',{en:'Who I am',bn:'আমি কে',ar:'من أنا'}],['🔬',{en:'How I work',bn:'আমার কাজের ধরন',ar:'طريقة عملي'}],['🌍',{en:'Today & collaboration',bn:'এখন ও সহযোগিতা',ar:'اليوم والتعاون'}]];
+  d.aboutBlocks=[1,2,3].map(function(n,i){return {icon:meta[i][0],title:meta[i][1],text:t['about_p'+n]||{en:'',bn:'',ar:''}}}).filter(function(b){return b.text&&(b.text.en||b.text.bn||b.text.ar)});
+  return d;
+}
 function clone(o){return JSON.parse(JSON.stringify(o))}
 function getp(o,p){return p.split('.').reduce(function(a,k){return a==null?a:a[k]},o)}
 function setp(o,p,v){var ks=p.split('.'),l=ks.pop(),t=o;ks.forEach(function(k){if(t[k]==null||typeof t[k]!=='object')t[k]={};t=t[k]});t[l]=v}
@@ -196,7 +202,8 @@ var SECTIONS=[
   {title:'Scrolling keyword strip',fields:[{k:'marquee',label:'Keywords (one per line)',type:'lines'}]},
   {title:'Numbers strip',hint:'Counters under the home section.',fields:[{k:'stats',label:'Numbers',type:'list',add:'Add number',blank:{value:0,suffix:'',label:{en:'',bn:'',ar:''}},sum:function(i){return i.value+(i.suffix||'')+' – '+asTri(i.label).en},fields:[{k:'value',label:'Number',type:'number'},{k:'suffix',label:'Suffix (for example +)'},{k:'label',label:'Label',type:'tri'}]}]}]},
  {id:'about',title:'About',icon:'🙋',lead:'Your introduction, interests and quick facts.',blocks:[
-  {title:'Texts',fields:[T('about_h','Section title'),T('about_p1','Paragraph 1','tria'),T('about_p2','Paragraph 2','tria'),T('about_p3','Paragraph 3','tria')]},
+  {title:'Texts',fields:[T('about_h','Section title'),]},
+  {title:'About blocks',hint:'Each block is a small card with an icon, a heading and a short text. Press “Add block” (+) to add as many as you like. Drag to reorder.',fields:[{k:'aboutBlocks',label:'Blocks',type:'list',add:'Add block',blank:{icon:'✨',title:{en:'',bn:'',ar:''},text:{en:'',bn:'',ar:''}},sum:function(i){return (i.icon||'')+' '+asTri(i.title).en},fields:[{k:'icon',label:'Icon (an emoji)'},{k:'title',label:'Heading',type:'tri'},{k:'text',label:'Text',type:'tria'}]}]},
   {title:'Interest chips',fields:[{k:'interests',label:'Interests',type:'list',item:'tri',add:'Add interest'}]},
   {title:'Quick facts card',fields:[T('facts_h','Card title'),{k:'facts',label:'Facts',type:'list',add:'Add fact',blank:{label:{en:'',bn:'',ar:''},value:{en:'',bn:'',ar:''},kind:'text'},sum:function(i){return asTri(i.label).en},fields:[{k:'label',label:'Label',type:'tri'},{k:'kind',label:'Type',type:'select',options:[['text','Normal text'],['email','Show the main email']]},{k:'value',label:'Value',type:'tri'}]}]}]},
  {id:'research',title:'Research',icon:'🔬',lead:'Featured result with chart, plus research focus cards.',blocks:[
@@ -622,8 +629,8 @@ function start(){
   addEventListener('keydown',function(e){if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='s'){e.preventDefault();touch();toast('Saved as a draft. Press Publish to make it live.')}});
   store.del('portfolio_admin_token');store.del('portfolio_admin_cfg');
   fetch('/api/content?fresh=1',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).catch(function(){return fetch('../content.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('Could not load the content ('+r.status+')');return r.json()})}).then(function(j){
-    if(Array.isArray(j.training)&&j.layout&&j.galleryCats)return j;
-    return fetch('../content.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(b){return migrate(j,b)}).catch(function(){return j});
+    if(Array.isArray(j.training)&&j.layout&&j.galleryCats)return ensureAbout(j);
+    return fetch('../content.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(b){return migrate(j,b)}).catch(function(){return j}).then(ensureAbout);
   }).then(function(j){
     published=j;var d=store.get(DRAFT),draft=null;
     if(d){try{draft=JSON.parse(d)}catch(e){}}
