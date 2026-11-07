@@ -26,7 +26,7 @@ function migrate(d,b){
 function ensureAbout(d){
   if(!d||Array.isArray(d.aboutBlocks))return d;
   var t=d.t||{},meta=[['👋',{en:'Who I am',bn:'আমি কে',ar:'من أنا'}],['🔬',{en:'How I work',bn:'আমার কাজের ধরন',ar:'طريقة عملي'}],['🌍',{en:'Today & collaboration',bn:'এখন ও সহযোগিতা',ar:'اليوم والتعاون'}]];
-  d.aboutBlocks=[1,2,3].map(function(n,i){return {icon:meta[i][0],title:meta[i][1],text:t['about_p'+n]||{en:'',bn:'',ar:''}}}).filter(function(b){return b.text&&(b.text.en||b.text.bn||b.text.ar)});
+  d.aboutBlocks=[1,2,3].map(function(n){return {text:t['about_p'+n]||{en:'',bn:'',ar:''}}}).filter(function(b){return b.text&&(b.text.en||b.text.bn||b.text.ar)});
   return d;
 }
 function clone(o){return JSON.parse(JSON.stringify(o))}
@@ -203,7 +203,7 @@ var SECTIONS=[
   {title:'Numbers strip',hint:'Counters under the home section.',fields:[{k:'stats',label:'Numbers',type:'list',add:'Add number',blank:{value:0,suffix:'',label:{en:'',bn:'',ar:''}},sum:function(i){return i.value+(i.suffix||'')+' – '+asTri(i.label).en},fields:[{k:'value',label:'Number',type:'number'},{k:'suffix',label:'Suffix (for example +)'},{k:'label',label:'Label',type:'tri'}]}]}]},
  {id:'about',title:'About',icon:'🙋',lead:'Your introduction, interests and quick facts.',blocks:[
   {title:'Texts',fields:[T('about_h','Section title'),]},
-  {title:'About blocks',hint:'Each block is a small card with an icon, a heading and a short text. Press “Add block” (+) to add as many as you like. Drag to reorder.',fields:[{k:'aboutBlocks',label:'Blocks',type:'list',add:'Add block',blank:{icon:'✨',title:{en:'',bn:'',ar:''},text:{en:'',bn:'',ar:''}},sum:function(i){return (i.icon||'')+' '+asTri(i.title).en},fields:[{k:'icon',label:'Icon (an emoji)'},{k:'title',label:'Heading',type:'tri'},{k:'text',label:'Text',type:'tria'}]}]},
+  {title:'About paragraphs',hint:'These paragraphs appear together in one card in the About section. Press “Add paragraph” (+) to add more. Drag to reorder.',fields:[{k:'aboutBlocks',label:'Paragraphs',type:'list',add:'Add paragraph',blank:{text:{en:'',bn:'',ar:''}},sum:function(i){var t=asTri(i.text).en||'';return t.length>60?t.slice(0,60)+'…':(t||'New paragraph')},fields:[{k:'text',label:'Paragraph',type:'tria'}]}]},
   {title:'Interest chips',fields:[{k:'interests',label:'Interests',type:'list',item:'tri',add:'Add interest'}]},
   {title:'Quick facts card',fields:[T('facts_h','Card title'),{k:'facts',label:'Facts',type:'list',add:'Add fact',blank:{label:{en:'',bn:'',ar:''},value:{en:'',bn:'',ar:''},kind:'text'},sum:function(i){return asTri(i.label).en},fields:[{k:'label',label:'Label',type:'tri'},{k:'kind',label:'Type',type:'select',options:[['text','Normal text'],['email','Show the main email']]},{k:'value',label:'Value',type:'tri'}]}]}]},
  {id:'research',title:'Research',icon:'🔬',lead:'Featured result with chart, plus research focus cards.',blocks:[

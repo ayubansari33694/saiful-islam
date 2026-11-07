@@ -27,7 +27,7 @@ function migrate(d,b){
 function ensureAbout(d){
   if(!d||Array.isArray(d.aboutBlocks))return d;
   var t=d.t||{},meta=[['👋',{en:'Who I am',bn:'আমি কে',ar:'من أنا'}],['🔬',{en:'How I work',bn:'আমার কাজের ধরন',ar:'طريقة عملي'}],['🌍',{en:'Today & collaboration',bn:'এখন ও সহযোগিতা',ar:'اليوم والتعاون'}]];
-  d.aboutBlocks=[1,2,3].map(function(n,i){return {icon:meta[i][0],title:meta[i][1],text:t['about_p'+n]||{en:'',bn:'',ar:''}}}).filter(function(b){return b.text&&(b.text.en||b.text.bn||b.text.ar)});
+  d.aboutBlocks=[1,2,3].map(function(n){return {text:t['about_p'+n]||{en:'',bn:'',ar:''}}}).filter(function(b){return b.text&&(b.text.en||b.text.bn||b.text.ar)});
   return d;
 }
 function load(){
@@ -62,7 +62,7 @@ function renderLists(){
   var mq=arr(C.marquee).map(function(m){return '<span>'+esc(m)+'</span>'}).join('');
   $('#marquee').innerHTML=mq+mq;
   $('#stats').innerHTML=arr(C.stats).map(function(s){return '<div class="stat '+r+'"><b data-count="'+(+s.value||0)+'" data-suffix="'+esc(s.suffix||'')+'">'+((first&&!reduce)?0:(+s.value||0)+esc(s.suffix||''))+'</b><span>'+esc(L(s.label))+'</span></div>'}).join('');
-  $('#aboutBlocks').innerHTML=arr(C.aboutBlocks).map(function(b,i){return '<div class="ab '+r+'" style="transition-delay:'+(i*0.08)+'s"><div class="ab-ic">'+esc(b.icon||'✨')+'</div><div class="ab-tx"><h3>'+esc(L(b.title))+'</h3><p>'+esc(L(b.text))+'</p></div></div>'}).join('');
+  $('#aboutBlocks').innerHTML=arr(C.aboutBlocks).map(function(b){return '<p>'+esc(L(b.text))+'</p>'}).join('');
   $('#interests').innerHTML=arr(C.interests).map(function(i){return '<span>'+esc(L(i))+'</span>'}).join('');
   var p=C.profile||{};
   $('#facts').innerHTML=arr(C.facts).map(function(f){

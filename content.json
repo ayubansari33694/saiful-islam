@@ -1113,12 +1113,6 @@
  "customSections": [],
  "aboutBlocks": [
   {
-   "icon": "👋",
-   "title": {
-    "en": "Who I am",
-    "bn": "আমি কে",
-    "ar": "من أنا"
-   },
    "text": {
     "en": "I'm a researcher and R&D engineer focused on thin-film photovoltaics and 2D materials. I recently completed my MSc in Electronic Engineering at Universiti Tenaga Nasional (UNITEN), Malaysia, where I worked as a full-time Research Assistant at the Institute of Sustainable Energy.",
     "bn": "আমি থিন-ফিল্ম ফটোভোলটাইক ও ২ডি ম্যাটেরিয়ালস নিয়ে কাজ করা একজন গবেষক ও আর অ্যান্ড ডি ইঞ্জিনিয়ার। সম্প্রতি মালয়েশিয়ার Universiti Tenaga Nasional (UNITEN) থেকে ইলেকট্রনিক ইঞ্জিনিয়ারিংয়ে এমএসসি শেষ করেছি। সেখানে Institute of Sustainable Energy-তে ফুল-টাইম রিসার্চ অ্যাসিস্ট্যান্ট ছিলাম।",
@@ -1126,12 +1120,6 @@
    }
   },
   {
-   "icon": "🔬",
-   "title": {
-    "en": "How I work",
-    "bn": "আমার কাজের ধরন",
-    "ar": "طريقة عملي"
-   },
    "text": {
     "en": "I combine hands-on fabrication and characterisation with device-level simulation, so ideas move from the model to the lab and back with evidence at every step.",
     "bn": "আমি হাতে-কলমে ফ্যাব্রিকেশন ও ক্যারেক্টারাইজেশনের সঙ্গে ডিভাইস-স্তরের সিমুলেশন মেলাই। ফলে প্রতিটি ধাপে প্রমাণসহ মডেল থেকে ল্যাবে আর ল্যাব থেকে আবার মডেলে ফেরা যায়।",
@@ -1139,12 +1127,6 @@
    }
   },
   {
-   "icon": "🌍",
-   "title": {
-    "en": "Today & collaboration",
-    "bn": "এখন ও সহযোগিতা",
-    "ar": "اليوم والتعاون"
-   },
    "text": {
     "en": "Today I'm a Global Research Academia Fellow at Universiti Teknologi Malaysia, focused on renewable energy and on bridging academic research with real industrial applications. I welcome collaborations with researchers, professors and industry R&D teams.",
     "bn": "বর্তমানে আমি Universiti Teknologi Malaysia-তে গ্লোবাল রিসার্চ একাডেমিয়া ফেলো। নবায়নযোগ্য শক্তি এবং একাডেমিক গবেষণাকে বাস্তব শিল্প প্রয়োগের সঙ্গে যুক্ত করাই আমার লক্ষ্য। গবেষক, অধ্যাপক ও শিল্প আর অ্যান্ড ডি দলের সঙ্গে সহযোগিতায় আমি আগ্রহী।",
