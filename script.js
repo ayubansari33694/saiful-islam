@@ -5,7 +5,7 @@ var store={get:function(k){try{return localStorage.getItem(k)}catch(e){return nu
 var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 var fine=window.matchMedia&&matchMedia('(pointer:fine)').matches;
 var C=null,lang='en',cur='all',first=true;
-var BGS=['classic','solar','sunrise','sections','panel'];
+var BGS=['classic','solar','sunrise','sections','panel','video'];
 
 /* ---------- helpers ---------- */
 function L(v){if(v==null)return '';if(typeof v==='string'||typeof v==='number')return String(v);return v[lang]||v.en||''}
@@ -164,9 +164,18 @@ function applyBg(){
   var b=BGS.indexOf(C&&C.background)>-1?C.background:'classic',h=document.documentElement;
   if(h.getAttribute('data-bg')!==b){h.setAttribute('data-bg',b);initBg()}
   if(b==='panel')pvStart();else if(pRaf)pvStop();
+  bgVideo(b==='video');
   if(location.search.indexOf('preview=1')<0)store.set('bg',b);
   spy();
 }
+function bgVideo(on){
+  var v=$('.bgv');if(!v)return;
+  if(!on){v.pause();return}
+  if(reduce){return}
+  if(!v.getAttribute('src')){v.src=(innerWidth<=760?'assets/bg-sm.mp4':'assets/bg.mp4')}
+  var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});
+}
+document.addEventListener('visibilitychange',function(){var v=$('.bgv');if(!v||document.documentElement.getAttribute('data-bg')!=='video')return;if(document.hidden)v.pause();else bgVideo(true)});
 function renderPubs(){
   var box=$('#pubs');box.innerHTML='';
   arr(C.publications).forEach(function(p){

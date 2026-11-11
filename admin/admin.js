@@ -408,6 +408,7 @@ function galleryView(v){
 
 /* ---------- background theme switcher ---------- */
 var BG_THEMES=[
+ ['video','Space station video ★ new','A real space-station video (solar panels over Earth) plays softly behind the whole website, with a dark layer so text stays easy to read.','radial-gradient(circle at 85% 20%,#c026d355,transparent 40%),radial-gradient(circle at 20% 90%,#2563eb88,transparent 50%),#050b18'],
  ['classic','Classic','Dark blue with soft glowing colours and drifting dots (the original look).','radial-gradient(circle at 20% 20%,#0ea5e9aa,transparent 50%),radial-gradient(circle at 80% 70%,#6366f1aa,transparent 50%),#050b18'],
  ['solar','Solar cells','A faint solar-panel grid with a light beam sweeping across and a warm sun glow. Fits your research.','radial-gradient(circle at 85% 0%,#fde04755,transparent 45%),linear-gradient(#8cc8ff30 1px,transparent 1px) 0 0/16px 16px,linear-gradient(90deg,#8cc8ff30 1px,transparent 1px) 0 0/16px 16px,#06132a'],
  ['sunrise','Sunrise','Warm golden sunrise at the top that slowly turns into bright daylight as you scroll down.','radial-gradient(circle at 85% 5%,#ffe58a,#fb923c88 25%,transparent 55%),linear-gradient(#2a1450,#0a2147)'],
