@@ -516,3 +516,14 @@ html[data-bg="video"] .bgx .vscrim{display:block;inset:0;background:linear-gradi
 html[data-theme="light"][data-bg="video"] .bgx .bgv{opacity:.55}
 html[data-theme="light"][data-bg="video"] .bgx .vscrim{background:linear-gradient(180deg,rgba(243,246,255,.78),rgba(243,246,255,.7) 50%,rgba(243,246,255,.85))}
 @media (prefers-reduced-motion:reduce){html[data-bg="video"] .bgx .bgv{display:none}html[data-bg="video"] .bgx{background:#050b18 url(assets/bg-poster.jpg) center/cover}}
+/* video theme: stronger cards + text so everything stays readable */
+html[data-bg="video"]{--card:rgba(6,13,30,.66);--card-b:rgba(255,255,255,.16);--muted:#c3cfe8;--text:#f4f7ff}
+html[data-theme="light"][data-bg="video"]{--card:rgba(255,255,255,.9);--card-b:rgba(79,70,229,.2);--muted:#34426b;--text:#07112a}
+html[data-bg="video"] .card,html[data-bg="video"] .stat,html[data-bg="video"] .pub,html[data-bg="video"] .certs li,html[data-bg="video"] .contact,html[data-bg="video"] .marquee{-webkit-backdrop-filter:blur(14px) saturate(1.1);backdrop-filter:blur(14px) saturate(1.1)}
+html[data-bg="video"] .status,html[data-bg="video"] .btn.ghost,html[data-bg="video"] .social a,html[data-bg="video"] .tags span,html[data-bg="video"] .chips span,html[data-bg="video"] .chipbtn{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+/* text that sits straight on the video (hero, section titles) */
+html[data-bg="video"] .hero h1,html[data-bg="video"] .hero p,html[data-bg="video"] .hero .eyebrow,html[data-bg="video"] .sec-head h2,html[data-bg="video"] .sec-head p,html[data-bg="video"] footer{text-shadow:0 2px 14px rgba(0,0,0,.75),0 1px 3px rgba(0,0,0,.6)}
+html[data-theme="light"][data-bg="video"] .hero h1,html[data-theme="light"][data-bg="video"] .hero p,html[data-theme="light"][data-bg="video"] .hero .eyebrow,html[data-theme="light"][data-bg="video"] .sec-head h2,html[data-theme="light"][data-bg="video"] .sec-head p,html[data-theme="light"][data-bg="video"] footer{text-shadow:0 1px 10px rgba(255,255,255,.9)}
+/* gradient name/headings: brighter in dark, deeper in light, soft shadow via filter (not text-shadow) */
+html[data-bg="video"] .grad,html[data-bg="video"] .stat b{text-shadow:none;background-image:linear-gradient(120deg,#67e8f9,#a5b4fc 55%,#6ee7b7);-webkit-background-clip:text;background-clip:text;background-size:200% 100%;filter:drop-shadow(0 2px 10px rgba(0,0,0,.7))}
+html[data-theme="light"][data-bg="video"] .grad,html[data-theme="light"][data-bg="video"] .stat b{background-image:linear-gradient(120deg,#0369a1,#4338ca 55%,#047857);background-clip:text;-webkit-background-clip:text;filter:drop-shadow(0 1px 6px rgba(255,255,255,.85))}
