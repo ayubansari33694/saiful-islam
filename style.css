@@ -512,7 +512,7 @@ html[data-theme="light"][data-bg="panel"] .bgx::after{background:radial-gradient
 .bgx .bgv,.bgx .vscrim{display:none}
 html[data-bg="video"] .bgx{background:#050b18}
 html[data-bg="video"] .bgx .bgv{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9}
-html[data-bg="video"] .bgx .vscrim{display:block;inset:0;background:linear-gradient(180deg,rgba(5,11,24,.62),rgba(5,11,24,.5) 45%,rgba(5,11,24,.72))}
+html[data-bg="video"] .bgx .vscrim{display:block;inset:0;background:linear-gradient(180deg,rgba(5,11,24,.74),rgba(5,11,24,.66) 45%,rgba(5,11,24,.82))}
 html[data-theme="light"][data-bg="video"] .bgx .bgv{opacity:.55}
 html[data-theme="light"][data-bg="video"] .bgx .vscrim{background:linear-gradient(180deg,rgba(243,246,255,.78),rgba(243,246,255,.7) 50%,rgba(243,246,255,.85))}
 @media (prefers-reduced-motion:reduce){html[data-bg="video"] .bgx .bgv{display:none}html[data-bg="video"] .bgx{background:#050b18 url(assets/bg-poster.jpg) center/cover}}
