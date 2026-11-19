@@ -318,8 +318,27 @@ function render(){
     b.fields.forEach(function(f){body.appendChild(field(f,C))});
     bl.appendChild(body);v.appendChild(bl);
   });
+  if(sec.id==='publications')v.appendChild(syncBox());
   v.appendChild(el('div',{class:'msg soft',text:'Everything you type is saved automatically as a draft on this device. Use “Preview” to see it on the website, then “Publish” to make it live.'}));
   pager(v);
+}
+
+
+/* ---------- ORCID sync (adds only NEW papers to the draft) ---------- */
+function syncBox(){
+  var out=el('div',{class:'hint'}),btn=el('button',{type:'button',class:'btn',text:'🔄 Check ORCID for new papers'});
+  btn.onclick=function(){
+    btn.disabled=true;out.textContent='Checking…';
+    api('/api/pubsync',{orcid:(C.profile&&C.profile.orcid)||'',dois:(C.publications||[]).map(function(p){return p.doi})}).then(function(r){
+      btn.disabled=false;
+      if(!r.items.length){out.textContent='No new papers. The site already has all '+r.total+' papers listed on ORCID.';return}
+      out.innerHTML='';out.appendChild(el('p',{text:r.items.length+' new paper(s) found:'}));
+      r.items.forEach(function(it){out.appendChild(el('div',{text:'• '+it.year+' – '+it.title}))});
+      out.appendChild(el('button',{type:'button',class:'btn',text:'Add to draft',onclick:function(){
+        C.publications=(C.publications||[]).concat(r.items);touch();render();toast(r.items.length+' paper(s) added. Check the details (type Q1/Q2, key finding), then Publish.')}}));
+    }).catch(function(e){btn.disabled=false;out.textContent='';toast(e.message,'err')});
+  };
+  return el('div',{class:'msg soft'},[el('p',{text:'New papers on ORCID are not added automatically. Check here, review, then publish.'}),btn,out]);
 }
 
 /* ---------- photo gallery editor ---------- */
