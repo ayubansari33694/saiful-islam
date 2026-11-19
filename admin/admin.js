@@ -341,6 +341,25 @@ function syncBox(){
   return el('div',{class:'msg soft'},[el('p',{text:'New papers on ORCID are not added automatically. Check here, review, then publish.'}),btn,out]);
 }
 
+
+/* ---------- quick add (copy from LinkedIn, type here) ---------- */
+function liBox(){
+  var type=el('select',null,[['award','Award / achievement'],['training','Training / course'],['job','Position / job']].map(function(o){return el('option',{value:o[0],text:o[1]})}));
+  var title=el('input',{type:'text',placeholder:'Title (example: Best Poster Award)'});
+  var when=el('input',{type:'text',placeholder:'Year or dates (example: 2026 or Jan 2026 – Present)'});
+  var org=el('input',{type:'text',placeholder:'Organisation / place'});
+  var txt=el('textarea',{rows:3,placeholder:'Short description (English). Bengali and Arabic can be added later; until then visitors see English.'});
+  var add=el('button',{type:'button',class:'btn primary',text:'Add to draft',onclick:function(){
+    var t=title.value.trim();if(!t){toast('Please write a title.','err');return}
+    var tri=function(x){return {en:x,bn:'',ar:''}},d=txt.value.trim(),o=org.value.trim(),w=when.value.trim(),k=type.value,go_;
+    if(k==='award'){(C.awards=C.awards||[]).unshift({year:w,icon:'🏆',title:tri(t),text:tri([o,d].filter(Boolean).join(' – '))});go_='awards'}
+    else if(k==='training'){(C.training=C.training||[]).unshift({year:w||o,icon:'🛠️',title:tri(t),org:tri(o),text:tri(d)});go_='training'}
+    else{(C.experience=C.experience||[]).unshift({dates:w,tag:tri(''),current:/present/i.test(w),role:tri(t),org:o,bullets:d?[tri(d)]:[]});go_='experience'}
+    touch();toast('Added to draft. Open the section to check it, then Publish.');title.value=when.value=org.value=txt.value='';go(go_);
+  }});
+  return el('div',{class:'msg soft'},[el('p',{text:'LinkedIn cannot be read automatically. Copy the new item from LinkedIn and paste it here. It takes a minute.'}),type,title,when,org,txt,add]);
+}
+
 /* ---------- photo gallery editor ---------- */
 var GAL_VIEWS=[['masonry','Masonry – natural heights, like a magazine'],['grid','Grid – equal squares, neat and tidy'],['mosaic','Mosaic – some photos bigger, creative collage'],['slider','Slider – swipe sideways, one by one'],['polaroid','Polaroid – tilted instant-photo cards']];
 var DEFAULT_CATS=[['lab','Lab & research','ল্যাব ও গবেষণা','المختبر والبحث'],['conf','Conferences & seminars','কনফারেন্স ও সেমিনার','المؤتمرات والندوات'],['awards','Awards & achievements','পুরস্কার ও অর্জন','الجوائز والإنجازات'],['results','Research results','গবেষণার ফলাফল','نتائج البحث'],['campus','University & team','বিশ্ববিদ্যালয় ও টিম','الجامعة والفريق'],['travel','Travel','ভ্রমণ','رحلات'],['life','Personal moments','ব্যক্তিগত মুহূর্ত','لحظات شخصية']];
@@ -509,6 +528,8 @@ function dash(v){
     qa.appendChild(el('button',{type:'button',class:'qcard',onclick:function(){go(a[3],a[4])}},[el('span',{class:'qi',text:a[0]}),el('b',{text:a[1]}),el('small',{text:a[2]})]));
   });
   v.appendChild(qa);
+  v.appendChild(el('h3',{class:'dh',text:'Quick add from LinkedIn'}));
+  v.appendChild(liBox());
   v.appendChild(el('h3',{class:'dh',text:'Your content'}));
   var ov=el('div',{class:'ovg'});
   [['publications','Publications',(C.publications||[]).length],['experience','Positions',(C.experience||[]).length],['awards','Awards & certificates',(C.awards||[]).length+(C.certs||[]).length],['training','Trainings',(C.training||[]).length],['skills','Skill groups',(C.skills||[]).length],['education','Education',(C.education||[]).length],['gallery','Photos',(C.gallery||[]).length]].forEach(function(o){
