@@ -20,6 +20,7 @@ function migrate(d,b){
   if(!d||!b)return d;
   var hadTraining=Array.isArray(d.training);
   Object.keys(b).forEach(function(k){if(d[k]===undefined)d[k]=b[k]});
+  if(b.profile){d.profile=d.profile||{};Object.keys(b.profile).forEach(function(k){if(d.profile[k]===undefined)d.profile[k]=b.profile[k]})}
   if(b.t){d.t=d.t||{};Object.keys(b.t).forEach(function(k){if(d.t[k]===undefined)d.t[k]=b.t[k]})}
   if(!hadTraining&&Array.isArray(d.certs))d.certs=d.certs.filter(function(c){var e=c&&c.text&&(c.text.en||c.text);return !/^Training:/.test(String(e))});
   return d;

@@ -191,7 +191,7 @@ var SECTIONS=[
  {id:'profile',title:'Profile & links',icon:'👤',lead:'Name, contact details, social links and your main photo.',blocks:[
   {title:'Basic information',fields:[
     {k:'profile.name',label:'Full name'},{k:'profile.email',label:'Main email'},{k:'profile.email2',label:'Second email'},
-    {k:'profile.scholar',label:'Google Scholar link',type:'url'},{k:'profile.linkedin',label:'LinkedIn link',type:'url'}]},
+    {k:'profile.scholar',label:'Google Scholar link',type:'url'},{k:'profile.linkedin',label:'LinkedIn link',type:'url'},{k:'profile.orcid',label:'ORCID link',type:'url'}]},
   {title:'Home page photo',hint:'Shown inside the round frame on the home page.',fields:[{k:'profile.photo',label:'Photo',type:'image'}]},
   {title:'Extra links',hint:'Add any link you like (YouTube, ResearchGate, ORCID, Facebook…). They appear as buttons in the Contact section. You can reorder or remove them any time.',fields:[{k:'links',label:'Links',type:'list',add:'Add link',blank:{label:{en:'',bn:'',ar:''},url:''},sum:function(i){return asTri(i.label).en||i.url},fields:[{k:'label',label:'Button text',type:'tri'},{k:'url',label:'Link (https://…)',type:'url'}]}]}]},
  {id:'home',title:'Home page',icon:'✨',lead:'Everything you see first: greeting, typing words, badges and numbers.',blocks:[
